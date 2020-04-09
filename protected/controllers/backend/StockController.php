@@ -29,7 +29,7 @@ class StockController extends Controller {
 				'users' => array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions' => array('create', 'update'),
+				'actions' => array('create', 'update','detailproduct','addstock','history'),
 				'users' => array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -118,10 +118,9 @@ class StockController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('Stock');
-		$this->render('index', array(
-			'dataProvider' => $dataProvider,
-		));
+		$model = new Stock();
+		$data['stock'] = $model->checkStock();
+		$this->render('index',$data);
 	}
 
 	/**
@@ -164,5 +163,53 @@ class StockController extends Controller {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function actionDetailproduct(){
+		$model = new Product();
+		$product_id = Yii::app()->request->getPost('product_id');
+		$detail = $model->_get_detail_product($product_id);
+		$total = $this->countStock($product_id);
+		$json = array("detail" => $detail,"total" => $total);
+		echo json_encode($json);
+	}
+
+	function countStock($product_id){
+		$sql = "select IFNULL(sum(total),0) as total from stock where product_id = '$product_id'";
+		$rs = Yii::app()->db->createCommand($sql)->queryRow();
+		return $rs['total'];
+	}
+
+	public function actionAddstock(){
+		$product_id = Yii::app()->request->getPost('product_id');
+		$inputnumber = Yii::app()->request->getPost('inputnumber');
+		$date_expire = Yii::app()->request->getPost('dateexpire');
+		$day = substr($date_expire,0,2);
+		$month = substr($date_expire,2,2);
+		$year = substr($date_expire,4,4);
+		$dateExpire = ($year - 543)."-".$month."-".$day;
+
+		$columns = array(
+			"product_id" => $product_id,
+			"inputnumber" => $inputnumber,
+			"total" => $inputnumber,
+			"date_expire" => $dateExpire,
+			"date_input" => date("Y-m-d"),
+			"lotnumber" => date("YmdHis")
+		);
+		$rs = Yii::app()->db->createCommand()
+			->insert("stock",$columns);
+		if($rs){
+			echo 1;
+		} else {
+			echo 0;
+		}
+	}
+
+	public function actionHistory(){
+		$product_id = Yii::app()->request->getPost('product_id');
+		$sql = "select * from stock where product_id = '$product_id' order by date_input,lotnumber asc";
+		$data['history'] = Yii::app()->db->createCommand($sql)->queryAll();
+		$this->renderPartial("history",$data);
 	}
 }

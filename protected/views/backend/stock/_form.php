@@ -24,30 +24,51 @@ $ProductList = $Model->GetProductAll();
 <div class="form">
 	<div class="row">
 		<div class="col-md-9 col-lg-9">
-			<label for="sel2">ชื่อสินค้า</label>
-			<select id="prodict" class="form-control" style="height:50px;">
-				<?php foreach ($ProductList as $rs): ?>
-				<option value="<?php echo $rs['product_id'] ?>"><?php echo $rs['product_name'] ?></option>
-			<?php endforeach;?>
-			</select>
+			<div class="row">
+				<div class="col-md-9 col-lg-9">
+					<label for="sel2">ชื่อสินค้า</label>
+					<select id="product" class="form-control" style="height:50px;" onchange="getDetailProduct()">
+						<option value="">== เลือกสินค้า ==</option>
+						<?php foreach ($ProductList as $rs): ?>
+						<option value="<?php echo $rs['product_id'] ?>"><?php echo $rs['product_name'] ?></option>
+					<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<label for="sel2">จำนวนนำเข้า</label>
+				<input type="text" class="form-control" name="inputnumber" id="inputnumber" onKeyUp="if(this.value*1!=this.value) this.value='' ;"/>
+				</div>
+				 <div class="col-md-3 col-lg-3">
+					<label for="sel3">วันหมดอายุ</label>
+					<input id="dateexpire" class="datepicker form-control" data-date-format="dd/mm/yyyy">
+			    </div>
+			</div>
+
+			<div class="row" style=" margin-top: 10px;">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-success" onclick="AddStocks()">นำเข้าสต๊อก</button>
+				</div>
+			</div>
+			<hr/>
+			<h4>ประวัติการนำเข้าสินค้า</h4>
+			<div id="history"></div>
 		</div>
-	</div>
-	<div class="row">
 		<div class="col-md-3 col-lg-3">
-            <label for="sel2">วันที่นำเข้า</label>
-            <input id="datestart" class="datepicker form-control" data-date-format="dd/mm/yyyy">
-	    </div>
-	    <div class="col-md-3 col-lg-3">
-			<label for="sel3">วันหมดอายุ</label>
-			<input id="dateend" class="datepicker form-control" data-date-format="dd/mm/yyyy">
-	    </div>
+			<h4>ข้อมูลสินค้า</h4>
+			<hr/>
+			<h4 id="detailprice" style="color: red;"></h4>
+			<div id="description"></div>
+			<h4>ยอดคงเหลือ <span id="total"></span> ชิ้น</h4><br/>
+		</div>
 	</div>
 </div><!-- form -->
 
-
 <script type="text/javascript">
+
     $(document).ready(function () {
-        $("#prodict").select2({
+        $("#product").select2({
             //placeholder: "ชื่อสินค้า",
             allowClear: false,
             multiple: false,
@@ -63,4 +84,53 @@ $ProductList = $Model->GetProductAll();
 			thaiyear: true              //Set เป็นปี พ.ศ.
         }).datepicker("setDate", "0");  //กำหนดเป็นวันปัจุบัน
     });
+
+    function getDetailProduct(){
+    	var url = "<?php echo Yii::app()->createUrl('backend/stock/detailproduct') ?>";
+    	var product_id = $("#product").val();
+    	var data = {product_id: product_id};
+    	$.post(url,data,function(res){
+    		$("#detailprice").html("ราคา " + res.detail['product_price'] + " บาท");
+    		$("#description").html(res.detail['description']);
+    		$("#total").html("<font style='color:red; fonr-size:20px;'>" + res.total + "</font>");
+    		loadHisyory();
+    		//console.log(res.detail['product_name']);
+    	},'json');
+    }
+
+    function AddStocks(){
+    	var url = "<?php echo Yii::app()->createUrl('backend/stock/addstock') ?>";
+    	var product_id = $("#product").val(); 
+    	var inputnumber = $("#inputnumber").val();
+    	var date_expire = $("#dateexpire").val();
+    	var dateCon = date_expire.replace("/","");
+    	var dateexpire = dateCon.replace("/","");
+    	var data = {product_id: product_id,
+    		inputnumber: inputnumber,
+    		dateexpire: dateexpire};
+    	if(product_id == "" || inputnumber == ""){
+    		alert("กรอกข้อมูลไม่ครบ..");
+    		return false;
+    	}
+
+    	$.post(url,data,function(res){
+    		if(res == 1){
+    			getDetailProduct();
+    			loadHisyory();
+    			$("#inputnumber").val("");
+    		} else {
+    			alert("ระบบขัดข้องไม่สามารถเพิ่มข้อมูลได้...");
+    			return false;
+    		}
+    	});
+    }
+
+    function loadHisyory(){
+    	var url = "<?php echo Yii::app()->createUrl('backend/stock/history') ?>";
+    	var product_id = $("#product").val(); 
+    	var data = {product_id: product_id};
+    	$.post(url,data,function(res){
+    		$("#history").html(res);
+    	});
+    }
 </script>

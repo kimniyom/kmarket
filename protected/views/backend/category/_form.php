@@ -17,9 +17,11 @@
         'htmlOptions' => array('enctype' => 'multipart/form-data'), // จุดสำคัญ ห้ามลืมใส่ กรณี "อัพโหลดไฟล์ทุกชนิด"
     ));
     ?>
-    <?php if ($model->icons) { ?>
-        <img src="<?php echo Yii::app()->baseUrl ?>/uploads/category/thumbnail/<?php echo $model->icons ?>" style="height:200px;"/>
-    <?php } ?>
+    <!--
+    <?php //if ($model->icons) { ?>
+        <img src="<?php //echo Yii::app()->baseUrl ?>/uploads/category/thumbnail/<?php //echo $model->icons ?>" style="height:200px;"/>
+    <?php //} ?>
+-->
     <p class="note">Fields with <span class="required">*</span> are required.</p>
 
     <?php echo $form->errorSummary($model); ?>

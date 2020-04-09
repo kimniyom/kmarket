@@ -89,10 +89,10 @@ return array(
 		),
 		// uncomment the following to use a MySQL database
 		'db' => array(
-			'connectionString' => 'mysql:host=localhost;dbname=shopping_db',
+			'connectionString' => 'mysql:host=localhost;dbname=kmarket_db',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'errorHandler' => array(

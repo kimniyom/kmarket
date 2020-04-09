@@ -179,8 +179,15 @@ class OrdersController extends Controller {
     }
 
     public function actionConfirmorder() {
-
+        $OrderModel = new Orders();
         $orderId = Yii::app()->request->getPost('order_id');
+
+        $orderList = $OrderModel->GetListOrder($orderId);
+        foreach($orderList as $rs):
+        //Stock
+            $this->actionCutstock($rs['product_id'], $rs['order_detail_quantity']);
+        endforeach;
+
         $columns = array(
             "order_confirm" => "1",
             "order_confirm_date" => date("Y-m-d H:i:s"),
@@ -199,6 +206,40 @@ class OrdersController extends Controller {
         
         Yii::app()->db->createCommand()
                 ->insert("logorders", $columnsLog);
+
+
+        ;
+    }
+
+
+    public function actionCutstock($product_id, $number) {
+        $sql = "SELECT *
+                FROM stock i
+                WHERE i.product_id = '$product_id' AND i.total > 0
+                ORDER BY i.lotnumber,i.id ASC ";
+
+        $item = Yii::app()->db->createCommand($sql)->queryAll();
+        //ดึงข้อมูลตารางitem
+        $numbercut = 0;
+        foreach ($item as $rs):
+            $id = $rs['id'];
+            $totalinstock = $rs['total']; //คงเหลือในสต๊อกที่ตัดได้
+            if ($totalinstock >= $number) {
+                //<==กรณีสินค้าในล๊อตนั้นมีมากกว่า
+                $totalstock = ($totalinstock - $number);
+                $numbercut = $totalstock;
+                $columns = array("total" => $numbercut);
+                Yii::app()->db->createCommand()->update("stock", $columns, "id = '$id' ");
+                break;
+            } else if ($totalinstock < $number) {
+                //<==กรณีสินค้าในล๊อตนั้นมีน้อยกว่า
+                $number = ($number - $totalinstock);
+                //$numbercut = $totalstock;
+                $columns = array("total" => "0");
+                Yii::app()->db->createCommand()->update("stock", $columns, "id = '$id' ");
+            }
+
+        endforeach;
     }
 
     public function actionDeleteorder() {
@@ -225,12 +266,14 @@ class OrdersController extends Controller {
         $dateend = Yii::app()->request->getPost('dateend');
 
 
-        $YearS = (substr($datestart,-4) - 543);
+        $Y = (substr($datestart,-4));
+        $YearS = (int)$Y - 543;
         $MonthS = (substr($datestart,3,2));
         $DayS = (substr($datestart,0,2));
         $datestarts = $YearS."-".$MonthS."-".$DayS;
        
-        $YearE = (substr($dateend,-4) - 543);
+        $Ye = (substr($dateend,-4));
+        $YearE = (int)$Ye - 543;
         $MonthE = (substr($dateend,3,2));
         $DayE = (substr($dateend,0,2));
         $dateends = $YearE."-".$MonthE."-".$DayE;

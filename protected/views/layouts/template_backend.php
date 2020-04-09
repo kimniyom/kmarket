@@ -45,7 +45,9 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
         <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.tableTools.js"></script>
         <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.buttons.min.js"></script>
         <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/jszip.min.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/pdfmake.min.js"></script>
+        <!--
+        <script type="text/javascript" charset="utf-8"src="<?php //Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/pdfmake.min.js"></script>
+    -->
         <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/vfs_fonts.js"></script>
         <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/buttons.html5.min.js"></script>
 
@@ -278,6 +280,26 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                     <?php }?>
                 </div>
 
+                <!-- List Stock -->
+
+                <div class="panel panel-default side6" id="panel-head">
+                    <div class="panel-heading" id="panel">
+                        <i class="fa fa-building"></i>
+                        Stock
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                    </div>
+                    <?php if ($privilege['product'] == '1') {?>
+                        <div class="list-group" id="side6">
+                            <a href="<?=Yii::app()->createUrl('backend/stock/index')?>"
+                               class="list-group-item" onclick="setSideMenu('side6', 'side6')"><i class="fa fa-folder-open"></i> สต๊อกสินค้า</a>
+                            <a href="<?=Yii::app()->createUrl('backend/stock/create')?>"
+                               class="list-group-item" onclick="setSideMenu('side6', 'side6')"><i class="fa fa-arrow-right"></i> นำสินค้าเข้าสต๊อก</a>
+                        </div>
+                    <?php } else {?>
+                        <center>ไม่มีสิทธิ์</center>
+                    <?php }?>
+                </div>
+
                 <!-- List รายชื่อ สินค้า -->
                 <div class="panel panel-default side4" id="panel-head">
                     <div class="panel-heading" id="panel">
@@ -358,6 +380,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
 
                 <nav class="navbar navbar-default" role="navigation" style="margin-bottom:10px; border-radius: 0px; padding-top: 3px; border-left:0px;">
                     <ul class="nav nav-pills pull-right" style="margin:5px;">
+                        <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orders') ?>"><i class="fa fa-bell-o"></i> แจ้งชำระเงิน <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder() ?></span></a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orders') ?>"><i class="fa fa-cart-arrow-down"></i> การสั่งซื้อ <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder() ?></span></a></li>
                     </ul>
                 </nav>

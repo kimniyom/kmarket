@@ -12,7 +12,4 @@ $this->menu=array(
 	array('label'=>'Manage Stock', 'url'=>array('admin')),
 );
 ?>
-
-<h1>Create Stock</h1>
-
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

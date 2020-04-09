@@ -7,7 +7,7 @@
  * @property string $id
  * @property string $product_id
  * @property string $price
- * @property integer $imputnumber
+ * @property integer $inputnumber
  * @property integer $total
  * @property string $date_input
  * @property string $date_expire
@@ -31,14 +31,15 @@ class Stock extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('imputnumber, total', 'numerical', 'integerOnly'=>true),
+			array('inputnumber, total', 'numerical', 'integerOnly'=>true),
 			array('product_id', 'length', 'max'=>20),
 			array('price', 'length', 'max'=>10),
 			array('product_name', 'length', 'max'=>255),
-			array('date_input, date_expire', 'safe'),
+			array('date_input, date_expire, lotnumber', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, product_id, price, imputnumber, total, date_input, date_expire, product_name', 'safe', 'on'=>'search'),
+			array('id, product_id, price, inputnumber, 
+				total, date_input, date_expire, product_name','lotnumber', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,11 +63,12 @@ class Stock extends CActiveRecord
 			'id' => 'ID',
 			'product_id' => 'รหัสสินค้า',
 			'price' => 'ราคา',
-			'imputnumber' => 'จำนวนนำเข้า',
+			'inputnumber' => 'จำนวนนำเข้า',
 			'total' => 'จำนวนคงเหลือ',
 			'date_input' => 'วันที่นำเข้า',
 			'date_expire' => 'วันที่หมดอายุ',
 			'product_name' => 'ชื่อสินค้า',
+			'lotnumber' => 'lotnumber',
 		);
 	}
 
@@ -91,7 +93,7 @@ class Stock extends CActiveRecord
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('product_id',$this->product_id,true);
 		$criteria->compare('price',$this->price,true);
-		$criteria->compare('imputnumber',$this->imputnumber);
+		$criteria->compare('inputnumber',$this->inputnumber);
 		$criteria->compare('total',$this->total);
 		$criteria->compare('date_input',$this->date_input,true);
 		$criteria->compare('date_expire',$this->date_expire,true);
@@ -111,5 +113,13 @@ class Stock extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	function checkStock(){
+		$sql = "SELECT p.product_id,p.product_name,p.`status`,p.product_price,p.product_price_pro,IFNULL(SUM(s.total),0) as total
+				FROM product p LEFT JOIN stock s ON p.product_id = s.product_id
+				GROUP BY p.product_id
+				ORDER BY total DESC";
+		return Yii::app()->db->createCommand($sql)->queryAll();
 	}
 }
