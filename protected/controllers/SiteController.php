@@ -5,7 +5,7 @@ class SiteController extends Controller {
     /**
      * Declares class-based actions.
      */
-    public $layout = "kstudio";
+    public $layout = "mobile";
 
     public function actions() {
         return array(
@@ -30,7 +30,7 @@ class SiteController extends Controller {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $data['social'] = $this->GetSocial();
-        $this->render('index',$data);
+        $this->render('index', $data);
     }
 
     /**
@@ -134,7 +134,7 @@ class SiteController extends Controller {
                 );
                 Yii::app()->db->createCommand()
                         ->insert("loguserlogin", $columns);
-                
+
                 //$this->renderPartial('login', array('model' => $model));
             }
         }
@@ -147,7 +147,8 @@ class SiteController extends Controller {
      */
     public function actionLogout() {
         Yii::app()->user->logout();
-        $this->redirect(array('site/index'));
+        $this->redirect(array('backend/backend'));
+        //$this->redirect(array('site/index'));
     }
 
     public function actionAbout() {
@@ -174,19 +175,18 @@ class SiteController extends Controller {
         $this->renderPartial('//menu/menu');
     }
 
-    function GetSocial(){
+    function GetSocial() {
         $sql = "SELECT m.*,s.account,s.social_id
                 FROM massocial m LEFT JOIN contact_social s ON m.id = s.social_id ";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
 
-
-    public function actionPayment(){
+    public function actionPayment() {
         $payment = new Payment();
         //$data['bank'] = $payment->Get_bank();
         $data['payment'] = $payment->Get_patment();
         $data['popup'] = Yii::app()->db->createCommand("select * from popupalert limit 1")->queryRow();
-        $this->render("payment",$data);
+        $this->render("payment", $data);
     }
 
 }

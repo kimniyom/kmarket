@@ -97,7 +97,7 @@ class Product {
         p.countread
         FROM product p INNER JOIN product_type t ON p.type_id = t.type_id
         INNER JOIN category c ON p.category = c.id
-        INNER JOIN brand b ON p.brand = b.id
+        LEFT JOIN brand b ON p.brand = b.id
         WHERE p.product_id = '$product_id' ";
         $result = Yii::app()->db->createCommand($sql)->queryRow();
 
@@ -325,8 +325,8 @@ class Product {
                     ORDER BY p.id DESC";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
-    
-     function GetProductAllBetween($start,$end) {
+
+    function GetProductAllBetween($start, $end) {
         $sql = "SELECT p.*,t.type_name,c.categoryname
                     FROM product p INNER JOIN product_type t ON p.type_id = t.type_id
                     INNER JOIN category c ON p.category = c.id
@@ -347,8 +347,8 @@ class Product {
     }
 
     function getProductNear($category) {
-        $sql = "SELECT * FROM product p 
-                WHERE category = '$category' 
+        $sql = "SELECT * FROM product p
+                WHERE category = '$category'
                 ORDER BY RAND() LIMIT 8";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
@@ -362,7 +362,5 @@ class Product {
         $sql = "select * from product where brand = '$id' ";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
-    
-    
 
 }

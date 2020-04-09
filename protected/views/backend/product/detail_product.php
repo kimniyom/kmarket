@@ -14,7 +14,7 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('[data-toggle="popover"]').popover();
 
         $('.img_zoom').magnificPopup({
@@ -42,13 +42,13 @@ $config = new Configweb_model();
 $ProductModel = new Backend_Product();
 ?>
 
-<span class="navbar-brand" id="cart_box" data-toggle="popover" 
+<span class="navbar-brand" id="cart_box" data-toggle="popover"
       data-trigger="hover" data-placement="left" data-trigger="focus"
       data-content="ตะกร้าสินค้า">
     <a href="Javascript:void(0);" onclick="show_list_cart();">
         <i class="shopping-cart"></i>
     </a>
-    <div class="label label-success" id="load_inbox_cart" 
+    <div class="label label-success" id="load_inbox_cart"
          style="text-align: center; font-size: 12px; position: absolute; top: 10px; right: 10px;">
     </div>
 </span>
@@ -67,13 +67,13 @@ $ProductModel = new Backend_Product();
             <b>รหัสสินค้า</b> <?= $product['product_id'] ?><br/>
             <b>Category</b> <?= $product['categoryname'] ?><br/>
             <b>Type</b> <?= $product['type_name'] ?><br/>
-            <b>Brand</b> <?= $product['brandname'] ?><br/>
+            <!--<b>Brand</b> <?php //$product['brandname']  ?><br/>-->
             <b>อัพเดทล่าสุด</b> <?= $config->thaidate($product['d_update']); ?><br/><br/>
             <b>ราคา</b> <b style=" color: #F00;">
                 <?php if ($product['product_price_pro'] > 0) { ?>
                     <del><?= number_format($product['product_price']) ?></del>
                     <?= number_format($product['product_price_pro']) ?>
-                <?php } else { ?>    
+                <?php } else { ?>
                     <?= number_format($product['product_price']) ?>
                 <?php } ?> .- บาท
             </b><br/><br/>
@@ -97,10 +97,10 @@ $ProductModel = new Backend_Product();
                 ?>
                 <center>
                     <img src="<?= Yii::app()->baseUrl ?>/<?= $img; ?>" class="img-responsive thumbnail" alt="Responsive image" id="img-cart"/>
-                </center>     
+                </center>
             <?php } else { ?>
                 <div id="img" style="width:400px; height:350px; background:#CCC; font-size:36px; text-align:center; padding-top:30px; margin-right:20px;">
-                    NO<br />Images 
+                    NO<br />Images
                 </div>
             <?php } ?>
             <br/>
@@ -160,7 +160,7 @@ $ProductModel = new Backend_Product();
         var url = "<?php echo Yii::app()->createUrl('backend/product/review') ?>";
         var data = {product_id: product_id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#box-review").html(result);
         });
     }
@@ -168,7 +168,7 @@ $ProductModel = new Backend_Product();
     function deleteReview(id) {
         var url = "<?php echo Yii::app()->createUrl('backend/product/deletereview') ?>";
         var data = {id: id};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             loadreview();
         });
     }

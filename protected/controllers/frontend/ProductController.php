@@ -2,7 +2,7 @@
 
 class ProductController extends Controller {
 
-    public $layout = "kstudio";
+    public $layout = "mobile";
 
     //public $layout = "template_product";
     //################# ดึงข้อมูลรานละเอียดสินค้ามาแสดง อ้างจาก product_id ##################//
@@ -57,7 +57,7 @@ class ProductController extends Controller {
         }
         $sql = "SELECT DISTINCT(p.product_id),p.*,t.type_name,c.categoryname
                     FROM product p INNER JOIN product_type t ON p.type_id = t.type_id
-                    INNER JOIN category c ON p.category = c.id 
+                    INNER JOIN category c ON p.category = c.id
                     WHERE $where
                     ORDER BY p.id DESC LIMIT $start,$end";
         //return $sql;

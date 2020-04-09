@@ -3400,3 +3400,1357 @@ Stack trace:
 REQUEST_URI=/kmarket/backend/orders/confirmorder
 in E:\xampp\htdocs\kmarket\protected\controllers\backend\OrdersController.php (185)
 in E:\xampp\htdocs\kmarket\index.php (14)
+2020/04/09 20:45:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/
+---
+2020/04/09 20:45:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/
+---
+2020/04/09 20:46:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/payment
+---
+2020/04/09 20:46:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:46:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/payment
+---
+2020/04/09 20:47:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:47:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:47:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/backend/index
+---
+2020/04/09 20:47:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/stock/index
+---
+2020/04/09 20:48:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/stock/index
+---
+2020/04/09 20:48:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/stock/index
+---
+2020/04/09 20:49:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/stock/index
+---
+2020/04/09 20:49:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/stock/create
+---
+2020/04/09 20:49:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/category/admin
+---
+2020/04/09 20:49:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/typeproduct/from_add_type
+---
+2020/04/09 20:49:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/category/admin
+---
+2020/04/09 20:50:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/typeproduct/from_add_type
+---
+2020/04/09 20:50:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/brand/admin
+---
+2020/04/09 20:50:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:50:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/1/type/001
+---
+2020/04/09 20:50:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:50:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/2/type/005
+---
+2020/04/09 20:50:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:50:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/brand/admin
+---
+2020/04/09 20:50:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:50:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/4/type/012
+---
+2020/04/09 20:50:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/category/categoryID/4
+---
+2020/04/09 20:50:44 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/backend
+---
+2020/04/09 20:50:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/category/admin
+---
+2020/04/09 20:50:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/typeproduct/from_add_type
+---
+2020/04/09 20:50:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/1/type/001
+---
+2020/04/09 20:51:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/detail_product/product_id/P20181223184138
+---
+2020/04/09 20:51:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/1/type/001
+---
+2020/04/09 20:51:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/getproduct/category/1/type/002
+---
+2020/04/09 20:51:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/brand/admin
+---
+2020/04/09 20:51:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/product/index
+---
+2020/04/09 20:51:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/brand/admin
+---
+2020/04/09 20:51:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/view
+---
+2020/04/09 20:51:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:52:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:52:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:52:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/view
+---
+2020/04/09 20:52:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:53:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/masuser/create
+---
+2020/04/09 20:53:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/view
+---
+2020/04/09 20:53:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:53:20 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/view
+---
+2020/04/09 20:53:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/popup
+---
+2020/04/09 20:53:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/payment/view
+---
+2020/04/09 20:53:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/masuser/admin
+---
+2020/04/09 20:53:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/masuser/create
+---
+2020/04/09 20:53:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/masuser/create
+---
+2020/04/09 20:53:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/report/income
+---
+2020/04/09 20:53:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/report/dashboard
+---
+2020/04/09 20:53:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/orders/index
+---
+2020/04/09 20:53:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:53:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:53:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:53:52 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/web
+---
+2020/04/09 20:53:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:53:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:53:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:53:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:53:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:53:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:53:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about/create
+---
+2020/04/09 20:54:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:54:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:54:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact/create
+---
+2020/04/09 20:54:43 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:54:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:54:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:54:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact/create
+---
+2020/04/09 20:55:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contact
+---
+2020/04/09 20:55:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:55:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:55:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:55:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:55:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/about
+---
+2020/04/09 20:55:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/logo
+---
+2020/04/09 20:55:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/web
+---
+2020/04/09 20:55:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/articlecategory/admin
+---
+2020/04/09 20:55:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/article
+---
+2020/04/09 20:55:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/article/create
+---
+2020/04/09 20:56:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:56:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/article/600-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/article...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/article/600-
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 20:56:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/article/create
+---
+2020/04/09 20:56:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/articlecategory/admin
+---
+2020/04/09 20:56:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/article/create
+---
+2020/04/09 20:56:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/article
+---
+2020/04/09 20:56:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/backend/contactuser/noread
+---
+2020/04/09 22:53:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:54:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:59:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:59:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:59:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:59:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 22:59:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:07:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:10:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:10:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:10:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:10:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:10:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:11:00 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:11:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:11:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:11:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:11:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:12:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:12:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:12:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:13:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "assets/a7cb1313/bootstrap/css/bootstrap.min.css". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/a7cb1313...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/assets/a7cb1313/bootstrap/css/bootstrap.min.css
+HTTP_REFERER=http://localhost/kmarket/site/index
+---
+2020/04/09 23:16:36 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "company". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('company')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('company')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/company')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site
+---
+2020/04/09 23:17:41 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "company". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('company')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('company')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/company')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site
+---
+2020/04/09 23:18:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:21:38 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "company". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('company')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('company')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/company')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site
+---
+2020/04/09 23:23:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20181224014057
+---
+2020/04/09 23:23:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20181224014057
+---
+2020/04/09 23:27:15 [warning] [application] Failed to set unsafe attribute "icons" of "Category".
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\CategoryController.php (105)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/09 23:34:06 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): ProductController->renderInternal()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): ProductController->renderFile()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): ProductController->renderPartial()
+#3 C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php(167): ProductController->render()
+#4 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ProductController->actionDetail_product()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ProductController->runAction()
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ProductController->runActionWithFilters()
+#8 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ProductController->run()
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/product/detail_product/product_id/P20200409233255
+in C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php (71)
+in C:\xampp\htdocs\kmarket\protected\views\backend\product\detail_product.php (71)
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php (167)
+2020/04/09 23:36:35 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): ProductController->renderInternal()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): ProductController->renderFile()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): ProductController->renderPartial()
+#3 C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php(167): ProductController->render()
+#4 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ProductController->actionDetail_product()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ProductController->runAction()
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ProductController->runActionWithFilters()
+#8 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ProductController->run()
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/product/detail_product/product_id/P20200409233255
+in C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php (71)
+in C:\xampp\htdocs\kmarket\protected\views\backend\product\detail_product.php (71)
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php (167)
+2020/04/09 23:36:50 [error] [exception.Error] Error: Call to undefined function int() in C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php:71
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\protected\views\backend\product\detail_product.php(71): Configweb_model->thaidate(NULL)
+#1 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): CController->renderPartial('//backend/produ...', Array, true)
+#5 C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php(167): CController->render('//backend/produ...', Array)
+#6 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ProductController->actionDetail_product()
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('detail_product')
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('backend/product...')
+#12 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/kmarket/backend/product/detail_product/product_id/P20200409233255
+HTTP_REFERER=http://localhost/kmarket/backend/product/createproduct
+---
+2020/04/09 23:37:23 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): ProductController->renderInternal()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): ProductController->renderFile()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): ProductController->renderPartial()
+#3 C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php(167): ProductController->render()
+#4 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ProductController->actionDetail_product()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ProductController->runAction()
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ProductController->runActionWithFilters()
+#8 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ProductController->run()
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/product/detail_product/product_id/P20200409233255
+in C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php (71)
+in C:\xampp\htdocs\kmarket\protected\views\backend\product\detail_product.php (71)
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php (167)
+2020/04/09 23:38:32 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): ProductController->renderInternal()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): ProductController->renderFile()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): ProductController->renderPartial()
+#3 C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php(167): ProductController->render()
+#4 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ProductController->actionDetail_product()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ProductController->runAction()
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ProductController->runActionWithFilters()
+#8 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ProductController->run()
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/product/detail_product/product_id/P20200409233255
+in C:\xampp\htdocs\kmarket\protected\models\Configweb_model.php (71)
+in C:\xampp\htdocs\kmarket\protected\views\backend\product\detail_product.php (71)
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ProductController.php (167)
+2020/04/09 23:43:41 [error] [php] imagejpeg(uploads/product/img_r9wi64pdquk0c3pth7zm289wrwd9cd.jpg): failed to open stream: No such file or directory (C:\xampp\htdocs\kmarket\protected\controllers\backend\ImagesController.php:78)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ImagesController->runAction()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ImagesController->runActionWithFilters()
+#3 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ImagesController->run()
+#4 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/images/uploadify
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ImagesController.php (78)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/09 23:44:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/img_r9wi64pdquk0c3pth7zm289wrwd9cd.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/img_r9wi64pdquk0c3pth7zm289wrwd9cd.jpg
+HTTP_REFERER=http://localhost/kmarket/backend/product/update/product_id/P20200409233255
+---
+2020/04/09 23:44:25 [error] [php] imagejpeg(uploads/product/img_w0aq9ijb4jjifxbc735wzgijc6r4t3.jpg): failed to open stream: No such file or directory (C:\xampp\htdocs\kmarket\protected\controllers\backend\ImagesController.php:78)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): ImagesController->runAction()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): ImagesController->runActionWithFilters()
+#3 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ImagesController->run()
+#4 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/images/uploadify
+in C:\xampp\htdocs\kmarket\protected\controllers\backend\ImagesController.php (78)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/09 23:45:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/img_r9wi64pdquk0c3pth7zm289wrwd9cd.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/img_r9wi64pdquk0c3pth7zm289wrwd9cd.jpg
+---
+2020/04/09 23:51:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/img_w0aq9ijb4jjifxbc735wzgijc6r4t3.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/img_w0aq9ijb4jjifxbc735wzgijc6r4t3.jpg
+HTTP_REFERER=http://localhost/kmarket/backend/product/update/product_id/P20200409233255
+---
+2020/04/09 23:55:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/product/thumbnail/482-". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/product...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/product/thumbnail/482-
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409134154
+---
+2020/04/09 23:55:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/1
+---
+2020/04/09 23:55:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/1
+---
+2020/04/10 00:44:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/1
+---

@@ -74,8 +74,7 @@
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
                                         <hr/>
-                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-default')); ?>
-                                        <a href="<?php echo Yii::app()->createUrl('site/index') ?>"><input type="button" class="btn btn-default" value="กลับหน้าเว็บ" /></a>
+                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-default btn-block btn-lg')); ?>
                                     </div>
                                 </div>
                                 <?php $this->endWidget(); ?>

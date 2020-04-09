@@ -45,8 +45,6 @@ class Backend_Product {
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
 
-
-
     /*
       function _get_list_order_product($order_id = '') {
       $sql = "SELECT p.product_id,l.price,l.id,p.product_price,l.product_number,p.product_name,p.product_detail
@@ -84,7 +82,7 @@ class Backend_Product {
                     bastseller
                 FROM product p INNER JOIN product_type t ON p.type_id = t.type_id
                 INNER JOIN category c ON p.category = c.id
-                INNER JOIN brand b ON p.brand = b.id
+                LEFT JOIN brand b ON p.brand = b.id
                 WHERE p.product_id = '$product_id'";
         $result = Yii::app()->db->createCommand($sql)->queryRow();
 
@@ -227,7 +225,7 @@ class Backend_Product {
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
 
-    function get_product_intype($category,$type_id = '') {
+    function get_product_intype($category, $type_id = '') {
         $sql = "SELECT * FROM product WHERE category = '$category' and type_id = '$type_id' AND status != '1' AND delete_flag != '1' ORDER BY id DESC";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
@@ -258,12 +256,11 @@ class Backend_Product {
         $sql = "SELECT product_images.id,images FROM product_images WHERE product_id = '$product_id' AND active != '1'";
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
-    
-        function get_images_product_title($product_id = '') {
+
+    function get_images_product_title($product_id = '') {
         $sql = "SELECT product_images.id,images FROM product_images WHERE product_id = '$product_id' AND active = '1' ";
         return Yii::app()->db->createCommand($sql)->queryRow();
     }
-
 
     function get_notify_postcode() {
         $sql = "SELECT o.order_id,o.postcode,m.`name`,m.lname
@@ -303,12 +300,12 @@ class Backend_Product {
         }
     }
 
-    function Status($status){
-        if($status == 0){
+    function Status($status) {
+        if ($status == 0) {
             $result = "<span style='color:green;'>พร้อมขาย</span>";
-        } else if($status == 1){
+        } else if ($status == 1) {
             $result = "<span style='color:red;'>ไม่พร้อมขาย</span>";
-        } else if($status == 2){
+        } else if ($status == 2) {
             $result = "<span style='color:red;'>SOLD OUT</span>";
         } else {
             $result = "-";

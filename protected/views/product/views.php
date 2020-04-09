@@ -20,30 +20,18 @@
     .view-products #text-color-product{
         color:#9d1419;
     }
-    
+
     .view-products a{
         color: #9d1419;
     }
-    
-    
+
+
 
 </style>
-<script>
-    /*
-     (function (d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id))
-     return;
-     js = d.createElement(s);
-     js.id = id;
-     js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.5&appId=266256337158296";
-     fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-     */
-</script>
+
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var style = {"height": "auto"};
         $("#box-article img").addClass("img-responsive");
         $("#box-article img").css(style);
@@ -63,7 +51,7 @@
                 // The "opener" function should return the element from which popup will be zoomed in
                 // and to which popup will be scaled down
                 // By defailt it looks for an image tag:
-                opener: function (openerElement) {
+                opener: function(openerElement) {
                     // openerElement is the element on which popup was initialized, in this case its <a> tag
                     // you don't need to add "opener" option if this code matches your needs, it's defailt one.
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
@@ -74,12 +62,15 @@
 </script>
 <?php
 $this->pageTitle = $product['product_name'];
-$title = $product['product_name'];
-$this->breadcrumbs = array(
-    $product['categoryname'] => array('frontend/product/category/id' . '/' . $product['category']),
-    $product['type_name'] => array('frontend/product/view/type' . '/' . $product['type_id']),
-    $title,
-);
+/*
+  $title = $product['product_name'];
+  $this->breadcrumbs = array(
+  $product['categoryname'] => array('frontend/product/category/id' . '/' . $product['category']),
+  $product['type_name'] => array('frontend/product/view/type' . '/' . $product['type_id']),
+  $title,
+  );
+ *
+ */
 ?>
 <?php
 $productModel = new Product();
@@ -91,46 +82,50 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
     <div class="shop-detail-3 woocommerce" id="page">
         <!--
         <section class="sub-header shop-detail-1">
-            <img class="rellax bg-overlay" src="<?php //echo Yii::app()->baseUrl                            ?>/themes/kstudio/images/sub-header/017.jpg" alt="">
+            <img class="rellax bg-overlay" src="<?php //echo Yii::app()->baseUrl                                          ?>/themes/kstudio/images/sub-header/017.jpg" alt="">
             <div class="overlay-call-to-action"></div>
             <h3 class="heading-style-3">Shop Detail</h3>
         </section>
         -->
         <section class="boxed-sm" style="margin:0px;">
-            <div class="container" style=" background: #FFFFFF;">
+            <div class="container" style=" background: #FFFFFF; padding: 0px;">
                 <div class="row product-detail" style=" margin: 0px;padding: 5px;">
                     <div class="row product-detail-wrapper" style="margin:0px;">
                         <div class="col-md-6">
                             <div class="woocommerce-product-gallery vertical" style="margin:0px;">
-                               
-                                    <?php $i=0;foreach ($images as $al): $i++;
-                                    if($i == 1){
-                                    ?>
+
+                                <?php
+                                $i = 0;
+                                foreach ($images as $al): $i++;
+                                    if ($i == 1) {
+                                        ?>
                                         <div class="item">
                                             <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/uploads/product/<?= $al['images'] ?>" alt="product thumbnail">
                                         </div>
-                                        <?php } ?>
-                                    <?php endforeach; ?>
-                                     <div class="main-carousel">
-                               
-                                <div class="thumbnail-carousel">
-                                    <!--482x455
-                                    <div class="item">
-                                        <img class="img-responsive" src="<?php //echo Yii::app()->baseUrl                                    ?>/themes/kstudio/images/product/01.jpg" alt="product thumbnail">
-                                    </div>
-                                    -->
-                                    <?php $a=0;foreach ($images as $al): $a++;
-                                        if($a != 1){
-                                    ?>
-                                    <a class="image-link" href="<?php echo Yii::app()->baseUrl; ?>/uploads/product/<?= $al['images'] ?>">
-                                        <div class="item">
-                                            <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/uploads/product/thumbnail/480-<?= $al['images'] ?>" alt="product thumbnail">
-                                        </div>
-                                    </a>
                                     <?php } ?>
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                                <div class="main-carousel">
+
+                                    <div class="thumbnail-carousel">
+                                        <!--482x455
+                                        <div class="item">
+                                            <img class="img-responsive" src="<?php //echo Yii::app()->baseUrl                                                  ?>/themes/kstudio/images/product/01.jpg" alt="product thumbnail">
+                                        </div>
+                                        -->
+                                        <?php
+                                        $a = 0;
+                                        foreach ($images as $al): $a++;
+                                            if ($a != 1) {
+                                                ?>
+                                                <a class="image-link" href="<?php echo Yii::app()->baseUrl; ?>/uploads/product/<?= $al['images'] ?>">
+                                                    <div class="item">
+                                                        <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/uploads/product/thumbnail/480-<?= $al['images'] ?>" alt="product thumbnail">
+                                                    </div>
+                                                </a>
+                                            <?php } ?>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
-                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -138,7 +133,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                                 <div class="desc">
                                     <div class="header-desc">
                                         <h2 class="product-title font-supermarket" id="text-color-product"><?php echo $product['product_name'] ?></h2>
-                                        <p class="price">ราคา : 
+                                        <p class="price">ราคา :
                                             <?php
                                             if ($product['product_price_pro'] > 0) {
                                                 echo "<del style='color:red;'>" . number_format($product['product_price']) . "</del> ";
@@ -186,8 +181,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                                     </p>
                                     <p class="tagged-as">Tags:
                                         <a href="#" rel="tag"><?php echo $product['categoryname'] ?></a>,
-                                        <a href="#" rel="tag"><?php echo $product['type_name'] ?></a>,
-                                        <a href="#" rel="tag"><?php echo $product['brandname'] ?></a>
+                                        <a href="#" rel="tag"><?php echo $product['type_name'] ?></a>
                                     </p>
                                     <p class="id">ID:
                                         <a href="#"><?php echo $product['product_id'] ?></a>
@@ -196,11 +190,8 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
 
                                 <!-- I got these buttons from simplesharebuttons.com -->
 
-
-
-                                
                                 <div class="widget-social align-center">
-                                    
+
                                     <ul>
                                         <li style="text-align:center;">
                                             <!-- Share FaceBook -->
@@ -211,7 +202,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                                             <!--
                                             <div class="fb-share-button" data-layout="button_count">
                                             </div>
-                                        -->
+                                            -->
                                             <!--
                                             <a class="facebook" data-toggle="tooltip" title="Facebook" href="http://www.facebook.com/Upperthemes">
                                                 <i class="fa fa-facebook"></i>
@@ -222,32 +213,27 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                                                 <img src="<?php echo Yii::app()->baseUrl ?>/images/facebook.png" alt="Facebook" style="width:32px;"/>
                                             </a>
                                         </li>
-                                        <li>    
-                                       <!-- Google+ -->
-                                        <a href="https://plus.google.com/share?url=<?php echo $UrlShare ?>" target="_blank">
-                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/google.png" alt="Google" style="width:32px;"/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Pinterest -->
-                                        <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/pinterest.png" alt="Pinterest" style="width:32px;"/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Twitter -->
-                                        <a href="https://twitter.com/share?url=<?php echo $UrlShare ?>&amp;text=<?php echo Yii::app()->session['fbtitle']; ?>;hashtags=<?php echo $ConfigWeb->get_webname() ?>" target="_blank">
-                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/twitter.png" alt="Twitter" style="width:32px;"/>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://lineit.line.me/share/ui?url=<?php echo $UrlShare ?>" target="_blank">
-                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/line-icon.png" alt="Line" style="width:32px;"/>
-                                        </a>
-                                    </li>
-                                        
+
+                                        <li>
+                                            <!-- Pinterest -->
+                                            <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                                                <img src="<?php echo Yii::app()->baseUrl ?>/images/pinterest.png" alt="Pinterest" style="width:32px;"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <!-- Twitter -->
+                                            <a href="https://twitter.com/share?url=<?php echo $UrlShare ?>&amp;text=<?php echo Yii::app()->session['fbtitle']; ?>;hashtags=<?php echo $ConfigWeb->get_webname() ?>" target="_blank">
+                                                <img src="<?php echo Yii::app()->baseUrl ?>/images/twitter.png" alt="Twitter" style="width:32px;"/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://lineit.line.me/share/ui?url=<?php echo $UrlShare ?>" target="_blank">
+                                                <img src="<?php echo Yii::app()->baseUrl ?>/images/line-icon.png" alt="Line" style="width:32px;"/>
+                                            </a>
+                                        </li>
+
                                     </ul>
-                                   
+
                                     <div style=" clear: both; font-size:18px;">
                                         <br/>
                                         <i class="fa fa-eye"></i> คนเข้าดูสินค้า : <?php echo $product['countread'] ?> ครั้ง
@@ -264,29 +250,24 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                 <div class="woocommerce-tabs">
                     <div class="row" style="margin:0px;">
                         <div class="col-md-12 woocommerce-tabs-inner" style="border:none;">
-                            <div class="row" style=" background: #e7f0f2;">
-                            <div class="col-md-8 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-2">
-                                    <ul class="tabs tab-style-2" role="tablist">
-                                        <li class="active" role="presentation">
-                                            <a href="#Description" aria-controls="Description" role="tab" data-toggle="tab">รายละเอียด</a>
-                                        </li>
-                                        <!--
-                                        <li role="presentation">
-                                            <a href="#Additional-Information" aria-controls="Additional-Information" role="tab" data-toggle="tab">Additional Information</a>
-                                        </li>
-                                        -->
-                                        <li role="presentation">
-                                            <a href="#Review" onclick="loadreview()" aria-controls="Review" role="tab" data-toggle="tab">Review (<?php echo $countreview ?>)</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
+
+                            <ul class="tabs tab-style-2" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="#Description" aria-controls="Description" role="tab" data-toggle="tab">รายละเอียด</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#Review" onclick="loadreview()" aria-controls="Review" role="tab" data-toggle="tab">Review (<?php echo $countreview ?>)</a>
+                                </li>
+                            </ul>
+
+
                         </div>
                         <div class="col-md-8 col-md-offset-2">
                             <div class="tab-content tab-content-style-2">
                                 <div class="tab-pane fade in active" id="Description" role="tabpanel">
                                     <div id="box-article">
-                                    <?php echo $product['product_detail'] ?>
+                                        <?php echo $product['product_detail'] ?>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="Review" role="tabpanel">
@@ -329,37 +310,44 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                     <div class="heading-wrapper text-center">
                         <h3 class="heading font-THK">สินค้าอื่น ๆ</h3>
                     </div>
-                    <div class="row" style="margin:0px;">
-                        <div class="carousel-product">
-                            <?php
-                            foreach ($near as $nears):
-                                $fimg = $productModel->firstpictures($nears['product_id']);
-                                ?>
-                                <div class="item">
-                                    <figure class="item" style=" background: #fafafa;">
-                                        <div class="product product-style-1">
-                                            <div class="img-wrappers">                               
-                                                <img class="img-responsive" src="<?php echo Yii::app()->baseUrl ?>/uploads/product/thumbnail/482-<?php echo $fimg ?>" alt="product thumbnail">
-                                            </div>
-                                            <figcaption class="desc text-center" id="setColorNear" style=" background: #fafafa;">
-                                                <h3 style="height:50px; overflow: hidden;white-space: wrap;text-overflow: ellipsis;">
-                                                    <a class="product-name font-supermarket" href="<?php echo Yii::app()->createUrl('frontend/product/views', array('id' => $nears['product_id'])) ?>"><?php echo $nears['product_name'] ?></a>
-                                                </h3>
-                                                <span class="price">
-                                                    <?php if ($nears['product_price_pro'] > 0) { ?>
-                                                        <del style=" color: #9d1419;"><?php echo number_format($nears['product_price']) ?></del> 
-                                                        <?php echo number_format($nears['product_price_pro']) ?> .-
-                                                    <?php } else { ?>
-                                                        <?php echo number_format($nears['product_price']) ?> .-
-                                                    <?php } ?>
-                                                </span>
-                                            </figcaption>
-                                        </div>
-                                    </figure>
+
+                    <div class="row js-product-masonry-filter-layout-2 product-masonry-filter-layout-2">
+
+                        <?php
+                        foreach ($near as $nears):
+                            $img_title = $productModel->firstpictures($nears['product_id']);
+                            if (!empty($img_title)) {
+                                $img = "uploads/product/thumbnail/480-" . $img_title;
+                            } else {
+                                $img = "images/No_image_available.jpg";
+                            }
+                            ?>
+                            <figure class="item Newproduct">
+                                <div class="products product-style-3" style="background: #ffffff;box-shadow: #dbdbdb 3px 3px 3px 0px; border-radius: 5px">
+                                    <div class="img-wrappers" style="border:none;">
+                                        <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $nears['product_id'])) ?>">
+                                            <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/<?php echo $img ?>" alt="product thumbnail" style=" border-radius: 5px 5px 0px 0px;"/>
+                                        </a>
+                                    </div>
+                                    <figcaption class="desc">
+                                        <h4 class="font-supermarket" style=" height: 50px; overflow: hidden;">
+                                            <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $nears['product_id'])) ?>" class="product-name" style="color:#5c5c5c;"><?php echo $nears['product_name'] ?></a>
+                                        </h4>
+                                        <span class="price font-supermarket" id="text-price">
+                                            <?php if ($nears['product_price_pro'] > 0) { ?>
+                                                <del style=" color: #ff0000;"><?php echo number_format($nears['product_price']) ?></del>
+                                                <?php echo number_format($nears['product_price_pro']) ?>  .-
+                                            <?php } else { ?>
+                                                <?php echo number_format($nears['product_price']) ?>  .-
+                                            <?php } ?>
+
+                                        </span>
+                                    </figcaption>
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
+                            </figure>
+                        <?php endforeach; ?>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -367,8 +355,8 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function ($) {
-        $(document).on('submit', '#form-review', function (event) {
+    $(document).ready(function($) {
+        $(document).on('submit', '#form-review', function(event) {
             event.preventDefault();
             var product_id = "<?php echo $product['product_id'] ?>";
             var reviews = $("#reviews").val();
@@ -388,7 +376,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
                 $("#email").focus();
                 return false;
             }
-            $.post(url, data, function (result) {
+            $.post(url, data, function(result) {
                 loadreview();
                 $("#name").val("");
                 $("#email").val("");
@@ -404,7 +392,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
         var url = "<?php echo Yii::app()->createUrl('frontend/comment') ?>";
         var data = {product_id: product_id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#comment").html(result);
         });
     }
@@ -418,7 +406,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
             $("#box_comment").focus();
             return false;
         }
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             load_comment();
         });
     }
@@ -442,7 +430,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
             $("#email").focus();
             return false;
         }
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             loadreview();
 
         });
@@ -454,7 +442,7 @@ $UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
         var url = "<?php echo Yii::app()->createUrl('frontend/product/review') ?>";
         var data = {product_id: product_id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#box-review").html(result);
         });
     }

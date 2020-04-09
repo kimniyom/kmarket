@@ -7,8 +7,6 @@
     .modal-dialog {
         width: 100%;
     }
-
-
 </style>
 <?php
 $Config = new Configweb_model();
@@ -17,14 +15,14 @@ $Config = new Configweb_model();
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckfinder/ckfinder.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         //load_data();
         $('#Filedata').uploadifive({
             /*'buttonText': 'กรุณาเลือกรูปภาพ ...',*/
             'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
             buttonText: "อัพโหลดรูปภาพ",
             //'buttonImage': '<?//= Yii::app()->baseUrl ?>/images/image-up-icon.png',
-            //'swf': '<?php //echo Yii::app()->baseUrl       ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            //'swf': '<?php //echo Yii::app()->baseUrl            ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
             'uploadScript': "<?= Yii::app()->createUrl('backend/images/uploadify') ?>",
             'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
             //'width': '128',
@@ -33,7 +31,7 @@ $Config = new Configweb_model();
             'multi': true, //เปิดใช้งานการอัพโหลดแบบหลายไฟล์ในครั้งเดียว
             'removeCompleted': true,
             'queueSizeLimit': 5, //อัพโหลดได้ครั้งละ 5 ไฟล์
-            'onUploadComplete': function (file, data, response) {
+            'onUploadComplete': function(file, data, response) {
                 load_data();
             }
         });
@@ -83,13 +81,15 @@ $ConfigWeb = new Configweb_model();
                             <option value="">== Select ==</option>
                         </select>
                     </div>
+                    <!--
                     <label for="">*Brand</label>
                     <select class="form-control" id="brand">
                         <option value="">== Select ==</option>
-                        <?php foreach ($brands as $rsbrans): ?>
-                            <option value="<?php echo $rsbrans['id'] ?>"><?php echo $rsbrans['brandname'] ?></option>
-                        <?php endforeach; ?>
+                    <?php //foreach ($brands as $rsbrans): ?>
+                            <option value="<?php //echo $rsbrans['id']    ?>"><?php //echo $rsbrans['brandname']    ?></option>
+                    <?php //endforeach; ?>
                     </select>
+                    -->
                     <label for="" style="display:none;">รหัสสินค้า</label>
                     <input type="hidden" id="product_id" name="product_id" class="form-control" value="<?php echo $product_id; ?>" readonly style="width:40%;"/>
 
@@ -191,7 +191,7 @@ $ConfigWeb = new Configweb_model();
             {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi']},
             {name: 'styles'},
             {name: 'colors'}
-                    //{ name: 'about' }
+            //{ name: 'about' }
         ],
         removeButtons: 'Strike,Subscript,Superscript,Anchor,Styles,Specialchar,Language,Flash',
         filebrowserBrowseUrl: "<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckfinder/ckfinder.html",
@@ -224,7 +224,7 @@ $ConfigWeb = new Configweb_model();
         var description = $("#description").val();
         var bastseller = $("input[name='bastseller']:checked").val();
         var product_price_pro = $("#product_price_pro").val();
-        if (category == "" || product_name == '' || product_price == '' || product_detail == '' || type == '' || brand == '' || description == "" || bastseller == "") {
+        if (category == "" || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "" || bastseller == "") {
             $("#f_error").show().delay(5000).fadeOut(500);
             return false;
         }
@@ -234,7 +234,7 @@ $ConfigWeb = new Configweb_model();
             product_name: product_name,
             category: category,
             type: type,
-            brand: brand,
+            brand: "",
             product_price: product_price,
             status: status,
             product_detail: product_detail,
@@ -244,7 +244,7 @@ $ConfigWeb = new Configweb_model();
             product_price_pro: product_price_pro
         };
 
-        $.post(url, data, function (success) {
+        $.post(url, data, function(success) {
             window.location = "<?php echo Yii::app()->createUrl('backend/product/detail_product/product_id') ?>" + "/" + product_id;
         });
     }
@@ -253,7 +253,7 @@ $ConfigWeb = new Configweb_model();
         $("#load_images").html("<center><i class=\"fa fa-spinner fa-spin\"></i></center>");
         var url = "<?php echo Yii::app()->createUrl('backend/images/loadimages') ?>";
         var data = {};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#load_images").html(datas);
         });
     }
@@ -263,7 +263,7 @@ $ConfigWeb = new Configweb_model();
         var url = "<?php echo Yii::app()->createUrl('backend/product/get_images') ?>";
         var productID = $("#product_id").val();
         var data = {product_id: productID};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#load_images_product").html(datas);
             checkheight();
         });
@@ -276,7 +276,7 @@ $ConfigWeb = new Configweb_model();
         var data = {id: id, product_id: productID};
 
         if (r == true) {
-            $.post(url, data, function (datas) {
+            $.post(url, data, function(datas) {
                 load_data();
                 loadimagesProduct();
             });
@@ -309,7 +309,7 @@ $ConfigWeb = new Configweb_model();
     function combotype(category) {
         var url = "<?php echo Yii::app()->createUrl('backend/typeproduct/combotype') ?>";
         var data = {category: category, type: ""};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#combotype").html(datas);
         });
     }

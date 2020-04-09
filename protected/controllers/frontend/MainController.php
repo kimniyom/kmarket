@@ -2,7 +2,7 @@
 
 class MainController extends Controller {
 
-    public $layout = "kstudio";
+    public $layout = "mobile";
 
     public function actionIndex() {
 
@@ -31,7 +31,7 @@ class MainController extends Controller {
         $password = $_POST['login_password'];
 
         $use = new User();
-        $result = $use->Check_user($email,$password);
+        $result = $use->Check_user($email, $password);
 
         if (!empty($result)) {
 
@@ -54,17 +54,17 @@ class MainController extends Controller {
             //เช็คออเดอร์ที่ไม่ชำระเงินตามระยะเวลาที่กำหนด
             $period = $period_model->get_period_active();
             $overtime = $Order->check_order_overtime($pid);
-            if(!empty($overtime)){
+            if (!empty($overtime)) {
                 //เช็ควันที่เกิน
                 $datenow = date("Y-m-d");
-                foreach($overtime as $over):
+                foreach ($overtime as $over):
                     $date_order = $over['order_date'];
-                    $dayover = $Config->Datediff($date_order,$datenow);
+                    $dayover = $Config->Datediff($date_order, $datenow);
                     $count_basket = $Order->check_product_inorder($over['order_id']);
-                    if($dayover > $period && $count_basket > 0){
+                    if ($dayover > $period && $count_basket > 0) {
                         $orderId = $over['order_id'];
                         Yii::app()->db->createCommand()
-                        ->delete("orders","order_id = '$orderId '");
+                                ->delete("orders", "order_id = '$orderId '");
                     }
                 endforeach;
             }

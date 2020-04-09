@@ -55,14 +55,15 @@ $this->breadcrumbs = array(
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    <!--
                     <label for="">*Brand</label>
                     <select class="form-control" id="brand">
                         <option value="">== Select ==</option>
-                        <?php foreach ($brands as $rsbrans): ?>
-                            <option value="<?php echo $rsbrans['id'] ?>" <?php echo ($rsbrans['id'] == $product['brand']) ? "selected" : ""; ?>><?php echo $rsbrans['brandname'] ?></option>
-                        <?php endforeach; ?>
+                    <?php //foreach ($brands as $rsbrans): ?>
+                            <option value="<?php //echo $rsbrans['id']  ?>" <?php //echo ($rsbrans['id'] == $product['brand']) ? "selected" : "";  ?>><?php //echo $rsbrans['brandname']  ?></option>
+                    <?php //endforeach; ?>
                     </select>
-
+                    -->
                     <input type="hidden" id="product_id" name="product_id" class="form-control" value="<?php echo $product['product_id']; ?>" readonly style="width:40%;"/>
 
                     <label for="" >*ชื่อสินค้า</label>
@@ -140,14 +141,14 @@ $this->breadcrumbs = array(
 </div><!-- /.modal -->
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         //load_data();
         $('#Filedata').uploadifive({
             /*'buttonText': 'กรุณาเลือกรูปภาพ ...',*/
             'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
             buttonText: "อัพโหลดรูปภาพ",
             //'buttonImage': '<?//= Yii::app()->baseUrl ?>/images/image-up-icon.png',
-            //'swf': '<?php //echo Yii::app()->baseUrl           ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            //'swf': '<?php //echo Yii::app()->baseUrl            ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
             'uploadScript': "<?= Yii::app()->createUrl('backend/images/uploadify') ?>",
             'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
             //'width': '128',
@@ -156,7 +157,7 @@ $this->breadcrumbs = array(
             'multi': true, //เปิดใช้งานการอัพโหลดแบบหลายไฟล์ในครั้งเดียว
             'removeCompleted': true,
             'queueSizeLimit': 5, //อัพโหลดได้ครั้งละ 5 ไฟล์
-            'onUploadComplete': function (file, data, response) {
+            'onUploadComplete': function(file, data, response) {
                 load_data();
             }
         });
@@ -199,7 +200,7 @@ $this->breadcrumbs = array(
     function set_active(status, product_id) {
         var url = "<?php echo Yii::app()->createUrl('backend/product/set_active') ?>";
         var data = {status: status, product_id: product_id};
-        $.post(url, data, function (success) {
+        $.post(url, data, function(success) {
 
         });
     }
@@ -213,7 +214,7 @@ $this->breadcrumbs = array(
         $("#load_images").html("<center><i class=\"fa fa-spinner fa-spin\"></i></center>");
         var url = "<?php echo Yii::app()->createUrl('backend/images/loadimages') ?>";
         var data = {};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#load_images").html(datas);
         });
     }
@@ -223,7 +224,7 @@ $this->breadcrumbs = array(
         var url = "<?php echo Yii::app()->createUrl('backend/product/get_images') ?>";
         var productID = "<?php echo $product['product_id'] ?>";
         var data = {product_id: productID};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#load_images_product").html(datas);
             checkheight();
         });
@@ -244,7 +245,7 @@ $this->breadcrumbs = array(
         var product_detail = CKEDITOR.instances.product_detail.getData();
         var description = $("#description").val();
         var bastseller = $("input[name='bastseller']:checked").val();
-        if (category == '' || product_name == '' || product_price == '' || product_detail == '' || type == '' || brand == '' || description == "" || bastseller == "") {
+        if (category == '' || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "" || bastseller == "") {
             $("#f_error").show().delay(5000).fadeOut(500);
             return false;
         }
@@ -254,18 +255,17 @@ $this->breadcrumbs = array(
             product_name: product_name,
             category: category,
             type: type,
-            brand: brand,
+            brand: "",
             product_price: product_price,
             product_detail: product_detail,
             status: status,
             recommend: recommend,
             description: description,
             bastseller: bastseller,
-            product_price_pro: product_price_pro,
-
+            product_price_pro: product_price_pro
         };
 
-        $.post(url, data, function (success) {
+        $.post(url, data, function(success) {
             window.location = "<?php echo Yii::app()->createUrl('backend/product/detail_product/product_id') ?>" + "/" + product_id;
         });
     }
@@ -277,7 +277,7 @@ $this->breadcrumbs = array(
         var data = {id: id, product_id: productID};
 
         if (r == true) {
-            $.post(url, data, function (datas) {
+            $.post(url, data, function(datas) {
 //load_data();
                 loadimagesProduct();
             });
@@ -311,7 +311,7 @@ $this->breadcrumbs = array(
     function combotype(category) {
         var url = "<?php echo Yii::app()->createUrl('backend/typeproduct/combotype') ?>";
         var data = {category: category, type: ""};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             $("#combotype").html(datas);
         });
     }

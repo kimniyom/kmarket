@@ -10,7 +10,7 @@
     }
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $(".breadcrumb").hide();
 
         var width = $(window).width();
@@ -29,7 +29,7 @@
         }
     });
 
-    $(window).resize(function () {
+    $(window).resize(function() {
         var widths = $(window).width();
         if (widths > 768) {
             $("#banner_home").show();
@@ -66,9 +66,9 @@ if (isset($banner)) {
 <!-- End Banner -->
 
 <!-- Alam -->
-<?php 
+<?php
 $order_model = new Orders();
-if (!empty(Yii::app()->session['status'])): 
+if (!empty(Yii::app()->session['status'])):
     ?>
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -277,7 +277,7 @@ if (!empty(Yii::app()->session['status'])):
     <?php endforeach; ?>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.bxslider').bxSlider({
             auto: true,
             speed: 500

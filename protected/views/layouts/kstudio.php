@@ -1,13 +1,9 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>
-            <?php
-            $web = new Configweb_model();
-            //echo $web->get_webname();
-            ?>
+            <?php $web = new Configweb_model(); ?>
             <?php echo CHtml::encode($this->pageTitle); ?>
         </title>
         <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl ?>/images/48395865_2012629585487025_3364863562223714304_n.png">
@@ -22,10 +18,7 @@
 
         <meta property="og:caption" content="<?php echo Yii::app()->session['description']; ?>" />
         <meta property="og:description" content="<?php echo Yii::app()->session['description']; ?>" />
-        
-        <!--
-        <meta name="description" content="headphoneguru,headphoneguru,headphoneguru,เครื่องเสียง,หูฟัง,ลำโพง" />
-    -->
+
 
         <meta name="description" content="<?php echo Yii::app()->session['description']; ?>" />
 
@@ -38,7 +31,7 @@
             .menuheadphoneguru ul li a:hover{
                 color: #d00517;
             }
-            
+
             .menuheadphoneguru ul li a:focus{
                 color: #d00517;
             }
@@ -49,14 +42,14 @@
                 padding: 10px;
                 color: #000000;
             }
-            
+
             #lisubmenu a:hover{
                 padding: 10px;
                 color: #d00517;
-                
+
             }
             #ulmenu{
-                padding-top: 5px; 
+                padding-top: 5px;
                 z-index: 1000;
             }
 
@@ -153,21 +146,23 @@
         ?>
     </head>
     <body class="animsition animsition" style="background: #f2f2f2;">
-<script>
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-<div class="fb-customerchat"
-     page_id="748720665238823"
-     logged_in_greeting="How can we help you shop today?"
-     logged_out_greeting="How can we help you shop today?"
-     theme_color="#5c9165">
-</div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-customerchat"
+             page_id="748720665238823"
+             logged_in_greeting="How can we help you shop today?"
+             logged_out_greeting="How can we help you shop today?"
+             theme_color="#5c9165">
+        </div>
 
 
         <input value="<?php echo $logoMini ?>" id="logomini" type="hidden" />
@@ -246,11 +241,11 @@
                     </li>
                     <li>
                         <a href="<?= Yii::app()->createUrl('site/payment') ?>">แจ้งชำระเงิน / วิธีชำระเงิน</a>
-                     </li>
+                    </li>
                     <li>
                         <a href="<?= Yii::app()->createUrl('contactuser/create') ?>">CONTACT</a>
                     </li>
-                    
+
                 </ul>
             </nav>
 
@@ -322,12 +317,12 @@
                                     //$Types = ProductType::model()->findAll("category=:id", array(":id" => $rsCategory['id']));
                                     ?>
                                                             <div class="col-md-4 col-lg-4 col-sm-4">
-                                                                <label><?php //echo $rsCategory['categoryname']                             ?></label>
+                                                                <label><?php //echo $rsCategory['categoryname']                                  ?></label>
                                                                 <hr style="border-bottom: #cccccc solid 1px; margin-top: 0px; margin-bottom: 5px;"/>
                                     <?php
                                     //foreach ($Types as $type):
                                     ?>
-                                                                    <a href=""><?php //echo $type['type_name']                           ?></a>
+                                                                    <a href=""><?php //echo $type['type_name']                                ?></a>
                                     <?php //endforeach;    ?>
                                                             </div>
                                     <?php //endforeach;     ?>
@@ -363,7 +358,7 @@
                                     <li>
                                         <a href="<?= Yii::app()->createUrl('contactuser/create') ?>">Contact</a>
                                     </li>
-                                    
+
                                 </ul>
                             </nav>
                             <aside class="right">
@@ -397,7 +392,7 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php echo Yii::app()->createUrl('frontend/orders/cart')?>">
+                                    <a class="control" href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
                                         <span class="lnr lnr-cart"></span>
                                         <span class="badge" style=" background: #cc0033;"><?php echo $meQty; ?></span>
                                     </a>
@@ -538,22 +533,22 @@
                                 <ul class="list-unstyle">
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                         ?>/themes/kstudio/images/icons/creadit-card-01.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-01.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                         ?>/themes/kstudio/images/icons/creadit-card-02.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-02.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                         ?>/themes/kstudio/images/icons/creadit-card-03.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-03.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                         ?>/themes/kstudio/images/icons/creadit-card-04.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-04.png" alt="creadit card" />
                                         </a>
                                     </li>
                                 </ul>
@@ -724,7 +719,7 @@
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.video.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/global.js"></script>
         <!--
-        <script src="<?php //Yii::app()->baseUrl;         ?>/themes/kstudio/js/config-banner-home-1.js"></script>
+        <script src="<?php //Yii::app()->baseUrl;              ?>/themes/kstudio/js/config-banner-home-1.js"></script>
         -->
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-mm-menu.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-set-bg-blog-thumb.js"></script>
@@ -757,7 +752,7 @@
 
         <script tyle="text/javascript">
                                                     setScreen();
-                                                    $(window).scroll(function () {
+                                                    $(window).scroll(function() {
                                                         if ($(this).scrollTop()) {
                                                             $("#header-nav").addClass("nav navbar-fixed-top");
                                                         } else {
@@ -777,7 +772,7 @@
 
                                                     function getMenu() {
                                                         var url = "<?php echo Yii::app()->createUrl('site/getmenu') ?>";
-                                                        $.get(url, function (data) {
+                                                        $.get(url, function(data) {
                                                             $("#kkmenusidebar").html(data);
                                                         });
                                                     }
