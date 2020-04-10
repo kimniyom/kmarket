@@ -6,6 +6,7 @@
 class UserIdentity extends CUserIdentity {
 
     private $_id;
+    private $status;
 
     public function authenticate() {
         //$username = strtolower($this->username);
@@ -17,6 +18,7 @@ class UserIdentity extends CUserIdentity {
         } else {
             $this->_id = $user->id;
             $this->username = $user->username;
+            $this->status = $user->username;
             $this->errorCode = self::ERROR_NONE;
 
             //Update lastvisit
@@ -29,6 +31,10 @@ class UserIdentity extends CUserIdentity {
 
     public function getId() {
         return $this->_id;
+    }
+
+     public function getStatus() {
+        return $this->status;
     }
     
     public function getUsername(){

@@ -121,9 +121,16 @@ class SiteController extends Controller {
                     "ip" => Yii::app()->request->userHostAddress,
                     "status" => "TRUE"
                 );
+
                 Yii::app()->db->createCommand()
                         ->insert("loguserlogin", $columns);
+
+                $userLogin = Masuser::model()->findByAttributes(array('id'=> Yii::app()->user->id));
+                if($userLogin->status == "A"){
                 $this->redirect(array('backend/backend/index'));
+            } else {
+                $this->redirect(array('site/index'));
+            }
             } else {
                 $columns = array(
                     "log" => "!LoginFail | login",

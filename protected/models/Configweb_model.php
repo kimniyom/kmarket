@@ -130,7 +130,7 @@ class Configweb_model {
     }
 
     function GetFullLink($url) {
-        return "http://122.154.239.66" . $url;
+        return "https://www.jehmuaymarket.com" . $url;
     }
 
 }

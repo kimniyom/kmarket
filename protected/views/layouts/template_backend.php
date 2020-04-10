@@ -115,7 +115,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                                 <span class="glyphicon glyphicon-home"></span>
                                 <font id="font-th">หน้าหลัก</font></a>
                         </li>
-                        <li>
+                        <li style="display: none;">
                             <a href="<?php echo Yii::app()->createUrl('backend/page') ?>">
                                 <i class="fa fa-cog"></i>
                                 <font id="font-th">จัดการหน้าเว็บ</font></a>
@@ -260,20 +260,21 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <div class="panel panel-default side3" id="panel-head">
                     <div class="panel-heading" id="panel">
 
-                        <i class="fa fa-headphones"></i>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         สินค้า
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
                     <?php if ($privilege['product'] == '1') {?>
                         <div class="list-group" id="side3">
                             <a href="<?=Yii::app()->createUrl('backend/category/admin')?>"
-                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Category</a>
+                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> หมวด</a>
                             <a href="<?=Yii::app()->createUrl('backend/typeproduct/from_add_type')?>"
-                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Types</a>
-                            <a href="<?=Yii::app()->createUrl('backend/brand/admin')?>"
-                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Brands</a>
+                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> ประเภท</a>
+                               <!--
+                            <a href="<?php //Yii::app()->createUrl('backend/brand/admin')?>"
+                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Brands</a>-->
                             <a href="<?=Yii::app()->createUrl('backend/product/index')?>"
-                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Products</a>
+                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> สินค้า</a>
                         </div>
                     <?php } else {?>
                         <center>ไม่มีสิทธิ์</center>
@@ -311,7 +312,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                     <?php if ($privilege['article'] == '1') {?>
                         <div class="list-group" id="side4">
                             <a href="<?php echo Yii::app()->createUrl('backend/articlecategory/admin') ?>" class="list-group-item" onclick="setSideMenu('side4', 'side4')">
-                                <i class="fa fa-folder"></i> Category
+                                <i class="fa fa-folder"></i> หมวด
                             </a>
                             <a href="<?php echo Yii::app()->createUrl('backend/article/create') ?>" class="list-group-item" onclick="setSideMenu('side4', 'side4')">
                                 <i class="fa fa-plus"></i> สร้างบทความ / รีวิว
@@ -325,7 +326,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                     <?php }?>
                 </div>
 
-                <div class="panel panel-default side5" id="panel-head">
+                <div class="panel panel-default side5" id="panel-head" style="display: none;">
                     <div class="panel-heading" id="panel">
 
                         <i class="fa fa-users"></i>

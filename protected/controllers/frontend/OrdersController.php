@@ -2,7 +2,7 @@
 
 class OrdersController extends Controller {
 
-    public $layout = "kstudio";
+    public $layout = "mobile";
 
     public function actionAdd_cart() {
         $order_id = $_POST['order_id'];

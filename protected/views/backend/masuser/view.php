@@ -8,8 +8,6 @@ $this->breadcrumbs = array(
 );
 ?>
 
-
-
 <div class="row" style=" margin-top: 20px;">
     <div class="col-md-4 col-lg-4" style=" text-align: center;">
         <img src="<?php echo Yii::app()->baseUrl ?>/images/User-null.png"/>
@@ -44,6 +42,7 @@ $this->breadcrumbs = array(
         </div>
     </div>
     <div class="col-md-8 col-lg-8">
+        <?php if($model->status == "A") { ?>
         <h4><i class="fa fa-key"></i> สิทธิ์การใช้งาน</h4>
         <hr/>
         <ul class="list-group">
@@ -82,6 +81,9 @@ $this->breadcrumbs = array(
                 <li class="list-group-item"><input type="checkbox" onclick="setPrivilege('log', 'add')"/> log</li>
                 <?php } ?>
         </ul>
+    <?php } else { ?>
+        <h4>ประวัติการสั่งซื้อ</h4>
+    <?php } ?>
     </div>
 </div>
 

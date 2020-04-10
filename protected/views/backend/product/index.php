@@ -15,7 +15,7 @@ $ProductModel = new Product();
         foreach($category as $rs):
             $Types = ProductType::model()->findAll("category=:category",array(":category" => $rs['id']));
     ?>
-    <div class="col-md-4 col-lg-4">
+    <div class="col-md-12 col-lg-12">
     <h4>
         <a href="<?php echo Yii::app()->createUrl('backend/product/category',array("categoryID" => $rs['id']))?>"><?php echo $rs['categoryname'] ?>(<?php echo $ProductModel->countProductCategory($rs['id']) ?>)</a>
     </h4>
@@ -34,16 +34,3 @@ $ProductModel = new Product();
     <?php endforeach; ?>
 </div>
 
-<h4>Brands</h4>
-<div class="row">
-    <?php foreach($brand as $rsBrand): ?>
-        <div class="col-md-3 col-lg-3">
-            <a href="<?php echo Yii::app()->createUrl('backend/product/brand',array("brandID" => $rsBrand['id']))?>">
-                <button type="button" class="btn btn-primary" style="margin-bottom:10px;">
-                    <?php echo $rsBrand['brandname'] ?> (<?php echo $ProductModel->countProductBrand($rsBrand['id']) ?>)
-                </button>
-            </a>
-        </div>
-    <?php endforeach; ?>
-   
-</div>

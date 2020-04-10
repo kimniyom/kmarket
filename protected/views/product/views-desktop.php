@@ -25,7 +25,10 @@
         color: #9d1419;
     }
 
+
+
 </style>
+
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -83,6 +86,7 @@ $ConfigWeb = new Configweb_model();
                     <div class="row product-detail-wrapper" style="margin:0px;">
                         <div class="col-md-6">
                             <div class="woocommerce-product-gallery vertical" style="margin:0px;">
+
                                 <?php
                                 $i = 0;
                                 foreach ($images as $al): $i++;
@@ -94,7 +98,13 @@ $ConfigWeb = new Configweb_model();
                                     <?php } ?>
                                 <?php endforeach; ?>
                                 <div class="main-carousel">
+
                                     <div class="thumbnail-carousel">
+                                        <!--482x455
+                                        <div class="item">
+                                            <img class="img-responsive" src="<?php //echo Yii::app()->baseUrl                                                  ?>/themes/kstudio/images/product/01.jpg" alt="product thumbnail">
+                                        </div>
+                                        -->
                                         <?php
                                         $a = 0;
                                         foreach ($images as $al): $a++;

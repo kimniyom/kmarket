@@ -6,7 +6,7 @@ class ProductController extends Controller {
 
     public function actionIndex() {
         $data['category'] = Category::model()->findAll("active=:active", array(":active" => '1'));
-        $data['brand'] = Brand::model()->findAll();
+        //$data['brand'] = Brand::model()->findAll();
         $this->render('index', $data);
     }
 

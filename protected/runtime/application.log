@@ -4754,3 +4754,353 @@ Stack trace:
 REQUEST_URI=/kmarket/uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg
 HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/1
 ---
+2020/04/10 11:09:01 [warning] [application] Failed to set unsafe attribute "icons" of "Category".
+in E:\xampp\htdocs\kmarket\protected\controllers\backend\CategoryController.php (67)
+in E:\xampp\htdocs\kmarket\index.php (14)
+2020/04/10 13:59:08 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in E:\xampp\htdocs\kmarket\protected\controllers\backend\MasuserController.php:155
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\protected\controllers\backend\MasuserController.php(52): MasuserController->loadModel('28')
+#1 [internal function]: MasuserController->actionView('28')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(MasuserController), Array)
+#3 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MasuserController), Object(ReflectionMethod), Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\xampp\htdocs\kmarket\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\xampp\htdocs\kmarket\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\xampp\htdocs\kmarket\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\xampp\htdocs\kmarket\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\xampp\htdocs\kmarket\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\xampp\htdocs\kmarket\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('view')
+#13 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('backend/masuser...')
+#14 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#16 {main}
+REQUEST_URI=/kmarket/backend/masuser/view/id/28
+HTTP_REFERER=http://localhost/kmarket/backend/masuser/create
+---
+2020/04/10 14:00:29 [error] [php] Undefined index: status (E:\xampp\htdocs\kmarket\protected\views\backend\masuser\view.php:45)
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CController.php(869): MasuserController->renderFile()
+#1 E:\xampp\htdocs\kmarket\framework\web\CController.php(782): MasuserController->renderPartial()
+#2 E:\xampp\htdocs\kmarket\protected\controllers\backend\MasuserController.php(52): MasuserController->render()
+#3 unknown(0): MasuserController->actionView()
+#4 E:\xampp\htdocs\kmarket\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 E:\xampp\htdocs\kmarket\framework\web\filters\CFilterChain.php(133): MasuserController->runAction()
+#8 E:\xampp\htdocs\kmarket\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 E:\xampp\htdocs\kmarket\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 E:\xampp\htdocs\kmarket\framework\web\filters\CInlineFilter.php(58): MasuserController->filterAccessControl()
+#11 E:\xampp\htdocs\kmarket\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 E:\xampp\htdocs\kmarket\framework\web\CController.php(291): CFilterChain->run()
+#13 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): MasuserController->runActionWithFilters()
+#14 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): MasuserController->run()
+#15 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 E:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/backend/masuser/view/id/27
+in E:\xampp\htdocs\kmarket\protected\views\backend\masuser\view.php (45)
+in E:\xampp\htdocs\kmarket\protected\controllers\backend\MasuserController.php (52)
+in E:\xampp\htdocs\kmarket\index.php (14)
+2020/04/10 14:16:33 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:18:55 [error] [exception.CException] CException: Property "LoginForm.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#7 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#9 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:23:47 [error] [exception.CException] CException: Property "UserIdentity.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:173
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\protected\components\UserIdentity.php(20): CComponent->__set('status', 'U')
+#1 E:\xampp\htdocs\kmarket\protected\models\LoginForm.php(47): UserIdentity->authenticate()
+#2 E:\xampp\htdocs\kmarket\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#3 E:\xampp\htdocs\kmarket\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 E:\xampp\htdocs\kmarket\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#5 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(115): CModel->validate()
+#6 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#11 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#12 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:23:51 [error] [exception.CException] CException: Property "UserIdentity.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:173
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\protected\components\UserIdentity.php(20): CComponent->__set('status', 'U')
+#1 E:\xampp\htdocs\kmarket\protected\models\LoginForm.php(47): UserIdentity->authenticate()
+#2 E:\xampp\htdocs\kmarket\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#3 E:\xampp\htdocs\kmarket\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 E:\xampp\htdocs\kmarket\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#5 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(115): CModel->validate()
+#6 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#11 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#12 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:26:30 [error] [exception.CException] CException: Property "UserIdentity.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:173
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\protected\components\UserIdentity.php(20): CComponent->__set('status', 'U')
+#1 E:\xampp\htdocs\kmarket\protected\models\LoginForm.php(47): UserIdentity->authenticate()
+#2 E:\xampp\htdocs\kmarket\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#3 E:\xampp\htdocs\kmarket\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 E:\xampp\htdocs\kmarket\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#5 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(115): CModel->validate()
+#6 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#11 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#12 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#14 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:27:56 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:28:00 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:28:02 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:28:04 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:28:07 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:29:01 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:29:04 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:30:09 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:30:11 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:30:44 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:31:38 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(126): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:32:54 [error] [exception.CException] CException: Property "CWebUser.status" is not defined. in E:\xampp\htdocs\kmarket\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\auth\CWebUser.php(146): CComponent->__get('status')
+#1 E:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(116): CWebUser->__get('status')
+#2 E:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#3 E:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('login')
+#7 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#10 {main}
+REQUEST_URI=/kmarket/site/login
+HTTP_REFERER=http://localhost/kmarket/site/login
+---
+2020/04/10 14:40:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8184-AC14SEMKII1M-750x750-500x500.jpg". in E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8184-AC14SEMKII1M-750x750-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/2
+---
+2020/04/10 15:52:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8184-AC14SEMKII1M-750x750-500x500.jpg". in E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8184-AC14SEMKII1M-750x750-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/2
+---

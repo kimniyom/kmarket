@@ -8,7 +8,8 @@ $this->breadcrumbs=array(
 
 ?>
 
-<h4>สต๊อกสินค้า | <button type=" button" class="btn btn-warning"><i class="fa fa-plus"></i> เพิ่มสต๊อกสินค้า</button></h4>
+<h4>สต๊อกสินค้า | 
+	<a href="<?php echo Yii::app()->createUrl('backend/stock/create')?>"><button type=" button" class="btn btn-warning"><i class="fa fa-plus"></i> เพิ่มสต๊อกสินค้า</button></a></h4>
 
 <table class="table" id="stock-product">
 	<thead>
