@@ -43,7 +43,7 @@ class ImagesController extends Controller {
             //$targetFile = $targetFolder . '/' . $_FILES['Filedata']['name'];
             //$targetFile = $targetFolder . '/' . $Name;
             //Validate the file type
-            $fileTypes = array('jpg','JPG', 'jpeg', 'JPEG', 'png'); // File extensions
+            $fileTypes = array('jpg', 'JPG', 'jpeg', 'JPEG', 'png'); // File extensions
             $fileParts = pathinfo($_FILES['Filedata']['name']);
             //$GalleryShot = $_FILES['Filedata']['name'];
 
@@ -55,7 +55,7 @@ class ImagesController extends Controller {
               // Validate the file type
               $fileTypes = array('rar', 'pdf', 'zip'); // File extensions
               $fileParts = pathinfo($_FILES['Filedata']['name']);
-            */
+             */
 
             if (in_array($fileParts['extension'], $fileTypes)) {
 
@@ -79,11 +79,11 @@ class ImagesController extends Controller {
                 imagedestroy($images_orig);
                 imagedestroy($images_fin);
 
-                $this->ThumbnailDefault($Name,$size,$tempFile,200);
-                $this->Thumbnail($Name,$size,$tempFile,480);
-                $this->ThumbnailProduct($Name,$size,$tempFile,482);
-                $this->Thumbnail($Name,$size,$tempFile,600);
-                $this->Thumbnail($Name,$size,$tempFile,100);
+                $this->ThumbnailDefault($Name, $size, $tempFile, 200);
+                $this->Thumbnail($Name, $size, $tempFile, 480);
+                $this->ThumbnailProduct($Name, $size, $tempFile, 482);
+                $this->Thumbnail($Name, $size, $tempFile, 600);
+                $this->Thumbnail($Name, $size, $tempFile, 100);
                 //move_uploaded_file($tempFile, $targetFile); เก่า
                 echo '1';
             } else {
@@ -92,7 +92,7 @@ class ImagesController extends Controller {
         }
     }
 
-    public function ThumbnailDefault($Name,$size,$tempFile,$width){
+    public function ThumbnailDefault($Name, $size, $tempFile, $width) {
         //$new_images = "Thumbnails_".$_FILES["Filedata"]["name"];
         $height = round($width * $size[1] / $size[0]);
         $images_orig = imagecreatefromjpeg($tempFile);
@@ -100,59 +100,57 @@ class ImagesController extends Controller {
         $photoY = imagesy($images_orig);
         $images_fin = imagecreatetruecolor($width, $height);
         imagecopyresampled($images_fin, $images_orig, 0, 0, 0, 0, $width + 1, $height + 1, $photoX, $photoY);
-        imagejpeg($images_fin, "uploads/product/thumbnail/".$Name);
+        imagejpeg($images_fin, "uploads/product/thumbnail/" . $Name);
         imagedestroy($images_orig);
         imagedestroy($images_fin);
 
-        $image = new ImageResize("uploads/product/".$Name);
+        $image = new ImageResize("uploads/product/" . $Name);
         $image->quality_jpg = 100;
         $image->crop($width, $width, true, ImageResize::CROPCENTER);
-        $image->save("uploads/product/thumbnail/".$Name);
-}
-
-    public function Thumbnail($Name,$size,$tempFile,$width){
-
-                //$new_images = "Thumbnails_".$_FILES["Filedata"]["name"];
-                //$image = new ImageResize();
-                
-                $height = round($width * $size[1] / $size[0]);
-                $images_orig = imagecreatefromjpeg($tempFile);
-                $photoX = imagesx($images_orig);
-                $photoY = imagesy($images_orig);
-                $images_fin = imagecreatetruecolor($width, $height);
-                if($photoX == $photoY){
-                    imagecopyresampled($images_fin, $images_orig, 0, 0, 0, 0, $width + 1, $height + 1, $photoX, $photoY);
-                    imagejpeg($images_fin, "uploads/product/thumbnail/" . $width .'-'.$Name);
-                    imagedestroy($images_orig);
-                    imagedestroy($images_fin);
-                } else {
-                    $image = new ImageResize("uploads/product/".$Name);
-                    $image->quality_jpg = 100;
-                    $image->crop($width, $width, true, ImageResize::CROPCENTER);
-                    $image->save("uploads/product/thumbnail/".$width.'-'.$Name);
-                }
-                          
+        $image->save("uploads/product/thumbnail/" . $Name);
     }
 
-    public function ThumbnailProduct($Name,$size,$tempFile,$width){
+    public function Thumbnail($Name, $size, $tempFile, $width) {
 
-                $height = round($width * $size[1] / $size[0]);
-                $images_orig = imagecreatefromjpeg($tempFile);
-                $photoX = imagesx($images_orig);
-                $photoY = imagesy($images_orig);
-                $images_fin = imagecreatetruecolor($width, $height);
-                if($photoX == $photoY){
-                    imagecopyresampled($images_fin, $images_orig, 0, 0, 0, 0, $width + 1, $height + 1, $photoX, $photoY);
-                    imagejpeg($images_fin, "uploads/product/thumbnail/" . $width .'-'.$Name);
-                    imagedestroy($images_orig);
-                    imagedestroy($images_fin);
-                } else {
-                    $image = new ImageResize("uploads/product/".$Name);
-                    $image->quality_jpg = 100;
-                    $image->crop($width, '455', true, ImageResize::CROPCENTER);
-                    $image->save("uploads/product/thumbnail/".$width.'-'.$Name);
-                }
-                          
+        //$new_images = "Thumbnails_".$_FILES["Filedata"]["name"];
+        //$image = new ImageResize();
+
+        $height = round($width * $size[1] / $size[0]);
+        $images_orig = imagecreatefromjpeg($tempFile);
+        $photoX = imagesx($images_orig);
+        $photoY = imagesy($images_orig);
+        $images_fin = imagecreatetruecolor($width, $height);
+        if ($photoX == $photoY) {
+            imagecopyresampled($images_fin, $images_orig, 0, 0, 0, 0, $width + 1, $height + 1, $photoX, $photoY);
+            imagejpeg($images_fin, "uploads/product/thumbnail/" . $width . '-' . $Name);
+            imagedestroy($images_orig);
+            imagedestroy($images_fin);
+        } else {
+            $image = new ImageResize("uploads/product/" . $Name);
+            $image->quality_jpg = 100;
+            $image->crop($width, $width, true, ImageResize::CROPCENTER);
+            $image->save("uploads/product/thumbnail/" . $width . '-' . $Name);
+        }
+    }
+
+    public function ThumbnailProduct($Name, $size, $tempFile, $width) {
+
+        $height = round($width * $size[1] / $size[0]);
+        $images_orig = imagecreatefromjpeg($tempFile);
+        $photoX = imagesx($images_orig);
+        $photoY = imagesy($images_orig);
+        $images_fin = imagecreatetruecolor($width, $height);
+        if ($photoX == $photoY) {
+            imagecopyresampled($images_fin, $images_orig, 0, 0, 0, 0, $width + 1, $height + 1, $photoX, $photoY);
+            imagejpeg($images_fin, "uploads/product/thumbnail/" . $width . '-' . $Name);
+            imagedestroy($images_orig);
+            imagedestroy($images_fin);
+        } else {
+            $image = new ImageResize("uploads/product/" . $Name);
+            $image->quality_jpg = 100;
+            $image->crop($width, '455', true, ImageResize::CROPCENTER);
+            $image->save("uploads/product/thumbnail/" . $width . '-' . $Name);
+        }
     }
 
     public function actionLoadimages() {

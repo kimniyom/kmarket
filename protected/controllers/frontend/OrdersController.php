@@ -394,7 +394,7 @@ class OrdersController extends Controller {
         //$data['bank'] = $payment->Get_bank();
         $data['payment'] = $payment->Get_patment();
         //$data['howtoorder'] = $howtoorder->Get_howto();
-        
+
         $this->render("//orders/order", $data);
     }
 
@@ -458,7 +458,7 @@ class OrdersController extends Controller {
         $data['payment'] = $payment->Get_patment();
         $data['popup'] = Yii::app()->db->createCommand("select * from popupalert limit 1")->queryRow();
         //$data['howtoorder'] = $howtoorder->Get_howto();
-        $this->render('//orders/success',$data);
+        $this->render('//orders/success', $data);
     }
 
     public function actionOrderfail($status) {

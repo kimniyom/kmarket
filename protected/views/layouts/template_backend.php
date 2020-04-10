@@ -7,55 +7,55 @@
         <meta name="author" content="">
         <title>
             <?php
-$product_model = new Backend_product();
-$order_model = new Backend_orders();
-$web = new Configweb_model();
-echo $web->get_webname();
+            $product_model = new Backend_product();
+            $order_model = new Backend_orders();
+            $web = new Configweb_model();
+            echo $web->get_webname();
 
-$privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()->user->id));
-?>
+            $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()->user->id));
+            ?>
         </title>
         <style type="text/css">
             body{
                 overflow-x: hidden;
             }
         </style>
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/themes/backend/css/system.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/themes/backend/bootstrap/css/bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/backend/css/system.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/css/bootstrap.css" type="text/css" media="all" />
 
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/assets/gallery_img/dist/magnific-popup.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/media/css/dataTables.bootstrap.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/css/dataTables.tableTools.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/css/buttons.dataTables.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/gallery_img/dist/magnific-popup.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/media/css/dataTables.bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/css/dataTables.tableTools.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/css/buttons.dataTables.min.css" type="text/css" media="all" />
 
         <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/css/font-awesome-4.3.0/css/font-awesome.css"/>
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/themes/backend/css/simple-sidebar.css"/>
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/assets/perfect-scrollbar/css/perfect-scrollbar.css"/>
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/css/card-css/card-css.css"/>
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/backend/css/simple-sidebar.css"/>
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/perfect-scrollbar/css/perfect-scrollbar.css"/>
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/css/card-css/card-css.css"/>
         <!-- Bootstrap CheckBox
-        <link rel="stylesheet" href="<?php //echo Yii::app()->baseUrl;          ?>/css/bootstrap-checkbox/awesome-bootstrap-checkbox.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?php //echo Yii::app()->baseUrl;             ?>/css/bootstrap-checkbox/awesome-bootstrap-checkbox.css" type="text/css" media="all" />
         -->
-        <script src="<?=Yii::app()->baseUrl;?>/js/jquery.js" type="text/javascript"></script>
-        <script src="<?=Yii::app()->baseUrl;?>/themes/backend/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= Yii::app()->baseUrl; ?>/js/jquery.js" type="text/javascript"></script>
+        <script src="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Magnific Popup core CSS file -->
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/gallery_img/dist/jquery.magnific-popup.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/gallery_img/dist/jquery.magnific-popup.js"></script>
         <!-- Data table -->
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/media/js/jquery.dataTables.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/media/js/dataTables.bootstrap.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.tableTools.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/jszip.min.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/media/js/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.tableTools.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/js/jszip.min.js"></script>
         <!--
-        <script type="text/javascript" charset="utf-8"src="<?php //Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/pdfmake.min.js"></script>
-    -->
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/vfs_fonts.js"></script>
-        <script type="text/javascript" charset="utf-8"src="<?=Yii::app()->baseUrl;?>/assets/DataTables-1.10.7/extensions/TableTools/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?php //Yii::app()->baseUrl;   ?>/assets/DataTables-1.10.7/extensions/TableTools/js/pdfmake.min.js"></script>
+        -->
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/js/vfs_fonts.js"></script>
+        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/DataTables-1.10.7/extensions/TableTools/js/buttons.html5.min.js"></script>
 
         <!--
             SELECT2 Combobox
         -->
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/lib/select2-master/dist/css/select2.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="<?=Yii::app()->baseUrl;?>/lib/select2-bootstrap-theme-master/dist/select2-bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/lib/select2-master/dist/css/select2.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/lib/select2-bootstrap-theme-master/dist/select2-bootstrap.css" type="text/css" media="all" />
         <script src="<?php echo Yii::app()->baseUrl; ?>/lib/select2-master/dist/js/select2.js" type="text/javascript"></script>
 
 
@@ -64,16 +64,16 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
         <!--
         <script src="<?//= Yii::app()->baseUrl; ?>/assets/highcharts/themes/dark-unica.js"></script>
         -->
-        <script src="<?=Yii::app()->baseUrl;?>/assets/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="<?= Yii::app()->baseUrl; ?>/assets/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 
         <!-- Uploadify -->
         <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/assets/uploadifynews/uploadifive.css" type="text/css" media="all" />
         <script src="<?php echo Yii::app()->baseUrl; ?>/assets/uploadifynews/jquery.uploadifive.min.js" type="text/javascript"></script>
 
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
                 Ps.initialize(document.getElementById('sidebar-wrapper'));
-                $(document).bind("contextmenu", function (e) {
+                $(document).bind("contextmenu", function(e) {
                     return false;
                 });
             });
@@ -111,7 +111,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
+                            <a href="<?php echo Yii::app()->createUrl('backend/backend') ?>">
                                 <span class="glyphicon glyphicon-home"></span>
                                 <font id="font-th">หน้าหลัก</font></a>
                         </li>
@@ -126,13 +126,13 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                                 <font id="font-th">Report </font><b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <?php if ($privilege['report'] == '1') {?>
+                                <?php if ($privilege['report'] == '1') { ?>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/report/income') ?>"> - รายได้การขายหน้าเว็บ</a></li>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/report/dashboard') ?>"> - การขายสินค้าหน้าเว็บ</a></li>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/orders/index') ?>"> - ข้อมูลการสั่งซื้อ</a></li>
-                                <?php } else {?>
+                                <?php } else { ?>
                                     <li style=" text-align: center;">ไม่มีสิทธิ์</li>
-                                <?php }?>
+                                <?php } ?>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -141,24 +141,24 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                                 <font id="font-th">Log </font><b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <?php if ($privilege['log'] == '1') {?>
+                                <?php if ($privilege['log'] == '1') { ?>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/logproduct/index') ?>"> - product</a></li>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/loguserlogin/index') ?>"> - userlogin</a></li>
                                     <li><a href="<?php echo Yii::app()->createUrl('backend/logorders/index') ?>"> - orders</a></li>
-                                <?php } else {?>
+                                <?php } else { ?>
                                     <li style=" text-align: center;">ไม่มีสิทธิ์</li>
-                                <?php }?>
+                                <?php } ?>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <?php if (!Yii::app()->user->isGuest) {?>
-                                <a href="<?=Yii::app()->createUrl('site/logout/')?>">
+                            <?php if (!Yii::app()->user->isGuest) { ?>
+                                <a href="<?= Yii::app()->createUrl('site/logout/') ?>">
                                     <span class="glyphicon glyphicon-off"></span>
                                     <font id="font-th">ออกจากระบบ</font>
                                 </a>
-                            <?php }?>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -171,7 +171,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <!-- ###################### USER #################-->
                 <div class="panel panel-default" id="panel-head">
                     <div class=" panel-heading" id="panel">
-                        <img src="<?=Yii::app()->baseUrl;?>/images/use-icon.png" style="border-radius:20px; padding:2px; border:#FFF solid 2px;"> ผู้ใช้งาน
+                        <img src="<?= Yii::app()->baseUrl; ?>/images/use-icon.png" style="border-radius:20px; padding:2px; border:#FFF solid 2px;"> ผู้ใช้งาน
                     </div>
                     <div class="panel-body" border>
                         ชื่อ : <?php echo Yii::app()->user->name ?><br/>
@@ -187,38 +187,38 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <div class="panel panel-default side1" id="panel-head">
                     <div class="panel-heading" id="panel">
 
-                             <i class="fa fa-building"></i>
+                        <i class="fa fa-building"></i>
                         ข้อมูลร้านค้า
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['shop'] == '1') {?>
+                    <?php if ($privilege['shop'] == '1') { ?>
                         <div class="list-group" id="side1">
-                            <a href="<?=Yii::app()->createUrl('backend/contact')?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
+                            <a href="<?= Yii::app()->createUrl('backend/contact') ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
                                 <i class="fa fa-phone-square"></i> Contact
                             </a>
-                            <a href="<?=Yii::app()->createUrl('backend/about')?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
+                            <a href="<?= Yii::app()->createUrl('backend/about') ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
                                 <i class="fa fa-user-secret"></i> Abount
                             </a>
                             <!--
-                            <a href="<?php //Yii::app()->createUrl('backend/banner')  ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
+                            <a href="<?php //Yii::app()->createUrl('backend/banner')     ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
                                 <i class="fa fa-image"></i>  Banner
                             </a>
                             -->
-                            <a href="<?=Yii::app()->createUrl('backend/logo')?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
+                            <a href="<?= Yii::app()->createUrl('backend/logo') ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
                                 <i class="fa fa-smile-o"></i>  โลโก้
                             </a>
-                            <a href="<?=Yii::app()->createUrl('backend/web')?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
+                            <a href="<?= Yii::app()->createUrl('backend/web') ?>" class="list-group-item" onclick="setSideMenu('side1', 'side1')">
                                 <i class="fa fa-text-height"></i>  ชื่อเว็บ
                             </a>
                             <!--
-                            <a href="<?php //Yii::app()->createUrl('backend/howtoorder')                ?>" class="list-group-item">
+                            <a href="<?php //Yii::app()->createUrl('backend/howtoorder')                   ?>" class="list-group-item">
                                 <i class="fa fa-book"></i>  วิธีการสั่งซื้อ
                             </a>
                             -->
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <!-- List Menu Admin-->
@@ -229,7 +229,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                         ตั้งค่าระบบ
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['setting'] == '1') {?>
+                    <?php if ($privilege['setting'] == '1') { ?>
                         <div class="list-group" id="side2">
                             <a href="<?php echo Yii::app()->createUrl('backend/masuser/admin') ?>"
                                class="list-group-item" onclick="setSideMenu('side2', 'side2')"><i class="fa fa-group"></i> ผู้ใช้งาน</a>
@@ -240,19 +240,19 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                             <a href="<?php echo Yii::app()->createUrl('backend/payment/popup') ?>"
                                class="list-group-item" onclick="setSideMenu('side2', 'side2')"><span class="fa fa-info-circle"></span>  ช่องทางแจ้งการชำระเงิน</a>
                             <!--
-                            <a href="<?php //echo Yii::app()->createUrl('backend/user/userall')              ?>"
+                            <a href="<?php //echo Yii::app()->createUrl('backend/user/userall')                 ?>"
                                class="list-group-item"><i class="fa fa-group"></i>  ข้อมูลสมาชิก</a>
-                            <a href="<?php //echo Yii::app()->createUrl('backend/payment/view')              ?>"
+                            <a href="<?php //echo Yii::app()->createUrl('backend/payment/view')                 ?>"
                                class="list-group-item"><span class="fa fa-money"></span>  ช่องทางการชำระเงิน</a>
-                            <a href="<?php //echo Yii::app()->createUrl('backend/period')              ?>"
+                            <a href="<?php //echo Yii::app()->createUrl('backend/period')                 ?>"
                                class="list-group-item"><span class="fa fa-calendar"></span>  ระยะเวลาจองสินค้า</a>
-                            <a href="<?php //echo Yii::app()->createUrl('backend/transport')              ?>"
+                            <a href="<?php //echo Yii::app()->createUrl('backend/transport')                 ?>"
                                class="list-group-item"><span class="fa fa-truck"></span>  ช่องทางการจัดส่ง</a>
                             -->
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <!-- List รายชื่อ สินค้า -->
@@ -264,21 +264,21 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                         สินค้า
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['product'] == '1') {?>
+                    <?php if ($privilege['product'] == '1') { ?>
                         <div class="list-group" id="side3">
-                            <a href="<?=Yii::app()->createUrl('backend/category/admin')?>"
+                            <a href="<?= Yii::app()->createUrl('backend/category/admin') ?>"
                                class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> หมวด</a>
-                            <a href="<?=Yii::app()->createUrl('backend/typeproduct/from_add_type')?>"
+                            <a href="<?= Yii::app()->createUrl('backend/typeproduct/from_add_type') ?>"
                                class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> ประเภท</a>
-                               <!--
-                            <a href="<?php //Yii::app()->createUrl('backend/brand/admin')?>"
-                               class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Brands</a>-->
-                            <a href="<?=Yii::app()->createUrl('backend/product/index')?>"
+                            <!--
+                         <a href="<?php //Yii::app()->createUrl('backend/brand/admin')   ?>"
+                            class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> Brands</a>-->
+                            <a href="<?= Yii::app()->createUrl('backend/product/index') ?>"
                                class="list-group-item" onclick="setSideMenu('side3', 'side3')"><i class="fa fa-folder-open"></i> สินค้า</a>
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <!-- List Stock -->
@@ -289,16 +289,16 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                         Stock
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['product'] == '1') {?>
+                    <?php if ($privilege['product'] == '1') { ?>
                         <div class="list-group" id="side6">
-                            <a href="<?=Yii::app()->createUrl('backend/stock/index')?>"
+                            <a href="<?= Yii::app()->createUrl('backend/stock/index') ?>"
                                class="list-group-item" onclick="setSideMenu('side6', 'side6')"><i class="fa fa-folder-open"></i> สต๊อกสินค้า</a>
-                            <a href="<?=Yii::app()->createUrl('backend/stock/create')?>"
+                            <a href="<?= Yii::app()->createUrl('backend/stock/create') ?>"
                                class="list-group-item" onclick="setSideMenu('side6', 'side6')"><i class="fa fa-arrow-right"></i> นำสินค้าเข้าสต๊อก</a>
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <!-- List รายชื่อ สินค้า -->
@@ -309,7 +309,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                         บทความ / รีวิว
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['article'] == '1') {?>
+                    <?php if ($privilege['article'] == '1') { ?>
                         <div class="list-group" id="side4">
                             <a href="<?php echo Yii::app()->createUrl('backend/articlecategory/admin') ?>" class="list-group-item" onclick="setSideMenu('side4', 'side4')">
                                 <i class="fa fa-folder"></i> หมวด
@@ -321,9 +321,9 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                                 <i class="fa fa-newspaper-o"></i> บทความ / รีวิว ทั้งหมด
                             </a>
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <div class="panel panel-default side5" id="panel-head" style="display: none;">
@@ -333,7 +333,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                         ติดต่อจากลูกค้า
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
-                    <?php if ($privilege['contact'] == '1') {?>
+                    <?php if ($privilege['contact'] == '1') { ?>
                         <div class="list-group" id="side5">
                             <a href="<?php echo Yii::app()->createUrl('backend/contactuser/noread') ?>" class="list-group-item" onclick="setSideMenu('side5', 'side5')">
                                 <i class="fa fa-folder"></i> ยังไม่อ่าน
@@ -345,9 +345,9 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                                 <i class="fa fa-newspaper-o"></i> ทั้งหมด
                             </a>
                         </div>
-                    <?php } else {?>
+                    <?php } else { ?>
                         <center>ไม่มีสิทธิ์</center>
-                    <?php }?>
+                    <?php } ?>
                 </div>
 
                 <!-- รายการจัดส่งสินค้า -->
@@ -355,7 +355,7 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <!--
                 <div class="panel panel-default side5" id="panel-head">
                     <div class="panel-heading" id="panel">
-                        <img src="<?php //echo Yii::app()->baseUrl;                 ?>/images/front-icon.png" style="border-radius:20px; padding:2px; border:#FFF solid 2px; width: 32px;">
+                        <img src="<?php //echo Yii::app()->baseUrl;                    ?>/images/front-icon.png" style="border-radius:20px; padding:2px; border:#FFF solid 2px; width: 32px;">
                         รหัสส่งสินค้า
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                     </div>
@@ -363,10 +363,10 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
                 <?php
 //$notify = $product_model->get_notify_postcode();
 //foreach ($notify as $datas):
-?>
+                ?>
                             <a class="list-group-item">
-                                <span class="glyphicon glyphicon-user"></span> คุณ <?php //echo $datas['name'] . ' ' . $datas['lname'];                 ?><br/>
-                                <span class="glyphicon glyphicon-send"></span>  <?php //echo $datas['postcode']                 ?>
+                                <span class="glyphicon glyphicon-user"></span> คุณ <?php //echo $datas['name'] . ' ' . $datas['lname'];                    ?><br/>
+                                <span class="glyphicon glyphicon-send"></span>  <?php //echo $datas['postcode']                    ?>
                             </a>
                 <?php //endforeach; ?>
                     </div>
@@ -390,20 +390,20 @@ $privilege = Privilege::model()->find("user=:user", array(":user" => Yii::app()-
 
                     <?php if (isset($this->breadcrumbs)): ?>
                         <?php
-$this->widget('zii.widgets.CBreadcrumbs', array(
-	'homeLink' => CHtml::link('<i class=" glyphicon glyphicon-home"></i> หน้าหลัก', Yii::app()->createUrl('backend/backend')),
-	'links' => $this->breadcrumbs,
-));
-?><!-- breadcrumbs -->
-                    <?php endif?>
+                        $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'homeLink' => CHtml::link('<i class=" glyphicon glyphicon-home"></i> หน้าหลัก', Yii::app()->createUrl('backend/backend')),
+                            'links' => $this->breadcrumbs,
+                        ));
+                        ?><!-- breadcrumbs -->
+                    <?php endif ?>
                 </ol>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <?php
-echo $content;
-?>
+                            echo $content;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -421,7 +421,7 @@ echo $content;
 
         <!-- Menu Toggle Script -->
         <script>
-            $("#menu-toggle").click(function (e) {
+            $("#menu-toggle").click(function(e) {
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
@@ -429,7 +429,7 @@ echo $content;
             function set_navbar(id) {
                 var url = "<?php echo Yii::app()->createUrl('backend/backend/set_navbar') ?>"
                 var data = {id: id};
-                $.post(url, data, function (success) {
+                $.post(url, data, function(success) {
                     //window.location.reload();
                 });
             }
@@ -437,12 +437,12 @@ echo $content;
             function setSideMenu(group, menu) {
                 var url = "<?php echo Yii::app()->createUrl('backend/menubackend/setactive') ?>"
                 var data = {group: group, menu: menu};
-                $.post(url, data, function (success) {
+                $.post(url, data, function(success) {
                     //window.location.reload();
                 });
             }
 
-            $(function () {
+            $(function() {
                 var sideMenus = "<?php echo Yii::app()->session['groupmenu'] ?>";
                 var sideMenu;
                 if (sideMenus != "") {
@@ -456,19 +456,19 @@ echo $content;
                 $(menuClass + ' span.clickable').find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 
                 $(".dropdown").hover(
-                        function () {
+                        function() {
                             $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
                             $(this).toggleClass('open');
                             $('b', this).toggleClass("caret caret-up");
                         },
-                        function () {
+                        function() {
                             $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
                             $(this).toggleClass('open');
                             $('b', this).toggleClass("caret caret-up");
                         });
             });
 
-            $(document).on('click', '.panel-heading span.clickable', function (e) {
+            $(document).on('click', '.panel-heading span.clickable', function(e) {
                 var $this = $(this);
                 if (!$this.hasClass('panel-collapsed')) {
                     $this.parents('.panel').find('.list-group').slideDown();

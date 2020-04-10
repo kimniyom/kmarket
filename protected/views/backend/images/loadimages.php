@@ -98,7 +98,7 @@
 <script type="text/javascript">
     function GetvalImg() {
         var checkboxValues = [];
-        $('input[type="checkbox"]:checked').each(function (index, elem) {
+        $('input[type="checkbox"]:checked').each(function(index, elem) {
             checkboxValues.push($(elem).val());
         });
         //$('#debugOutput').html(checkboxValues.join(','));
@@ -107,7 +107,7 @@
         var url = "<?php echo Yii::app()->createUrl('backend/product/insertimages') ?>";
         var productID = $("#product_id").val();
         var data = {img: imgVal, product_id: productID};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             loadimagesProduct();
             $("#popupImages").modal("hide");
         });
@@ -115,13 +115,13 @@
 
     function DeleteImgProduct() {
         var checkboxValues = [];
-        $('input[type="checkbox"]:checked').each(function (index, elem) {
+        $('input[type="checkbox"]:checked').each(function(index, elem) {
             checkboxValues.push($(elem).val());
         });
         var imgVal = checkboxValues.join(',');
         var url = "<?php echo Yii::app()->createUrl('backend/product/deleteimages') ?>";
         var data = {img: imgVal};
-        $.post(url, data, function (datas) {
+        $.post(url, data, function(datas) {
             load_data();
             /*
              loadimagesProduct();

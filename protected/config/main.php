@@ -7,7 +7,7 @@
 //Yii::setPathOfAlias('mPrint', dirname(__FILE__).'/../extensions/mPrint');
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'headphoneguru',
+    'name' => 'kmarket',
     //'defaultController' => 'frontend/main',
     'defaultController' => 'backend/backend',
     // preloading 'log' component
@@ -88,6 +88,15 @@ return array(
             'connectionString' => 'sqlite:' . dirname(__FILE__) . '/../data/testdrive.db',
         ),
         // uncomment the following to use a MySQL database//Server dbname=cp916706_kmarket,'username' => 'cp916706_kmarket','password' => 'kimniyom00',
+        /*
+          'db' => array(
+          'connectionString' => 'mysql:host=localhost;dbname=cp916706_kmarket',
+          'emulatePrepare' => true,
+          'username' => 'cp916706_kmarket',
+          'password' => 'kimniyom00',
+          'charset' => 'utf8',
+          ),
+         */
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=kmarket_db',
             'emulatePrepare' => true,

@@ -22,8 +22,8 @@ $Config = new Configweb_model();
             'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
             buttonText: "อัพโหลดรูปภาพ",
             //'buttonImage': '<?//= Yii::app()->baseUrl ?>/images/image-up-icon.png',
-            //'swf': '<?php //echo Yii::app()->baseUrl            ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
-            'uploadScript': "<?= Yii::app()->createUrl('backend/images/uploadify') ?>",
+            //'swf': '<?php //echo Yii::app()->baseUrl                      ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            'uploadScript': "<?php echo Yii::app()->createUrl('backend/images/uploadify') ?>",
             'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
             //'width': '128',
             //'height': '132',
@@ -86,7 +86,7 @@ $ConfigWeb = new Configweb_model();
                     <select class="form-control" id="brand">
                         <option value="">== Select ==</option>
                     <?php //foreach ($brands as $rsbrans): ?>
-                            <option value="<?php //echo $rsbrans['id']    ?>"><?php //echo $rsbrans['brandname']    ?></option>
+                            <option value="<?php //echo $rsbrans['id']              ?>"><?php //echo $rsbrans['brandname']              ?></option>
                     <?php //endforeach; ?>
                     </select>
                     -->

@@ -2,7 +2,7 @@
     #del{ cursor:pointer;}
 </style>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         load_address();
         load_order();
     });
@@ -11,7 +11,7 @@
         var url = "<?php echo Yii::app()->createUrl('frontend/user/address') ?>";
         var pid = "<?php echo Yii::app()->session['pid'] ?>";
         var data = {pid: pid};
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#address_user").html(result);
         });
     }
@@ -24,7 +24,7 @@
             var url = "<?php echo Yii::app()->createUrl('frontend/orders/del_list_order') ?>";
             var data = {id: id};
 
-            $.post(url, data, function (success) {
+            $.post(url, data, function(success) {
                 load_order();
                 load_cart_list();
                 load_box_cart();
@@ -39,7 +39,7 @@
         var order_id = "<?php echo $order_id ?>";
         var data = {order_id: order_id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#order_list_load").html(result);
         });// endpost
     }
@@ -48,7 +48,7 @@
         var url = "<?php echo Yii::app()->createUrl('frontend/orders/set_active_transport') ?>";
         var data = {id: id, order_id: order_id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             load_order();
         });// endpost
     }
