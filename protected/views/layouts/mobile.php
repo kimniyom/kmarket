@@ -21,7 +21,6 @@
 
 
         <meta name="description" content="<?php echo Yii::app()->session['description']; ?>" />
-
         <meta name="keywords" content="ชื้อของออนไลน์,kmarket,k-market,เค,เคมาร์เก็ต,ช็อป" />
 
         <link rel="stylesheet" type="text/css" href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/css/main.css" />
@@ -112,7 +111,9 @@
                 color: #999999;
             }
 
-
+            .task-bar-bottom button{
+                border-radius: 0px; border: 1px solid #ffffff; border-top: 0px; height:  50px; padding-top: 12px;
+            }
         </style>
         <?php
         $productModel = new Product();
@@ -136,7 +137,7 @@
         if (isset($_SESSION['qty'])) {
             $meQty = 0;
             foreach ($_SESSION['qty'] as $meItem) {
-                $meQty = $meQty + $meItem;
+                $meQty = (int) $meQty + (int) $meItem;
             }
         } else {
             $meQty = 0;
@@ -148,7 +149,7 @@
         <?php
         $Categorys = Category::model()->findAll();
         ?>
-        <div class="home-1" id="page">
+        <div class="home-1" id="page" style=" padding-bottom: 50px;">
             <!-- Menu Nav -->
             <div id="kkmenusidebar"></div>
             <nav id="menu" style="background:#ffffff; color:red;">
@@ -218,25 +219,26 @@
                 <div class="container" id="menuBar">
                     <div class="row">
                         <div class="header-1-inner">
-                                                 <!--
-                                    hidden-lg hidden-md hidden-sm
-                                -->
-                                <div class="widget widget-control-header">
-                                    <a class="navbar-toggle js-offcanvas-has-events" type="button" href="#menu">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </a>
-                                </div>
+                            <!--
+               hidden-lg hidden-md hidden-sm
+                            -->
+                            <div class="widget widget-control-header">
+                                <a class="navbar-toggle js-offcanvas-has-events" type="button" href="#menu">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                            </div>
                             <a class="brand-logo animsition-link" href="<?php echo Yii::app()->createUrl('site/index') ?>">
                                 <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/uploads/logo/<?php echo $web->get_logoweb(); ?>" alt="" style="max-height: 52px;"/>
                             </a>
                             <nav class="menuheadphoneguru">
                                 <ul class="menu hidden-xs">
-                                    
+
                                 </ul>
                             </nav>
                             <aside class="right">
+                                <!--
                                 <div class="widget widget-control-header widget-search-header">
                                     <a class="control btn-open-search-form js-open-search-form-header" href="javascript:searchproduct()">
                                         <span class="lnr lnr-magnifier"></span>
@@ -255,12 +257,17 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
+                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')       ?>">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge" style=" background: #cc0033;"><?php echo $meQty; ?></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;       ?></span>
                                     </a>
                                 </div>
-
+                                -->
+                                <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
+                                    <a class="control" href="<?php echo Yii::app()->createUrl('site/setting') ?>">
+                                        <span class="lnr lnr-cog"></span>
+                                    </a>
+                                </div>
                             </aside>
                         </div>
                     </div>
@@ -279,8 +286,36 @@
                     </div>
                 </div>
             <?php endif ?>
-            <div style=" margin-top: 50px;">
-                <?php echo $content; ?>
+
+            <?php echo $content; ?>
+
+        </div>
+        <div class="task-bar-bottom" style=" position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
+            <div class="btn-group btn-group-justified" role="group" aria-label="..." style=" padding: 0px; margin: 0px; height: 50px;">
+                <div class="btn-group" role="group">
+                    <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
+                        <button type="button" class="btn btn-default">
+                            <span class="lnr lnr-home fa-2x" id="b-home"></span>
+                        </button></a>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" >
+                        <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
+                        <button type="button" class="btn btn-default">
+                            <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
+                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php echo $meQty; ?></span>
+                        </button></a>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="<?php echo Yii::app()->createUrl('site/setting') ?>">
+                        <button type="button" class="btn btn-default">
+                            <span class="lnr lnr-user fa-2x" id="b-account"></span>
+                        </button></a>
+                </div>
             </div>
         </div>
 
@@ -341,44 +376,44 @@
         <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/gallery_img/dist/jquery.magnific-popup.js"></script>
 
         <script tyle="text/javascript">
-                                                    setScreen();
-                                                    /*
-                                                     $(window).scroll(function() {
-                                                     if ($(this).scrollTop()) {
-                                                     $("#header-nav").addClass("nav navbar-fixed-top");
-                                                     } else {
-                                                     $("#header-nav").removeClass("nav navbar-fixed-top");
-                                                     }
-                                                     });
-                                                     */
-                                                    //getMenu();
-                                                    function setScreen() {
-                                                        var w = window.innerWidth;
-                                                        if (w >= 768) {
-                                                            $("#menuBar").css({"padding-bottom": "0px"});
-                                                        } else {
-                                                            $("#slider_1").hide();
-                                                            $("#slider_1").css({"height": "20px"});
-                                                        }
-                                                    }
+            setScreen();
+            /*
+             $(window).scroll(function() {
+             if ($(this).scrollTop()) {
+             $("#header-nav").addClass("nav navbar-fixed-top");
+             } else {
+             $("#header-nav").removeClass("nav navbar-fixed-top");
+             }
+             });
+             */
+            //getMenu();
+            function setScreen() {
+                var w = window.innerWidth;
+                if (w >= 768) {
+                    $("#menuBar").css({"padding-bottom": "0px"});
+                } else {
+                    $("#slider_1").hide();
+                    $("#slider_1").css({"height": "20px"});
+                }
+            }
 
-                                                    function getMenu() {
-                                                        var url = "<?php echo Yii::app()->createUrl('site/getmenu') ?>";
-                                                        $.get(url, function(data) {
-                                                            $("#kkmenusidebar").html(data);
-                                                        });
-                                                    }
+            function getMenu() {
+                var url = "<?php echo Yii::app()->createUrl('site/getmenu') ?>";
+                $.get(url, function(data) {
+                    $("#kkmenusidebar").html(data);
+                });
+            }
 
-                                                    function searchproduct() {
-                                                        var url = "<?php echo Yii::app()->createUrl('frontend/product/search') ?>";
-                                                        var search = $("#searchproduct").val();
-                                                        if (search == "") {
-                                                            $("#searchproduct").focus();
-                                                            return false;
-                                                        }
+            function searchproduct() {
+                var url = "<?php echo Yii::app()->createUrl('frontend/product/search') ?>";
+                var search = $("#searchproduct").val();
+                if (search == "") {
+                    $("#searchproduct").focus();
+                    return false;
+                }
 
-                                                        window.location = url + "/product/" + search;
-                                                    }
+                window.location = url + "/product/" + search;
+            }
         </script>
     </body>
 </html>

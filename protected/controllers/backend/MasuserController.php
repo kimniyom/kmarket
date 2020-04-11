@@ -30,7 +30,7 @@ class MasuserController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'admin', 'delete', 'privilege','updatepassword','savenewpassword'),
+                'actions' => array('create', 'update', 'admin', 'delete', 'privilege', 'updatepassword', 'savenewpassword'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -181,19 +181,19 @@ class MasuserController extends Controller {
                     ->update("privilege", $columns, "user='$user'");
         }
     }
-    
-    public function actionUpdatepassword(){
+
+    public function actionUpdatepassword() {
         $id = Yii::app()->user->id;
         $data['user'] = Masuser::model()->find("id=:id", array(":id" => $id));
         $this->render('updatepassword', $data);
     }
-    
-    public function actionSavenewpassword(){
+
+    public function actionSavenewpassword() {
         $password = Yii::app()->request->getPost('newpassword');
         $user = Yii::app()->user->id;
         $columns = array("password" => md5($password));
         Yii::app()->db->createCommand()
-                ->update("masuser", $columns,"id='$user'");
+                ->update("masuser", $columns, "id='$user'");
     }
 
 }

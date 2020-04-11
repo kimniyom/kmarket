@@ -75,7 +75,9 @@ $ConfigWeb = new Configweb_model();
 
 //$UrlShare = $ConfigWeb->GetFullLink(Yii::app()->request->url);
 ?>
+
 <div class="view-products" style=" padding-top: 10px; background: #FFFFFF;">
+    <br/><br/><br/>
     <div class="shop-detail-3 woocommerce" id="page">
         <section class="boxed-sm" style="margin:0px;">
             <div class="container" style=" background: #FFFFFF; padding: 0px;">
@@ -174,31 +176,31 @@ $ConfigWeb = new Configweb_model();
                                 <!-- I got these buttons from simplesharebuttons.com -->
 
                                 <div class="widget-social align-center">
-<!--
-                                    <ul>
-                                        <li style="text-align:center;">
-                                            <a href="http://www.facebook.com/sharer.php?u=<?php //echo $UrlShare ?>" target="_blank">
-                                                <img src="<?php //echo Yii::app()->baseUrl ?>/images/facebook.png" alt="Facebook" style="width:32px;"/>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-                                                <img src="<?php //echo Yii::app()->baseUrl ?>/images/pinterest.png" alt="Pinterest" style="width:32px;"/>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://twitter.com/share?url=<?php //echo $UrlShare ?>&amp;text=<?php //echo Yii::app()->session['fbtitle']; ?>;hashtags=<?php //echo $ConfigWeb->get_webname() ?>" target="_blank">
-                                                <img src="<?php //echo Yii::app()->baseUrl ?>/images/twitter.png" alt="Twitter" style="width:32px;"/>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://lineit.line.me/share/ui?url=<?php //echo $UrlShare ?>" target="_blank">
-                                                <img src="<?php //echo Yii::app()->baseUrl ?>/images/line-icon.png" alt="Line" style="width:32px;"/>
-                                            </a>
-                                        </li>
+                                    <!--
+                                                                        <ul>
+                                                                            <li style="text-align:center;">
+                                                                                <a href="http://www.facebook.com/sharer.php?u=<?php //echo $UrlShare    ?>" target="_blank">
+                                                                                    <img src="<?php //echo Yii::app()->baseUrl    ?>/images/facebook.png" alt="Facebook" style="width:32px;"/>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                                                                                    <img src="<?php //echo Yii::app()->baseUrl    ?>/images/pinterest.png" alt="Pinterest" style="width:32px;"/>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="https://twitter.com/share?url=<?php //echo $UrlShare    ?>&amp;text=<?php //echo Yii::app()->session['fbtitle'];    ?>;hashtags=<?php //echo $ConfigWeb->get_webname()    ?>" target="_blank">
+                                                                                    <img src="<?php //echo Yii::app()->baseUrl    ?>/images/twitter.png" alt="Twitter" style="width:32px;"/>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="https://lineit.line.me/share/ui?url=<?php //echo $UrlShare    ?>" target="_blank">
+                                                                                    <img src="<?php //echo Yii::app()->baseUrl    ?>/images/line-icon.png" alt="Line" style="width:32px;"/>
+                                                                                </a>
+                                                                            </li>
 
-                                    </ul>
--->
+                                                                        </ul>
+                                    -->
                                     <div style=" clear: both; font-size:18px;">
                                         <br/>
                                         <i class="fa fa-eye"></i> คนเข้าดูสินค้า : <?php echo $product['countread'] ?> ครั้ง

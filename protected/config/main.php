@@ -7,7 +7,7 @@
 //Yii::setPathOfAlias('mPrint', dirname(__FILE__).'/../extensions/mPrint');
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'kmarket',
+    'name' => 'Kmarket',
     //'defaultController' => 'frontend/main',
     'defaultController' => 'backend/backend',
     // preloading 'log' component

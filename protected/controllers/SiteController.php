@@ -125,12 +125,12 @@ class SiteController extends Controller {
                 Yii::app()->db->createCommand()
                         ->insert("loguserlogin", $columns);
 
-                $userLogin = Masuser::model()->findByAttributes(array('id'=> Yii::app()->user->id));
-                if($userLogin->status == "A"){
-                $this->redirect(array('backend/backend/index'));
-            } else {
-                $this->redirect(array('site/index'));
-            }
+                $userLogin = Masuser::model()->findByAttributes(array('id' => Yii::app()->user->id));
+                if ($userLogin->status == "A") {
+                    $this->redirect(array('backend/backend/index'));
+                } else {
+                    $this->redirect(array('site/index'));
+                }
             } else {
                 $columns = array(
                     "log" => "!LoginFail | login",
@@ -194,6 +194,76 @@ class SiteController extends Controller {
         $data['payment'] = $payment->Get_patment();
         $data['popup'] = Yii::app()->db->createCommand("select * from popupalert limit 1")->queryRow();
         $this->render("payment", $data);
+    }
+
+    public function actionSetting() {
+        $id = Yii::app()->user->id;
+        if ($id) {
+            $data['profile'] = $this->getProfile($id);
+            $this->render("setting", $data);
+        } else {
+            $this->actionLogin();
+        }
+    }
+
+    function getProfile($id) {
+        $rs = Yii::app()->db->createCommand()
+                ->select('*')
+                ->from('masuser')
+                ->where("id=:id", array(":id" => $id))
+                ->queryRow();
+
+        return $rs;
+    }
+
+    public function actionRegister() {
+        $model = new Masuser;
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if (isset($_POST['Masuser'])) {
+            $model->attributes = $_POST['Masuser'];
+            $model->password = md5($model->password);
+            if ($model->save()) {
+                if ($model->id) {
+                    $columns = array("user" => $model->id);
+                    Yii::app()->db->createCommand()
+                            ->insert("privilege", $columns);
+                }
+                //$this->redirect(array('view', 'id' => $model->id));
+                $this->actionLogin();
+            }
+        }
+
+        $this->render('register', array(
+            'model' => $model,
+        ));
+    }
+
+    /**
+     * Returns the data model based on the primary key given in the GET variable.
+     * If the data model is not found, an HTTP exception will be raised.
+     * @param integer $id the ID of the model to be loaded
+     * @return Masuser the loaded model
+     * @throws CHttpException
+     */
+    public function loadModel($id) {
+        $model = Masuser::model()->findByPk($id);
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
+        return $model;
+    }
+
+    /**
+     * Performs the AJAX validation.
+     * @param Masuser $model the model to be validated
+     */
+    protected function performAjaxValidation($model) {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'masuser-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
     }
 
 }

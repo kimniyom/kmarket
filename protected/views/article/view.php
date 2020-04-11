@@ -32,7 +32,7 @@
 </style>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var style = {"height": "auto"};
         $("#box-article img").addClass("img-responsive");
         $("#box-article img").css(style);
@@ -52,7 +52,7 @@
                 // The "opener" function should return the element from which popup will be zoomed in
                 // and to which popup will be scaled down
                 // By defailt it looks for an image tag:
-                opener: function (openerElement) {
+                opener: function(openerElement) {
                     // openerElement is the element on which popup was initialized, in this case its <a> tag
                     // you don't need to add "opener" option if this code matches your needs, it's defailt one.
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
@@ -73,7 +73,7 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 ?>
 
 <script>
-    (function (d, s, id) {
+    (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id))
             return;
@@ -85,7 +85,7 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 
 </script>
 
-<br/>
+<br/><br/><br/>
 
 <section class="boxed-sm">
     <div class="container">
@@ -120,8 +120,8 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
                                             <img src="<?php echo Yii::app()->baseUrl ?>/images/facebook.png" alt="Facebook" />
                                         </a>
                                     </li>
-                                    <li>    
-                                    <!-- Google+ -->
+                                    <li>
+                                        <!-- Google+ -->
                                         <a href="https://plus.google.com/share?url=<?php echo $UrlShare ?>" target="_blank">
                                             <img src="<?php echo Yii::app()->baseUrl ?>/images/google.png" alt="Google" />
                                         </a>
@@ -196,12 +196,12 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
                             <?php foreach ($near as $nears): ?>
                                 <div class="col-md-4 col-lg-4 col-sm-4">
                                     <div style="background:#FFFFFF; padding-bottom:20px;">
-                                    <img class="img img-responsive" src="<?= Yii::app()->baseUrl; ?>/uploads/article/600-<?php echo $nears['images'] ?>" alt="feature-image"><br/>
-                                    <a href="<?php echo Yii::app()->createUrl('frontend/article/views', array('id' => $nears['id'])) ?>">
-                                        <div style="height:100px; padding:10px; overflow:hidden;">
-                                            <?php echo $config->thaidate(substr($nears['create_date'], 0, 10)) ?><br/>
-                                            <?php echo $nears['title'] ?>
-                                        </div></a>
+                                        <img class="img img-responsive" src="<?= Yii::app()->baseUrl; ?>/uploads/article/600-<?php echo $nears['images'] ?>" alt="feature-image"><br/>
+                                        <a href="<?php echo Yii::app()->createUrl('frontend/article/views', array('id' => $nears['id'])) ?>">
+                                            <div style="height:100px; padding:10px; overflow:hidden;">
+                                                <?php echo $config->thaidate(substr($nears['create_date'], 0, 10)) ?><br/>
+                                                <?php echo $nears['title'] ?>
+                                            </div></a>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -295,7 +295,7 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 </section>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         var screen = $(".widget-blog-post").width();
         var w = (screen - 100);
         $(".list-blog .desc").css({'width': w, 'height': '90px', 'overflow': 'hidden'});
@@ -307,7 +307,7 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
         var r = confirm("คุณแน่ใจหรือไม่ ...?");
         var data = {id: id};
         if (r == true) {
-            $.post(url, data, function (success) {
+            $.post(url, data, function(success) {
                 window.location = "<?php echo Yii::app()->createUrl('backend/article') ?>";
             });
         }

@@ -3,42 +3,35 @@
 $this->breadcrumbs = array(
     "รายการสินค้า",
 );
+$product_model = new Product();
 ?>
-<div class="container" style=" padding-bottom: 20px; padding-top: 20px;">
+<div class="container" style=" padding-bottom: 20px; padding-top: 20px; font-family: th;">
     <form action="<?php echo Yii::app()->createUrl('frontend/orders/updateorder') ?>" method="post" name="formupdate" role="form" id="formupdate" onsubmit="JavaScript:return updateSubmit();">
         <div class="jumbotron">
-            <h3>ข้อมูลผู้สั่งซื้อ<span class=" text-danger">*</span></h3>
+            <h3 class="font-supermarket">ข้อมูลผู้สั่งซื้อ<span class=" text-danger">*</span></h3>
             <hr/>
             <div class="form-group">
                 <label for="exampleInputEmail1">ชื่อ-นามสกุล <span class=" text-danger">*</span></label>
-                <input type="text" class="form-control" id="order_fullname" placeholder="ใส่ชื่อนามสกุล" style="width: 300px;" name="order_fullname">
+                <input type="text" class="form-control" id="order_fullname" placeholder="ใส่ชื่อนามสกุล" name="order_fullname">
             </div>
             <div class="form-group">
                 <label for="exampleInputAddress">ที่อยู่ <span class=" text-danger">*</span></label>
-                <textarea class="form-control" rows="6" style="width: 500px;" name="order_address" id="order_address"></textarea>
+                <textarea class="form-control" rows="6"  name="order_address" id="order_address"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone">เบอร์โทรศัพท์ <span class=" text-danger">*</span></label>
-                <input type="text" class="form-control" id="order_phone" placeholder="ใส่เบอร์โทรศัพท์ที่สามารถติดต่อได้" style="width: 300px;" name="order_phone" maxlength="10">
+                <input type="text" class="form-control" id="order_phone" placeholder="ใส่เบอร์โทรศัพท์ที่สามารถติดต่อได้" name="order_phone" maxlength="10"  onKeyUp="if (this.value * 1 != this.value)
+                            this.value = '';">
             </div>
             <div class="form-group">
-                <label for="exampleInputPhone">EMAIL <span class=" text-danger">*</span></label>
-                <input type="email" class="form-control" id="order_email" placeholder="ใส่ Email ที่สามารถติดต่อได้" style="width: 500px;" name="order_email">
+                <label for="exampleInputPhone">อีเมล์ <span class=" text-danger">*</span></label>
+                <input type="email" class="form-control" id="order_email" placeholder="ใส่ Email ที่สามารถติดต่อได้"  name="order_email">
             </div>
         </div>
         <div class="jumbotron">
-            <h3>ข้อมูลการสั่งซื้อ</h3>
-            <hr/>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>รหัสสินค้า</th>
-                        <th>ชื่อสินค้า</th>
-                        <th style=" text-align: center;">จำนวน</th>
-                        <th style=" text-align: right;">ราคาต่อหน่วย</th>
-                        <th style=" text-align: right;">จำนวนเงิน</th>
-                    </tr>
-                </thead>
+            <h3 class="font-supermarket">ข้อมูลการสั่งซื้อ</h3>
+
+            <table class="table">
                 <tbody>
                     <?php
                     $total_price = 0;
@@ -51,33 +44,44 @@ $this->breadcrumbs = array(
                             $product_price = $meResult['product_price'];
                         }
                         $total_price = $total_price + ($product_price * $_SESSION['qty'][$key]);
+
+                        $img_title = $product_model->firstpictures($meResult['product_id']);
+                        if (!empty($img_title)) {
+                            $img = "uploads/product/thumbnail/100-" . $img_title;
+                        } else {
+                            $img = "images/No_image_available.jpg";
+                        }
                         ?>
                         <tr>
-                            <td><?php echo $meResult['product_id']; ?></td>
-                            <td><?php echo $meResult['product_name']; ?></td>
-                            <td style=" text-align: center;">
-                                <?php echo $_SESSION['qty'][$key]; ?>
+                            <td style=" text-align: center; width: 100px;">
+                                <img src="<?= Yii::app()->baseUrl ?>/<?= $img; ?>" class="img-responsive" alt="Responsive image" id="img-cart"/>
+                            </td>
+                            <td>
+                                <font class="font-supermarket" style=" font-size: 16px;"><?php echo $meResult['product_name']; ?></font><br/>
+                                <font class="font-supermarket" style=" font-size: 18px; color: #cc3300; font-weight: bold;"><?php echo number_format($product_price, 2); ?> บาท</font><br/>
+                                <font>จำำนวน <?php echo $_SESSION['qty'][$key]; ?></font>
                                 <input type="hidden" name="qty[]" value="<?php echo $_SESSION['qty'][$key]; ?>" />
                                 <input type="hidden" name="product_id[]" value="<?php echo $meResult['product_id']; ?>" />
                                 <input  type="hidden" name="product_price[]" value="<?php echo $product_price; ?>" />
                             </td>
-                            <td style=" text-align: right;"><?php echo number_format($product_price, 2); ?></td>
-                            <td style=" text-align: right; font-weight: bold;"><?php echo number_format(($product_price * $_SESSION['qty'][$key]), 2); ?></td>
                         </tr>
                         <?php
                         $num++;
                     }
                     ?>
                     <tr>
-                        <td colspan="8" style="text-align: right;">
-                            <div style=" font-weight: bold; font-size: 20px;">จำนวนเงินรวมทั้งหมด <?php echo number_format($total_price, 2); ?> บาท</div>
+                        <td colspan="2" style="text-align: right;">
+                            <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวม <font style="color: #cc3300;"><?php echo number_format($total_price, 2); ?></font> บาท</div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="8" style="text-align: right;">
+                        <td colspan="2">
                             <input type="hidden" name="formid" value="<?php echo $_SESSION['formid']; ?>"/>
-                            <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>" type="button" class="btn btn-danger">ย้อนกลับ</a>
-                            <button type="submit" class="btn btn-primary">บันทึกการสั่งซื้อสินค้า</button>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <button type="submit" class="btn btn-warning btn-block">บันทึกการสั่งซื้อสินค้า</button>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -85,9 +89,9 @@ $this->breadcrumbs = array(
         </div>
     </form>
     <div class="jumbotron">
-        <h3>ช่องทางการชำระเงิน</h3>
+        <h3 class="font-supermarket">ช่องทางการชำระเงิน</h3>
         <hr/>
-        <h4>โอนเงินผ่านบัญชีธนาคาร</h4><br/>
+        <h4 class="font-supermarket">โอนเงินผ่านบัญชีธนาคาร</h4><br/>
         <div class="row">
             <?php
             $i = 1;

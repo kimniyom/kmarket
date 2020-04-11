@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="col-md-3 col-lg-4"></div>
                 <div class="col-md-6 col-lg-4">
-                    <div style=" text-align: left; margin-top: 10%;">
+                    <div style=" text-align: center; margin-top: 10%; margin-bottom: 20px;">
                         <img  src="<?php echo Yii::app()->baseUrl; ?>/uploads/logo/<?php echo $web->get_logoweb(); ?>" alt="" style="max-height: 52px;"/>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style=" border:none;">
                         <?php
                         /* @var $this SiteController */
                         /* @var $model LoginForm */
@@ -38,9 +38,7 @@
                         );
                         ?>
 
-                        <div class="panel-heading" style=" background: #ffffff;">
-                            <p style=" text-align: center;">Please fill out the following form with your login credentials:</p>
-                        </div>
+
                         <div class="panel-body">
                             <div class="form">
                                 <?php
@@ -53,7 +51,7 @@
                                 ));
                                 ?>
 
-                                <p class="note">Fields with <span class="required">*</span> are required.</p>
+                                <p class="note" style=" text-align: center;">Fields with <span class="required">*</span> are required.</p>
 
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
@@ -74,12 +72,15 @@
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
                                         <hr/>
-                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-default btn-block btn-lg')); ?>
+                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-warning btn-block btn-lg')); ?>
                                     </div>
                                 </div>
                                 <?php $this->endWidget(); ?>
                             </div><!-- form -->
                         </div>
+                    </div>
+                    <div style=" text-align: center;">
+                        <a href="<?php echo Yii::app()->createUrl('site/register') ?>">ลงทะเบียน</a>
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-4"></div>

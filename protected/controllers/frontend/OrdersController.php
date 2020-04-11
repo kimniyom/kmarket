@@ -361,41 +361,46 @@ class OrdersController extends Controller {
     }
 
     public function actionOrder() {
-        error_reporting(E_ALL ^ E_NOTICE);
-        session_start();
+        $id = Yii::app()->user->id;
+        if ($id) {
+            error_reporting(E_ALL ^ E_NOTICE);
+            session_start();
 
-        $action = isset($_GET['a']) ? $_GET['a'] : "";
-        $itemCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
-        $_SESSION['formid'] = sha1('kimniyom' . microtime());
-        if (isset($_SESSION['qty'])) {
-            $meQty = 0;
-            foreach ($_SESSION['qty'] as $meItem) {
-                $meQty = $meQty + $meItem;
+            $action = isset($_GET['a']) ? $_GET['a'] : "";
+            $itemCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+            $_SESSION['formid'] = sha1('kimniyom' . microtime());
+            if (isset($_SESSION['qty'])) {
+                $meQty = 0;
+                foreach ($_SESSION['qty'] as $meItem) {
+                    $meQty = $meQty + $meItem;
+                }
+            } else {
+                $meQty = 0;
             }
-        } else {
-            $meQty = 0;
-        }
-        if (isset($_SESSION['cart']) && $itemCount > 0) {
-            $itemIds = array();
-            foreach ($_SESSION['cart'] as $itemId) {
-                $itemIds[] = "'" . $itemId . "'";
+            if (isset($_SESSION['cart']) && $itemCount > 0) {
+                $itemIds = array();
+                foreach ($_SESSION['cart'] as $itemId) {
+                    $itemIds[] = "'" . $itemId . "'";
+                }
+                $inputItems = implode(",", $itemIds);
+                $meSql = "SELECT * FROM product WHERE product_id in ($inputItems)";
+                $meQuery = Yii::app()->db->createCommand($meSql)->queryAll();
+                $data['meCount'] = count($meQuery);
+                $data['orders'] = $meQuery;
+            } else {
+                $data['meCount'] = 0;
             }
-            $inputItems = implode(",", $itemIds);
-            $meSql = "SELECT * FROM product WHERE product_id in ($inputItems)";
-            $meQuery = Yii::app()->db->createCommand($meSql)->queryAll();
-            $data['meCount'] = count($meQuery);
-            $data['orders'] = $meQuery;
+
+            $howtoorder = new Howtoorder();
+            $payment = new Payment();
+            //$data['bank'] = $payment->Get_bank();
+            $data['payment'] = $payment->Get_patment();
+            //$data['howtoorder'] = $howtoorder->Get_howto();
+
+            $this->render("//orders/order", $data);
         } else {
-            $data['meCount'] = 0;
+            $this->redirect(array("site/login"));
         }
-
-        $howtoorder = new Howtoorder();
-        $payment = new Payment();
-        //$data['bank'] = $payment->Get_bank();
-        $data['payment'] = $payment->Get_patment();
-        //$data['howtoorder'] = $howtoorder->Get_howto();
-
-        $this->render("//orders/order", $data);
     }
 
     public function actionUpdateorder() {

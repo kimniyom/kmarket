@@ -6,7 +6,7 @@ $lastProduct = $productModel->_get_last_product();
 //$bestProduct = $productModel->_get_best_product();
 //$saleProduct = $productModel->_get_sale_products();
 ?>
-<br/><br/>
+<br/><br/><br/>
 <section class="boxed-sm">
     <div class="container">
         <!--
@@ -103,11 +103,9 @@ $lastProduct = $productModel->_get_last_product();
 </section>
 <br/>
 
-
-
-
 <script type="text/javascript">
     $(document).ready(function() {
+        $("#b-home").addClass("text-danger");
         var size = window.innerWidth;
         if (size >= 1024) {
             $(".box-category-item").css({"margin-top": "30px"});

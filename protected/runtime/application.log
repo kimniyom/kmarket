@@ -5159,3 +5159,104 @@ Stack trace:
 REQUEST_URI=/kmarket/backend/stock/index
 HTTP_REFERER=http://localhost/kmarket/backend/stock/create
 ---
+2020/04/11 15:21:45 [error] [exception.Error] Error: Call to a member function firstpictures() on null in C:\xampp\htdocs\kmarket\protected\views\orders\order.php:47
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): CController->renderPartial('//orders/order', Array, true)
+#4 C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php(398): CController->render('//orders/order', Array)
+#5 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): OrdersController->actionOrder()
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('order')
+#10 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/orders...')
+#11 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#13 {main}
+REQUEST_URI=/kmarket/frontend/orders/order
+---
+2020/04/11 21:14:41 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\views\layouts\mobile.php:140)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): OrdersController->renderFile()
+#1 C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php(311): OrdersController->render()
+#2 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): OrdersController->actionCart()
+#3 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): OrdersController->runAction()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): OrdersController->runActionWithFilters()
+#6 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): OrdersController->run()
+#7 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/frontend/orders/cart
+in C:\xampp\htdocs\kmarket\protected\views\layouts\mobile.php (140)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php (311)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/11 21:52:18 [error] [exception.ParseError] ParseError: syntax error, unexpected ':', expecting ',' or ';' in C:\xampp\htdocs\kmarket\protected\views\site\setting.php:5
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(782): CController->renderPartial('setting', Array, true)
+#3 C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(202): CController->render('setting', Array)
+#4 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionSetting()
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('setting')
+#9 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/setting')
+#10 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#12 {main}
+REQUEST_URI=/kmarket/site/setting
+HTTP_REFERER=http://localhost/kmarket/frontend/orders/cart
+---
+2020/04/11 22:19:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/categor...')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/uploads/category/thumbnail/8639-IMG_6398-500x500-500x500.jpg
+HTTP_REFERER=http://localhost/kmarket/frontend/product/category/id/1
+---
+2020/04/12 00:44:20 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:784)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionSetting()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): SiteController->runAction()
+#3 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): SiteController->run()
+#5 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/site/setting
+in C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php (209)
+in C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php (201)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/12 00:46:15 [error] [php] Undefined offset: 0 (C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:1490)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php(201): SiteController->getProfile()
+#1 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): SiteController->actionSetting()
+#2 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/site/setting
+in C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php (209)
+in C:\xampp\htdocs\kmarket\protected\controllers\SiteController.php (201)
+in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/12 02:44:26 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "view". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('view')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('view')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/view/id/30')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site/view/id/30
+HTTP_REFERER=http://localhost/kmarket/site/register
+---

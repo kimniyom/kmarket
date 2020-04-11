@@ -317,12 +317,12 @@
                                     //$Types = ProductType::model()->findAll("category=:id", array(":id" => $rsCategory['id']));
                                     ?>
                                                             <div class="col-md-4 col-lg-4 col-sm-4">
-                                                                <label><?php //echo $rsCategory['categoryname']                                  ?></label>
+                                                                <label><?php //echo $rsCategory['categoryname']                                   ?></label>
                                                                 <hr style="border-bottom: #cccccc solid 1px; margin-top: 0px; margin-bottom: 5px;"/>
                                     <?php
                                     //foreach ($Types as $type):
                                     ?>
-                                                                    <a href=""><?php //echo $type['type_name']                                ?></a>
+                                                                    <a href=""><?php //echo $type['type_name']                                 ?></a>
                                     <?php //endforeach;    ?>
                                                             </div>
                                     <?php //endforeach;     ?>
@@ -533,22 +533,22 @@
                                 <ul class="list-unstyle">
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-01.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                               ?>/themes/kstudio/images/icons/creadit-card-01.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-02.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                               ?>/themes/kstudio/images/icons/creadit-card-02.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-03.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                               ?>/themes/kstudio/images/icons/creadit-card-03.png" alt="creadit card" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="<?php //echo Yii::app()->baseUrl;                                                              ?>/themes/kstudio/images/icons/creadit-card-04.png" alt="creadit card" />
+                                            <img src="<?php //echo Yii::app()->baseUrl;                                                               ?>/themes/kstudio/images/icons/creadit-card-04.png" alt="creadit card" />
                                         </a>
                                     </li>
                                 </ul>
@@ -719,7 +719,7 @@
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.video.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/global.js"></script>
         <!--
-        <script src="<?php //Yii::app()->baseUrl;              ?>/themes/kstudio/js/config-banner-home-1.js"></script>
+        <script src="<?php //Yii::app()->baseUrl;               ?>/themes/kstudio/js/config-banner-home-1.js"></script>
         -->
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-mm-menu.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-set-bg-blog-thumb.js"></script>

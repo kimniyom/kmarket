@@ -41,9 +41,9 @@ class Masuser extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('username,password,name,lname,tel,sex','required'),
+            array('username,password,name,lname,tel,sex', 'required'),
             array('oid', 'length', 'max' => 3),
-            array('email','email'),
+            array('email', 'email'),
             array('pid, tel', 'length', 'max' => 10),
             array('name, lname, password, username', 'length', 'max' => 100),
             array('alias, images', 'length', 'max' => 255),
@@ -62,14 +62,14 @@ class Masuser extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         /*
-        return array(
-            'news' => array(self::HAS_MANY, 'News', 'pid'),
-            'orders' => array(self::HAS_MANY, 'Orders', 'pid'),
-        );
-         * 
+          return array(
+          'news' => array(self::HAS_MANY, 'News', 'pid'),
+          'orders' => array(self::HAS_MANY, 'Orders', 'pid'),
+          );
+         *
          */
         return array(
-		);
+        );
     }
 
     /**
@@ -83,7 +83,7 @@ class Masuser extends CActiveRecord {
             'name' => 'ชื่อ',
             'lname' => 'นามสกุล',
             'alias' => 'Alias',
-            'password' => 'รหัสผ่าน',
+            'password' => 'Password',
             'email' => 'อีเมล์',
             'tel' => 'เบอร์โทร',
             'sex' => 'Sex',

@@ -4,15 +4,15 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<div class="container">
+<div class="container font-supermarket">
     <div class="alert alert-success" style=" text-align: center; margin-top: 30px;">
         <img src="<?php echo Yii::app()->baseUrl ?>/images/Shopping-cart-accept-icon.png"/><br/><br/>
         สั่งซื้อสินค้าเรียบร้อยแล้ว<br/>
     </div>
     <div class="jumbotron">
-        <h3>ช่องทางการชำระเงิน</h3>
+        <h3 class="font-supermarket">ช่องทางการชำระเงิน</h3>
         <hr/>
-        <h4>โอนเงินผ่านบัญชีธนาคาร</h4><br/>
+        <h4 class="font-supermarket">โอนเงินผ่านบัญชีธนาคาร</h4><br/>
         <div class="row">
             <?php
             $i = 1;
@@ -36,7 +36,7 @@ $this->breadcrumbs = array(
         </div>
     </div>
     <div class="jumbotron">
-        <h3>แจ้งการโอนเงิน</h3>
+        <h3 class="font-supermarket">แจ้งการโอนเงิน</h3>
         <hr/>
         <?php echo $popup['detail'] ?>
     </div>

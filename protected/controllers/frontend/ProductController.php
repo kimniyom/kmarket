@@ -81,19 +81,19 @@ class ProductController extends Controller {
 
     public function actionViews($id) {
         $product = new Product();
-        $conFig = new Configweb_model();
+        //$conFig = new Configweb_model();
         $data['product'] = $product->_get_detail_product($id);
         $data['images'] = $product->get_images_product($id);
         $data['near'] = $product->getProductNear($data['product']['category']);
         /*
-        $fimg = $product->firstpictures($data['product']['product_id']);
+          $fimg = $product->firstpictures($data['product']['product_id']);
 
-        Yii::app()->session['fbtitle'] = $data['product']['product_name'];
-        Yii::app()->session['fbcaption'] = $data['product']['description'];
-        Yii::app()->session['fbdescription'] = $data['product']['description'];
-        Yii::app()->session['fbimages'] = $conFig->GetFullLink("/uploads/product/thumbnail/480-" . $fimg);
-        Yii::app()->session['fburl'] = $conFig->GetFullLink(Yii::app()->createUrl('frontend/product/views', array("id" => $data['product']['product_id'])));
-        */
+          Yii::app()->session['fbtitle'] = $data['product']['product_name'];
+          Yii::app()->session['fbcaption'] = $data['product']['description'];
+          Yii::app()->session['fbdescription'] = $data['product']['description'];
+          Yii::app()->session['fbimages'] = $conFig->GetFullLink("/uploads/product/thumbnail/480-" . $fimg);
+          Yii::app()->session['fburl'] = $conFig->GetFullLink(Yii::app()->createUrl('frontend/product/views', array("id" => $data['product']['product_id'])));
+         */
         $this->Readproduct($id);
         $data['countreview'] = $this->Countreview($id);
 

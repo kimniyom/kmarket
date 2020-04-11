@@ -67,7 +67,7 @@ $ProductModel = new Backend_Product();
             <b>รหัสสินค้า</b> <?= $product['product_id'] ?><br/>
             <b>Category</b> <?= $product['categoryname'] ?><br/>
             <b>Type</b> <?= $product['type_name'] ?><br/>
-            <!--<b>Brand</b> <?php //$product['brandname']  ?><br/>-->
+            <!--<b>Brand</b> <?php //$product['brandname']    ?><br/>-->
             <b>อัพเดทล่าสุด</b> <?= $config->thaidate($product['d_update']); ?><br/><br/>
             <b>ราคา</b> <b style=" color: #F00;">
                 <?php if ($product['product_price_pro'] > 0) { ?>
