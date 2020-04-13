@@ -198,7 +198,9 @@ class SiteController extends Controller {
 
     public function actionSetting() {
         $id = Yii::app()->user->id;
+        $User = new User();
         if ($id) {
+            $data['address'] = $User->Check_address($id);
             $data['profile'] = $this->getProfile($id);
             $this->render("setting", $data);
         } else {
@@ -232,7 +234,7 @@ class SiteController extends Controller {
                             ->insert("privilege", $columns);
                 }
                 //$this->redirect(array('view', 'id' => $model->id));
-                $this->actionLogin();
+                $this->redirect(array('site/login'));
             }
         }
 

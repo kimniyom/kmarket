@@ -6,18 +6,19 @@ class User extends CActiveRecord {
         return "masuser";
     }
 
-    public function Check_user($email = null,$password = null){
+    public function Check_user($email = null, $password = null) {
         $result = Yii::app()->db->createCommand()
-            ->select('pid,name,lname,password,status,email,tel')
-            ->from('masuser')
-            ->where('email = :email AND password = :password',array(':email' => $email,':password' => $password))
-            ->queryRow();
+                ->select('pid,name,lname,password,status,email,tel')
+                ->from('masuser')
+                ->where('email = :email AND password = :password', array(':email' => $email, ':password' => $password))
+                ->queryRow();
 
         return $result;
     }
 
-    public function Get_address($pid = null) {
-        $sql = "SELECT a.number,
+    public function Get_address($id = null) {
+        $sql = "SELECT a.address,
+                    a.number,
                     a.building,
                     a.class,
                     a.room,
@@ -32,11 +33,11 @@ class User extends CActiveRecord {
                     m.tel,
                     m.email,
                     a.zipcode
-                FROM address a RIGHT JOIN masuser m ON m.pid = a.pid 
+                FROM address a INNER JOIN masuser m ON a.user_id = m.id
                 LEFT JOIN changwat c ON a.changwat = c.changwat_id
-                LEFT JOIN ampur ap ON a.ampur = ap.ampur_id 
+                LEFT JOIN ampur ap ON a.ampur = ap.ampur_id
                 LEFT JOIN tambon t ON a.tambon = t.tambon_id
-                WHERE m.pid = '$pid' ";
+                WHERE a.user_id = '$id' ";
         $result = Yii::app()->db->createCommand($sql)->queryRow();
 
         return $result;
@@ -44,12 +45,12 @@ class User extends CActiveRecord {
 
     public function Check_address_true($pid = null) {
         $query = "SELECT *
-                        FROM address 
-                        WHERE pid = '$pid' 
-                        AND number != '' 
-                        AND changwat != '' 
-                        AND ampur != '' 
-                        AND tambon != '' 
+                        FROM address
+                        WHERE pid = '$pid'
+                        AND number != ''
+                        AND changwat != ''
+                        AND ampur != ''
+                        AND tambon != ''
                         AND zipcode != '' ";
         $result = Yii::app()->db->createCommand($query)->queryRow();
         return $result;
@@ -61,14 +62,14 @@ class User extends CActiveRecord {
         return $result;
     }
 
-    public function Check_address($pid = null) {
-        $query = "SELECT COUNT(*) AS TOTAL FROM address WHERE pid = '$pid' ";
+    public function Check_address($id = null) {
+        $query = "SELECT COUNT(*) AS TOTAL FROM address WHERE user_id = '$id' ";
         $result = Yii::app()->db->createCommand($query)->queryRow();
         return $result['TOTAL'];
     }
 
     public function Get_detail($pid = null) {
-        $sql = "SELECT 
+        $sql = "SELECT
                     m.pid,
                     m.alias,
                     IF(sex = 'M','ชาย','หญิง') AS sex,
@@ -91,10 +92,10 @@ class User extends CActiveRecord {
                     m.images,
                     m.create_date,
                     a.zipcode
-                FROM  masuser m 
-                LEFT JOIN address a ON m.pid = a.pid 
+                FROM  masuser m
+                LEFT JOIN address a ON m.pid = a.pid
                 LEFT JOIN changwat c ON a.changwat = c.changwat_id
-                LEFT JOIN ampur ap ON a.ampur = ap.ampur_id 
+                LEFT JOIN ampur ap ON a.ampur = ap.ampur_id
                 LEFT JOIN tambon t ON a.tambon = t.tambon_id
                 WHERE m.pid = '$pid'  ";
         $result = Yii::app()->db->createCommand($sql)->queryRow();

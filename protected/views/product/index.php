@@ -1,93 +1,90 @@
 <style>
+    .inputGroup {
+        background-color: #ffffff;
+        display: block;
+        margin: 0px 0;
+        position: relative;
+    }
+    .inputGroup label {
+        padding: 12px 30px;
+        width: 100%;
+        display: block;
+        text-align: left;
+        color: #3C454C;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        transition: color 200ms ease-in;
+        overflow: hidden;
+    }
+    .inputGroup label:before {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        content: '';
+        background: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+        transform: translate(-50%, -50%) scale3d(1, 1, 1);
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        z-index: -1;
+    }
+    .inputGroup label:after {
+        width: 32px;
+        height: 32px;
+        content: '';
+        border: 2px solid #D1D7DC;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all 200ms ease-in;
+    }
+    .inputGroup input:checked ~ label {
+        color: #b13538;
+    }
+    .inputGroup input:checked ~ label:before {
+        -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
+        transform: translate(-50%, -50%) scale3d(56, 56, 1);
+        opacity: 1;
+    }
+    .inputGroup input:checked ~ label:after {
+        background-color: #000000;
+        border-color: #000000;
+    }
+    .inputGroup input {
+        width: 32px;
+        height: 32px;
+        order: 1;
+        z-index: 2;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        cursor: pointer;
+        visibility: hidden;
+    }
 
-.inputGroup {
-  background-color: #ffffff;
-  display: block;
-  margin: 0px 0;
-  position: relative;
-}
-.inputGroup label {
-  padding: 12px 30px;
-  width: 100%;
-  display: block;
-  text-align: left;
-  color: #3C454C;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  transition: color 200ms ease-in;
-  overflow: hidden;
-}
-.inputGroup label:before {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  content: '';
-  background-color: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
-          transform: translate(-50%, -50%) scale3d(1, 1, 1);
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  z-index: -1;
-}
-.inputGroup label:after {
-  width: 32px;
-  height: 32px;
-  content: '';
-  border: 2px solid #D1D7DC;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
-  background-repeat: no-repeat;
-  background-position: 2px 3px;
-  border-radius: 50%;
-  z-index: 2;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  cursor: pointer;
-  transition: all 200ms ease-in;
-}
-.inputGroup input:checked ~ label {
-  color: #b13538;
-}
-.inputGroup input:checked ~ label:before {
-  -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
-          transform: translate(-50%, -50%) scale3d(56, 56, 1);
-  opacity: 1;
-}
-.inputGroup input:checked ~ label:after {
-  background-color: #000000;
-  border-color: #000000;
-}
-.inputGroup input {
-  width: 32px;
-  height: 32px;
-  order: 1;
-  z-index: 2;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  cursor: pointer;
-  visibility: hidden;
-}
-
-.form {
-  padding: 0 16px;
-  max-width: 550px;
-  margin: 50px auto;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 36px;
-}
-
-
+    .form {
+        padding: 0 16px;
+        max-width: 550px;
+        margin: 50px auto;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 36px;
+    }
 
     .styled-input-single {
         position: relative;
@@ -166,14 +163,14 @@
         transform: rotate(45deg);
         opacity: 1;
     }
-/*
-    #filter{
-        display: none;
-    }
+    /*
+        #filter{
+            display: none;
+        }
     */
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var width = $(window).width();
         if (width >= 768) {
             var styles = {
@@ -197,27 +194,12 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<!-- Modal -->
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="popupfilter">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">FILTER</h4>
-      </div>
-      <div class="modal-body">
-        <div class="filter"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="container" style=" padding-top: 30px;">
     <div class="row" id="btn-filter">
         <div class="col-lg-3 col-md-3">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-info btn-block" onclick="popupfilter()" style="margin-bottom:20px;">
-              <i class="fa fa-search"></i> FILTER
+            <button type="button" class="btn btn-default btn-block" onclick="popupfilter()" style="margin-bottom:20px;">
+                <i class="fa fa-search"></i> FILTER
             </button>
         </div>
     </div>
@@ -225,81 +207,51 @@ $this->breadcrumbs = array(
     <div class="row">
         <div class="col-lg-3 col-md-3" id="filter">
             <div id="box-footer">
-            <div class="panel panel-danger" style=" border: #171721 solid 1px;">
-                <div class="panel-heading" style=" background: #171721; border-bottom: none;">
-                    <h4 class="font-supermarket" style="color: #FFFFFF; font-size: 20px;">Category</h4>
-                </div>
-               
+                <div class="panel panel-warning">
+                    <div class="panel-heading" style=" border-bottom: none;">
+                        <h4 class="font-supermarket" style="font-size: 20px;">Category</h4>
+                    </div>
                     <ul class="list-group" id="category">
                         <?php foreach ($categorys as $category): ?>
                             <li class="list-group-item" style="padding:0px;">
                                 <div class="inputGroup">
                                     <input id="checkbox-example-<?php echo $category['id'] ?>" type="checkbox" name="options[]" value="<?php echo $category['id'] ?>" checked="checked" onclick="Getpage()"/>
                                     <label for="checkbox-example-<?php echo $category['id'] ?>"><?php echo $category['categoryname'] ?></label>
-                                  </div>
-                       
-                                <!--
-                                <div class="styled-input--rounded">
-                                    <input type="checkbox" id="checkbox-example-<?php //echo $category['id'] ?>" name="options[]" value="<?php //echo $category['id'] ?>" checked="checked" style=" margin-top: 10px;" onclick="Getpage()"/>
-                                    <label for="checkbox-example-<?php //echo $category['id'] ?>"><?php //echo $category['categoryname'] ?></label>
                                 </div>
-                            -->
                             </li>
                         <?php endforeach; ?>
                     </ul>
-
-
-        
-                    
-
                     <input type="hidden" id="categoryfilter" />
-                
-            </div>
-            <div class="panel panel-danger" style=" border: #171721 solid 1px;">
-                <div class="panel-heading" style=" background: #171721; border-bottom: none;">
-                    <h4 class="font-supermarket" style="color: #FFFFFF; font-size: 20px;">Brands</h4>
                 </div>
-                 
-                    <ul class="list-group" id="brands">
-                        <?php foreach ($brands as $brand): ?>
-                            <li class="list-group-item" style="padding:0px;">
-
-                                <div class="inputGroup">
-                                    <input id="checkbox-examples-<?php echo $brand['id'] ?>" type="checkbox" name="brand[]" value="<?php echo $brand['id'] ?>" checked="checked" onclick="Getpage()"/>
-                                    <label for="checkbox-examples-<?php echo $brand['id'] ?>"><?php echo $brand['brandname'] ?></label>
-                                  </div>
-
-                                  <!--
-                                <div class="styled-input-single">
-                                    <input type="checkbox" id="checkbox-examples-<?php //echo $brand['id'] ?>" name="brands[]" value="<?php //echo $brand['id'] ?>" checked="checked" style=" margin-top: 10px;" onclick="Getpage()"/>
-                                    <label for="checkbox-examples-<?php //echo $brand['id'] ?>"><?php //echo $brand['brandname'] ?></label>
-                                </div>
-                            -->
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <input type="hidden" id="brandfilter" />
-              </div>
             </div>
         </div>
         <div class="col-lg-9 col-md-9" style="padding:0px;">
-            <!--
-            <h4 class="font-supermarket" style="color: #9d1419; font-size: 20px;">จำนวนที่พบ <?php //echo $count                 ?> รายการ</h4><br/>
-            <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row" id="results"></div>
-            -->
-
             <div id="defaultpage"></div>
         </div>
-
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="popupfilter">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">FILTER</h4>
+            </div>
+            <div class="modal-body">
+                <div class="filter"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript">
     category();
-    brands();
     Getpage();
     function category() {
-        var arr = $.map($('#category input:checkbox:checked'), function (e, i) {
+        var arr = $.map($('#category input:checkbox:checked'), function(e, i) {
             return +e.value;
         });
         $('#categoryfilter').val(arr.join(','));
@@ -307,31 +259,21 @@ $this->breadcrumbs = array(
 
     $('#category').delegate('input:checkbox', 'click', category);
 
-    function brands() {
-        var arr = $.map($('#brands input:checkbox:checked'), function (e, i) {
-            return +e.value;
-        });
-        $('#brandfilter').val(arr.join(','));
-    }
-
-    $('#brands').delegate('input:checkbox', 'click', brands);
 
     function Getpage() {
         this.category();
-        this.brands();
         var url = "<?php echo Yii::app()->createUrl('frontend/product/defaultpage') ?>";
         var category = $("#categoryfilter").val();
-        var brand = $("#brandfilter").val();
-        var data = {category: category, brand: brand};
-        $.post(url, data, function (datas) {
+        var data = {category: category};
+        $.post(url, data, function(datas) {
             $("#defaultpage").html(datas);
         });
     }
 
-    function popupfilter(){
+    function popupfilter() {
         $("#popupfilter").modal();
         $(".filter").html($("#box-footer"));
-        
+
     }
 </script>
 

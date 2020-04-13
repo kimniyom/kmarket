@@ -18,8 +18,6 @@
 
         <meta property="og:caption" content="<?php echo Yii::app()->session['description']; ?>" />
         <meta property="og:description" content="<?php echo Yii::app()->session['description']; ?>" />
-
-
         <meta name="description" content="<?php echo Yii::app()->session['description']; ?>" />
         <meta name="keywords" content="ชื้อของออนไลน์,kmarket,k-market,เค,เคมาร์เก็ต,ช็อป" />
 
@@ -257,15 +255,16 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')       ?>">
+                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')               ?>">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;       ?></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;               ?></span>
                                     </a>
                                 </div>
                                 -->
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php echo Yii::app()->createUrl('site/setting') ?>">
-                                        <span class="lnr lnr-cog"></span>
+                                    <a class="control" href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
+                                        <span class="lnr lnr-cart"></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php echo $meQty; ?></span>
                                     </a>
                                 </div>
                             </aside>
@@ -311,9 +310,9 @@
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php echo Yii::app()->createUrl('site/setting') ?>">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/menuuser') ?>">
                         <button type="button" class="btn btn-default">
-                            <span class="lnr lnr-user fa-2x" id="b-account"></span>
+                            <span class="lnr lnr-user fa-2x" id="b-menu"></span>
                         </button></a>
                 </div>
             </div>

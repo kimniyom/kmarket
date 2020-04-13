@@ -2,14 +2,15 @@
 
 class UserController extends Controller {
 
-    public $layout = "webapp";
+    public $layout = "mobile";
 
-    public function actionAddress() {
-        $pid = $_POST['pid'];
+    public function actionAddress($id) {
+        //$pid = $_POST['pid'];
         $user = new User();
+        $data['checkaddress'] = $user->Check_address($id);
         $data['changwat'] = $user->Get_changwat();
-        $data['address'] = $user->Get_address($pid);
-        $this->renderPartial("//user/address_user", $data);
+        $data['address'] = $user->Get_address($id);
+        $this->render("//user/address_user", $data);
     }
 
     public function actionGet_combobox() {
@@ -45,10 +46,10 @@ class UserController extends Controller {
     }
 
     public function actionGet_address() {
-        $pid = $_POST['pid'];
+        $id = $_POST['id'];
         $user = new User();
         $data['changwat'] = $user->Get_changwat();
-        $data['address'] = $user->Get_address($pid);
+        $data['address'] = $user->Get_address($id);
         $this->renderPartial("//user/edit_address", $data);
     }
 
@@ -61,36 +62,34 @@ class UserController extends Controller {
     }
 
     public function actionSave_address() {
-        $pid = $_POST['pid'];
+        $user_id = Yii::app()->request->getPost('user_id');
         $user = new User();
 
-        $columns_user = array(
-            "name" => $_POST['name'],
-            "lname" => $_POST['lname']
-        );
+        $check = $user->Check_address($user_id);
 
-        $columns = array(
-            "pid" => $_POST['pid'],
-            "number" => $_POST['number'],
-            "building" => $_POST['building'],
-            "class" => $_POST['_class'],
-            "room" => $_POST['room'],
-            "changwat" => $_POST['changwat'],
-            "ampur" => $_POST['ampur'],
-            "tambon" => $_POST['tambon'],
-            "zipcode" => $_POST['zipcode']
-        );
-        $check = $user->Check_address($pid);
+        echo $check;
         if ($check > 0) {
+            $columns = array(
+                "address" => Yii::app()->request->getPost('address'),
+                "changwat" => Yii::app()->request->getPost('changwat'),
+                "ampur" => Yii::app()->request->getPost('ampur'),
+                "tambon" => Yii::app()->request->getPost('tambon'),
+                "zipcode" => Yii::app()->request->getPost('zipcode')
+            );
             Yii::app()->db->createCommand()
-                    ->update("address", $columns, "pid = '$pid' ");
+                    ->update("address", $columns, "user_id = '$user_id' ");
         } else {
+            $columns = array(
+                "user_id" => $user_id,
+                "address" => Yii::app()->request->getPost('address'),
+                "changwat" => Yii::app()->request->getPost('changwat'),
+                "ampur" => Yii::app()->request->getPost('ampur'),
+                "tambon" => Yii::app()->request->getPost('tambon'),
+                "zipcode" => Yii::app()->request->getPost('zipcode')
+            );
             Yii::app()->db->createCommand()
                     ->insert("address", $columns);
         }
-
-        Yii::app()->db->createCommand()
-                ->update("masuser", $columns_user, "pid = '$pid' ");
     }
 
     public function actionSave_address_profile() {
@@ -253,6 +252,33 @@ class UserController extends Controller {
         $data['day'] = substr($date, 8, 2);
         $data['pid'] = $pid;
         $this->renderPartial('//user/update', $data);
+    }
+
+    public function actionResetpassword() {
+        $this->render('//user/resetpassword');
+    }
+
+    public function actionSavepassword() {
+        $password = Yii::app()->request->getPost('password');
+        $id = Yii::app()->user->id;
+        $columns = array("password" => md5($password));
+        Yii::app()->db->createCommand()
+                ->update("masuser", $columns, "id='$id'");
+        /*
+          if ($rs) {
+          Yii::app()->user->logout();
+          $this->redirect(array('site/login'));
+          } else {
+          echo "เกิดข้อผิดพลาด...";
+          }
+         *
+         */
+    }
+
+    public function actionLogout() {
+        Yii::app()->user->logout();
+        $this->redirect(array('site/login'));
+        //$this->redirect(array('site/index'));
     }
 
 }

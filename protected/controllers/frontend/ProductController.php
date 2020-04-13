@@ -11,15 +11,14 @@ class ProductController extends Controller {
         $data['product'] = $prodult->GetProductAll();
         $data['count'] = count($data['product']);
         $data['categorys'] = Category::model()->findAll();
-        $data['brands'] = Brand::model()->findAll();
+        //$data['brands'] = Brand::model()->findAll();
         $this->render("//product/index", $data);
     }
 
     public function actionPagesall() {
         //$productModel = new Product();
         $category = Yii::app()->request->getPost('category');
-        $brand = Yii::app()->request->getPost('brand');
-        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
+        $page_number = filter_var(Yii::app()->request->getPost("page"), FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
         $item_per_page = 12; //ให้แสดงที่ละ
         //throw HTTP error if page number is not valid
         if (!is_numeric($page_number)) {
@@ -30,7 +29,7 @@ class ProductController extends Controller {
         //get current starting point of records
         $position = ($page_number * $item_per_page);
         //$rs = $productModel->GetProductAllBetween($position, $item_per_page);
-        $rs = $this->GetProductAllBetween($position, $item_per_page, $category, $brand);
+        $rs = $this->GetProductAllBetween($position, $item_per_page, $category);
         $data['product'] = $rs;
         if (count($rs) > 0) {
             $this->renderPartial("//product/product_more", $data);
@@ -39,19 +38,12 @@ class ProductController extends Controller {
         }
     }
 
-    function GetProductAllBetween($start, $end, $category, $brand) {
+    function GetProductAllBetween($start, $end, $category) {
         $categorys = Yii::app()->request->getPost('category');
-        $brands = Yii::app()->request->getPost('brand');
-        if ($categorys != "" || $brands != "") {
-            $where = " 1=1 ";
-            if ($categorys != "") {
-                $category = $categorys;
-                $where .= " and p.category in($category) ";
-            }
-            if ($brands != "") {
-                $brand = $brands;
-                $where .= " and p.brand in($brand) ";
-            }
+        $where = "";
+        if ($categorys != "") {
+            $category = $categorys;
+            $where .= " p.category in($category) ";
         } else {
             $where = " 1=1";
         }
@@ -182,8 +174,8 @@ class ProductController extends Controller {
     }
 
     public function actionSearch_product() {
-        $type_id = $_POST['type_id'];
-        $product_name = $_POST['search_txt'];
+        $type_id = Yii::app()->request->getPost('type_id');
+        $product_name = Yii::app()->request->getPost('search_txt');
 
         if ($type_id != "") {
             $w1 = " t.type_id = '$type_id' ";
@@ -235,8 +227,8 @@ class ProductController extends Controller {
     }
 
     public function actionPages() {
-        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
-        $type_id = $_POST["type_id"];
+        $page_number = filter_var(Yii::app()->request->getPost("page"), FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
+        $type_id = Yii::app()->request->getPost("type_id");
         $item_per_page = 8; //ให้แสดงที่ละ
         //throw HTTP error if page number is not valid
         if (!is_numeric($page_number)) {
@@ -294,19 +286,16 @@ class ProductController extends Controller {
     }
 
     public function actionCategory($id) {
-
         $prodult = new Product();
-
         $data['category'] = Category::model()->find("id=:id", array(":id" => $id));
         $data['product'] = $prodult->getProductByCategory($id);
         $data['count'] = count($data['product']);
-
         $this->render("//product/show_product_category", $data);
     }
 
     public function actionPagescategory() {
-        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
-        $category = $_POST["category"];
+        $page_number = filter_var(Yii::app()->request->getPost("page"), FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
+        $category = Yii::app()->request->getPost("category");
         $item_per_page = 8; //ให้แสดงที่ละ
         //throw HTTP error if page number is not valid
         if (!is_numeric($page_number)) {
@@ -345,8 +334,8 @@ class ProductController extends Controller {
     }
 
     public function actionPagesbrands() {
-        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
-        $brand = $_POST["brands"];
+        $page_number = filter_var(Yii::app()->request->getPost("page"), FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
+        $brand = Yii::app()->request->getPost("brands");
 
         $item_per_page = 8; //ให้แสดงที่ละ
         //throw HTTP error if page number is not valid
@@ -384,8 +373,8 @@ class ProductController extends Controller {
     }
 
     public function actionPagessearch() {
-        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
-        $search = $_POST["search"];
+        $page_number = filter_var(Yii::app()->request->getPost("page"), FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH);
+        $search = Yii::app()->request->getPost("search");
 
         $item_per_page = 8; //ให้แสดงที่ละ
         //throw HTTP error if page number is not valid
@@ -413,23 +402,13 @@ class ProductController extends Controller {
 
     public function actionGetproductall() {
         $categorys = Yii::app()->request->getPost('category');
-        $brands = Yii::app()->request->getPost('brand');
-        if ($categorys != "" || $brands != "") {
-            $where = " 1=0 ";
-            if ($categorys != "") {
-                $category = $categorys;
-                $where .= " or category in($category) ";
-            } else {
-                $category = " or 1=0 ";
-            }
-            if ($brands != "") {
-                $brand = $brands;
-                $where .= " or brand in($brand) ";
-            } else {
-                $brand .= " or 1=0";
-            }
+        //$brands = Yii::app()->request->getPost('brand');
+        $where = "";
+        if ($categorys != "") {
+            $category = $categorys;
+            $where .= " category in($category) ";
         } else {
-            $where = " 1 = 0";
+            $where = " 1 = 1";
         }
         $sql = "select count(DISTINCT(product_id)) as total from product  where $where  ";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
@@ -439,8 +418,7 @@ class ProductController extends Controller {
 
     public function actionDefaultpage() {
         $category = Yii::app()->request->getPost('category');
-        $brand = Yii::app()->request->getPost('brand');
-        $rs = $this->GetProductAllBetween(0, 100, $category, $brand);
+        $rs = $this->GetProductAllBetween(0, 100, $category);
         $data['count'] = count($rs);
         $this->renderPartial("//product/default", $data);
     }

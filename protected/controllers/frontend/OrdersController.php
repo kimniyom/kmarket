@@ -361,6 +361,7 @@ class OrdersController extends Controller {
     }
 
     public function actionOrder() {
+        $userModel = new User();
         $id = Yii::app()->user->id;
         if ($id) {
             error_reporting(E_ALL ^ E_NOTICE);
@@ -396,7 +397,9 @@ class OrdersController extends Controller {
             //$data['bank'] = $payment->Get_bank();
             $data['payment'] = $payment->Get_patment();
             //$data['howtoorder'] = $howtoorder->Get_howto();
-
+            $data['address'] = $userModel->Get_address($id);
+            $data['checkaddress'] = $userModel->Check_address($id);
+            $data['profile'] = $this->getProfile($id);
             $this->render("//orders/order", $data);
         } else {
             $this->redirect(array("site/login"));
@@ -475,6 +478,26 @@ class OrdersController extends Controller {
 
         $data['error'] = $errors;
         $this->render('//orders/fail', $data);
+    }
+
+    public function actionMenuuser() {
+        $id = Yii::app()->user->id;
+        if ($id) {
+            $data['profile'] = $this->getProfile($id);
+            $this->render('//orders/menuuser', $data);
+        } else {
+            $this->redirect(array("site/login"));
+        }
+    }
+
+    function getProfile($id) {
+        $rs = Yii::app()->db->createCommand()
+                ->select('*')
+                ->from('masuser')
+                ->where("id=:id", array(":id" => $id))
+                ->queryRow();
+
+        return $rs;
     }
 
 }

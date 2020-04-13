@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var width = $(window).width();
         if (width >= 768) {
             var styles = {
@@ -13,34 +13,35 @@
         }
     });
 </script>
-<div class="panel panel-primary" style=" border: none; background: none; box-shadow: none;">
-    <div class="panel-heading" style=" background: #171721; border-bottom: none; border-radius: 3px;">
-        <h4 class="font-supermarket" style="color: #FFFFFF; font-size: 20px;">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
-    </div>
-    <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row" id="results" style=" margin-top: 20px;"></div>
 
-    <div align="center">
-        <button class="load_more btn btn-default" id="load_more_button">
-            LOAD MORE <i class="fa fa-angle-down"></i>
-        </button>
-        <div class="animation_image" style="display:none;">
-            <img src="<?php echo Yii::app()->baseUrl; ?>/images/ajax-loader.gif"> Loading...
-        </div>
-    </div><br/>
+<div class="row" style=" margin: 0px;">
+    <div class="col-md-12 col-lg-12">
+        <h4 class="font-supermarket" style="color: #cc3300; font-size: 20px;">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
+    </div>
 </div>
+<div  id="results" style=" margin-top: 20px;"></div>
+<div align="center">
+    <button class="load_more btn btn-default" id="load_more_button">
+        LOAD MORE <i class="fa fa-angle-down"></i>
+    </button>
+    <div class="animation_image" style="display:none;">
+        <img src="<?php echo Yii::app()->baseUrl; ?>/images/ajax-loader.gif"> Loading...
+    </div>
+</div><br/>
+
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var track_click = 0; //track user click on "load more" button, righ now it is 0 click
         var total_pages = "<?php echo $count ?>";
         var category = $("#categoryfilter").val();
         var brand = $("#brandfilter").val();
         var data = {page: track_click, category: category, brand: brand};
-        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pagesall') ?>", data, function () {
+        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pagesall') ?>", data, function() {
             track_click = 1;
         });
         //fetch_pages.php
-        $(".load_more").click(function (e) { //user clicks on button
+        $(".load_more").click(function(e) { //user clicks on button
 
             //var track_click = $("#track_click").val()
 
@@ -54,7 +55,7 @@
                 //post page number and load returned data into result element
                 $.post('<?php echo Yii::app()->createUrl('frontend/product/pagesall') ?>',
                         {'page': track_click, category: category, brand: brand},
-                        function (data) {
+                        function(data) {
                             if (data == 0) {
                                 $('.animation_image').hide();
                                 $(".load_more").attr("disabled", "disabled");
@@ -70,7 +71,7 @@
 
                             track_click++; //user click increment on load button
                             //$("#track_click").val(track_click);
-                        }).fail(function (xhr, ajaxOptions, thrownError) {
+                        }).fail(function(xhr, ajaxOptions, thrownError) {
                     alert(thrownError); //alert any HTTP error
                     $(".load_more").show(); //bring back load more button
                     $('.animation_image').hide(); //hide loading image once data is received

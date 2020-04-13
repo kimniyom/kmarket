@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var width = $(window).width();
         if (width >= 768) {
             var styles = {
@@ -15,17 +15,16 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-
+    $(document).ready(function() {
         var track_click = 0; //track user click on "load more" button, righ now it is 0 click
         //fetch_pages.php
         var total_pages = "<?php echo $count; ?>";
         var category = "<?php echo $category['id']; ?>";
-        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pagescategory') ?>", {'page': track_click, category: category}, function () {
+        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pagescategory') ?>", {'page': track_click, category: category}, function() {
             track_click++;
         }); //initial data to load
 
-        $(".load_more").click(function (e) { //user clicks on button
+        $(".load_more").click(function(e) { //user clicks on button
 
             $(this).hide(); //hide load more button on click
             $('.animation_image').show(); //show loading image
@@ -35,7 +34,7 @@
                 //post page number and load returned data into result element
                 $.post('<?php echo Yii::app()->createUrl('frontend/product/pagescategory') ?>',
                         {'page': track_click, category: category},
-                        function (data) {
+                        function(data) {
                             if (data == 0) {
                                 $('.animation_image').hide();
                                 $(".load_more").attr("disabled", "disabled");
@@ -54,7 +53,7 @@
 
                             track_click++; //user click increment on load button
 
-                        }).fail(function (xhr, ajaxOptions, thrownError) {
+                        }).fail(function(xhr, ajaxOptions, thrownError) {
                     alert(thrownError); //alert any HTTP error
                     $(".load_more").show(); //bring back load more button
                     $('.animation_image').hide(); //hide loading image once data is received
@@ -72,25 +71,19 @@
 
 <?php
 $this->breadcrumbs = array(
-    $category['categoryname']
 );
 ?>
-
-<div class="container" style=" padding: 30px;">
-    <div class="row" style=" margin-bottom: 30px;">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div style=" float: left;">
-                <img src="<?php echo Yii::app()->baseUrl ?>/uploads/category/thumbnail/<?php echo $category['icons'] ?>" style=" width: 80px;"/>
-            </div>
-            <div style=" float: left; margin-left: 0px; padding-left: 20px; color: #9d1419;">
-                <h2 class="font-supermarket"><?php echo $category['categoryname'] ?></h2>
-                <hr style=" margin: 10px 0px; border-bottom: #9d1419 solid 2px;"/>
-                <h4 class="font-supermarket">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
-            </div>
+<br/><br/><br/>
+<div class="row" style=" margin:0px;">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div style=" float: left; margin-left: 0px; color: #9d1419;">
+            <h2 class="font-supermarket"><?php echo $category['categoryname'] ?></h2>
+            <hr style=" margin: 10px 0px; border-bottom: #9d1419 solid 2px;"/>
+            <h4 class="font-supermarket">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
         </div>
     </div>
-    <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row" id="results"></div>
-</div>
+</div><br/>
+<div id="results"></div>
 
 <div align="center">
     <button class="load_more btn btn-default" id="load_more_button">
