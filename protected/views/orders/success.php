@@ -1,9 +1,4 @@
-<?php
-$this->breadcrumbs = array(
-    'Success',
-);
-?>
-
+<br/><br/><br/>
 <div class="container font-supermarket">
     <div class="alert alert-success" style=" text-align: center; margin-top: 30px;">
         <img src="<?php echo Yii::app()->baseUrl ?>/images/Shopping-cart-accept-icon.png"/><br/><br/>
@@ -26,7 +21,6 @@ $this->breadcrumbs = array(
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                             <b style="font-size: 18px;"><?php echo $rs['bank_name']; ?></b><br/>
                             ชื่อบัญชี <?php echo $rs['bookbank_name']; ?><br/>
-                            สาขา <?php echo $rs['bank_branch']; ?><br/>
                             <b>เลขที่บัญชี <?php echo $rs['bookbank_number']; ?></b>
                         </div>
                     </div>
@@ -34,11 +28,6 @@ $this->breadcrumbs = array(
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
-    <div class="jumbotron">
-        <h3 class="font-supermarket">แจ้งการโอนเงิน</h3>
-        <hr/>
-        <?php echo $popup['detail'] ?>
     </div>
 </div>
 

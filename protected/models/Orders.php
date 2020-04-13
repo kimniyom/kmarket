@@ -60,11 +60,11 @@ class Orders {
     }
 
     //ดึงวิธีการขนส่งมาแสดง
-    function get_transport_in_order($order_id = null){
-      $query = "SELECT o.transport,t.price
+    function get_transport_in_order($order_id = null) {
+        $query = "SELECT o.transport,t.price
                 FROM orders o INNER JOIN transport t ON o.transport = t.id
                 WHERE o.order_id = '$order_id' ";
-      return Yii::app()->db->createCommand($query)->queryRow();
+        return Yii::app()->db->createCommand($query)->queryRow();
     }
 
     function get_order_user($pid = null) {
@@ -154,12 +154,11 @@ class Orders {
     }
 
     //หารายการรอตรวจสอบยอดเงิน
-    function get_order_verify($pid = null) {
-        $query = "SELECT o.order_id,o.order_date,SUM(b.product_num) AS PRODUCT_TOTAL,(SUM(b.product_price_sum)+ t.price) AS PRICE_TOTAL
-                        FROM orders o INNER JOIN basket b ON o.order_id = b.order_id
-                        INNER JOIN transport t ON o.transport = t.id
-                        WHERE pid = '$pid ' AND o.active = '2'
-                        GROUP BY o.order_id ORDER BY o.order_id DESC";
+    function get_order_verify($id = null) {
+        $query = "SELECT b.order_id,o.order_date,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
+                        FROM orders o INNER JOIN order_details b ON o.id = b.order_id
+                        WHERE o.`user` = '$id' AND o.order_confirm = '1'
+                        GROUP BY o.id ";
         $result = Yii::app()->db->createCommand($query)->queryAll();
         return $result;
     }
@@ -229,28 +228,27 @@ class Orders {
         return $rs['TOTAL'];
     }
 
-    function get_price_transport($order_id = null){
-      $rs = "SELECT t.price
+    function get_price_transport($order_id = null) {
+        $rs = "SELECT t.price
             FROM orders o INNER JOIN transport t ON o.transport = t.id
             WHERE o.order_id = '$order_id' ";
-      $r = Yii::app()->db->createCommand($rs)->queryRow();
-      return $r['price'];
+        $r = Yii::app()->db->createCommand($rs)->queryRow();
+        return $r['price'];
     }
 
     //เช็คร่ยการสั่งซื้อที่เลยเวลาชำระเงิน
-    function check_order_overtime($pid = null){
+    function check_order_overtime($pid = null) {
         $query = "SELECT * FROM orders WHERE active IN('0','1') AND pid = '$pid' ";
         $rs = Yii::app()->db->createCommand($query)->queryAll();
         return $rs;
     }
 
     //เช็คว่ามีสินค้าในการสั่งหรือไม่
-    function check_product_inorder($order_id = null){
+    function check_product_inorder($order_id = null) {
         $query = "SELECT COUNT(*) AS total FROM basket WHERE order_id = '$order_id' ";
         $rs = Yii::app()->db->createCommand($query)->queryRow();
         return $rs['total'];
     }
-    
 
     function autoId($table, $value, $number) {
         $rs = Yii::app()->db->createCommand("Select Max($value)+1 as MaxID from  $table")->queryRow(); //เลือกเอาค่า id ที่มากที่สุดในฐานข้อมูลและบวก 1 เข้าไปด้วยเลย
@@ -263,27 +261,25 @@ class Orders {
 
         return $std_id;
     }
-    
 
-    function GetDetailOrder($orderID){
+    function GetDetailOrder($orderID) {
         $sql = "select o.id,o.order_fullname,
                 o.order_email,
                 o.order_address,
                 o.order_phone,
                 o.order_confirm
-                from orders o 
+                from orders o
                 where o.id = '$orderID'";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
         return $rs;
     }
 
-    function GetListOrder($orderID){
-        $sql = "select o.*,p.product_name 
-                from order_details o inner join product p on o.product_id = p.product_id 
+    function GetListOrder($orderID) {
+        $sql = "select o.*,p.product_name
+                from order_details o inner join product p on o.product_id = p.product_id
                 where order_id = '$orderID' ";
         $orderList = Yii::app()->db->createCommand($sql)->queryAll();
         return $orderList;
     }
-   
 
 }

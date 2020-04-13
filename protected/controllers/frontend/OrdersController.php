@@ -210,9 +210,9 @@ class OrdersController extends Controller {
 
     //รายการรอการตรวจสอบ
     public function actionVerify() {
-        $pid = Yii::app()->session['pid'];
+        $id = Yii::app()->user->id;
         $order = new Orders();
-        $data['order'] = $order->get_order_verify($pid);
+        $data['order'] = $order->get_order_verify($id);
         $this->render('//orders/verify', $data);
     }
 
@@ -422,13 +422,15 @@ class OrdersController extends Controller {
                 $order_address = Yii::app()->request->getPost('order_address');
                 $order_phone = Yii::app()->request->getPost('order_phone');
                 $order_email = Yii::app()->request->getPost('order_email');
-
+                $user = Yii::app()->user->id;
                 $columns = array(
                     "order_date" => date("Y-m-d H:i:s"),
                     "order_fullname" => $order_fullname,
                     "order_address" => $order_address,
                     "order_phone" => $order_phone,
-                    "order_email" => $order_email
+                    "order_email" => $order_email,
+                    "user" => $user,
+                    "order_confirm" => 1
                 );
 
                 $meQeury = Yii::app()->db->createCommand()
@@ -451,7 +453,34 @@ class OrdersController extends Controller {
                     //mysql_close();
                     unset($_SESSION['cart']);
                     unset($_SESSION['qty']);
-                    $this->redirect(array("frontend/orders/ordersuccess"));
+
+                    if (!empty($_FILES)) {
+                        $targetFolder = Yii::app()->baseUrl . '/uploads/slip'; // Relative to the root
+                        $tempFile = $_FILES['slip']['tmp_name'];
+                        $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+                        $FileName = time() . $_FILES['slip']['name'];
+                        $targetFile = rtrim($targetPath, '/') . '/' . $FileName;
+
+                        $fileTypes = array('jpg', 'jpeg', 'png'); // File extensions
+                        $fileParts = pathinfo($_FILES['slip']['name']);
+
+                        if (in_array($fileParts['extension'], $fileTypes)) {
+                            move_uploaded_file($tempFile, $targetFile);
+
+                            //สั่งอัพเดท
+
+                            $columns = array(
+                                "slip" => $FileName
+                            );
+
+                            Yii::app()->db->createCommand()
+                                    ->update("orders", $columns, "id = '$order_id' ");
+                            echo '1';
+                        } else {
+                            echo 'Invalid file type.';
+                        }
+                    }
+                    $this->redirect(array("frontend/orders/verify"));
                 } else {
                     $this->redirect(array("frontend/orders/orderfail/status/2"));
                 }
@@ -498,6 +527,14 @@ class OrdersController extends Controller {
                 ->queryRow();
 
         return $rs;
+    }
+
+    public function actionVieworder($id) {
+        $query = "select o.*,p.product_name
+                        from order_details o INNER JOIN product p ON o.product_id = p.product_id
+                        where order_id = '$id'";
+        $data['order'] = Yii::app()->db->createCommand($query)->queryAll();
+        $this->render('//orders/vieworder', $data);
     }
 
 }

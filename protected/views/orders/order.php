@@ -1,9 +1,28 @@
+<style>
+    .upload-btn-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .btn {
+        border: #cc3300 solid 2px;
+        color: #cc3300;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+</style>
 <?php
 $product_model = new Product();
 ?>
 <br/><br/><br/>
 <div class="container" style=" padding-bottom: 20px; padding-top: 20px; font-family: th;">
-    <form action="<?php echo Yii::app()->createUrl('frontend/orders/updateorder') ?>" method="post" name="formupdate" role="form" id="formupdate" onsubmit="JavaScript:return updateSubmit();">
+    <form action="<?php echo Yii::app()->createUrl('frontend/orders/updateorder') ?>" method="post" name="formupdate" role="form" id="formupdate" enctype="multipart/form-data" onsubmit="JavaScript:return updateSubmit();">
         <div class="jumbotron">
             <h3 class="font-supermarket">ข้อมูลผู้สั่งซื้อ<span class=" text-danger">*</span></h3>
             <hr style="margin: 10px 0px;"/>
@@ -42,66 +61,75 @@ $product_model = new Product();
         </div>
         <div class="jumbotron">
             <h3 class="font-supermarket">ข้อมูลการสั่งซื้อ</h3>
+            <?php if ($orders) { ?>
+                <table class="table">
+                    <tbody>
+                        <?php
+                        $total_price = 0;
+                        $num = 0;
+                        foreach ($orders as $meResult) {
+                            $key = array_search($meResult['product_id'], $_SESSION['cart']);
+                            if ($meResult['product_price_pro'] > 0) {
+                                $product_price = $meResult['product_price_pro'];
+                            } else {
+                                $product_price = $meResult['product_price'];
+                            }
+                            $total_price = $total_price + ($product_price * $_SESSION['qty'][$key]);
 
-            <table class="table">
-                <tbody>
-                    <?php
-                    $total_price = 0;
-                    $num = 0;
-                    foreach ($orders as $meResult) {
-                        $key = array_search($meResult['product_id'], $_SESSION['cart']);
-                        if ($meResult['product_price_pro'] > 0) {
-                            $product_price = $meResult['product_price_pro'];
-                        } else {
-                            $product_price = $meResult['product_price'];
-                        }
-                        $total_price = $total_price + ($product_price * $_SESSION['qty'][$key]);
-
-                        $img_title = $product_model->firstpictures($meResult['product_id']);
-                        if (!empty($img_title)) {
-                            $img = "uploads/product/thumbnail/100-" . $img_title;
-                        } else {
-                            $img = "images/No_image_available.jpg";
+                            $img_title = $product_model->firstpictures($meResult['product_id']);
+                            if (!empty($img_title)) {
+                                $img = "uploads/product/thumbnail/100-" . $img_title;
+                            } else {
+                                $img = "images/No_image_available.jpg";
+                            }
+                            ?>
+                            <tr>
+                                <td style=" text-align: center; width: 100px;">
+                                    <img src="<?= Yii::app()->baseUrl ?>/<?= $img; ?>" class="img-responsive" alt="Responsive image" id="img-cart"/>
+                                </td>
+                                <td>
+                                    <font class="font-supermarket" style=" font-size: 16px;"><?php echo $meResult['product_name']; ?></font><br/>
+                                    <font class="font-supermarket" style=" font-size: 18px; color: #cc3300; font-weight: bold;"><?php echo number_format($product_price, 2); ?> บาท</font><br/>
+                                    <font>จำำนวน <?php echo $_SESSION['qty'][$key]; ?></font>
+                                    <input type="hidden" name="qty[]" value="<?php echo $_SESSION['qty'][$key]; ?>" />
+                                    <input type="hidden" name="product_id[]" value="<?php echo $meResult['product_id']; ?>" />
+                                    <input  type="hidden" name="product_price[]" value="<?php echo $product_price; ?>" />
+                                </td>
+                            </tr>
+                            <?php
+                            $num++;
                         }
                         ?>
                         <tr>
-                            <td style=" text-align: center; width: 100px;">
-                                <img src="<?= Yii::app()->baseUrl ?>/<?= $img; ?>" class="img-responsive" alt="Responsive image" id="img-cart"/>
-                            </td>
-                            <td>
-                                <font class="font-supermarket" style=" font-size: 16px;"><?php echo $meResult['product_name']; ?></font><br/>
-                                <font class="font-supermarket" style=" font-size: 18px; color: #cc3300; font-weight: bold;"><?php echo number_format($product_price, 2); ?> บาท</font><br/>
-                                <font>จำำนวน <?php echo $_SESSION['qty'][$key]; ?></font>
-                                <input type="hidden" name="qty[]" value="<?php echo $_SESSION['qty'][$key]; ?>" />
-                                <input type="hidden" name="product_id[]" value="<?php echo $meResult['product_id']; ?>" />
-                                <input  type="hidden" name="product_price[]" value="<?php echo $product_price; ?>" />
+                            <td colspan="2" style="text-align: right;">
+                                <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวม <font style="color: #cc3300;"><?php echo number_format($total_price, 2); ?></font> บาท</div>
                             </td>
                         </tr>
-                        <?php
-                        $num++;
-                    }
-                    ?>
-                    <tr>
-                        <td colspan="2" style="text-align: right;">
-                            <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวม <font style="color: #cc3300;"><?php echo number_format($total_price, 2); ?></font> บาท</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="hidden" name="formid" value="<?php echo $_SESSION['formid']; ?>"/>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <?php if ($checkaddress > 0) { ?>
-                                        <button type="submit" class="btn btn-warning btn-block">บันทึกการสั่งซื้อสินค้า</button>
-                                    <?php } else { ?>
-                                        <button type="button" class="btn btn-default btn-block disabled"><i class="fa fa-info-circle"></i> ยังไม่กำหนดที่อยู่</button>
-                                    <?php } ?>
+                        <tr>
+                            <td colspan="2">
+                                <label class=" font-supermarket">แนบสลิป</label>
+                                <input type="file" name="slip" id="slip">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="hidden" name="formid" value="<?php echo $_SESSION['formid']; ?>"/>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <?php if ($checkaddress > 0) { ?>
+                                            <button type="submit" class="btn btn-primary btn-block font-supermarket">ชำระเงิน</button>
+                                        <?php } else { ?>
+                                            <button type="button" class="btn btn-default btn-block disabled"><i class="fa fa-info-circle"></i> ยังไม่กำหนดที่อยู่</button>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <?php } else { ?>
+                <center><br/>ไม่มีรายการสั่งซื้อ</center>
+            <?php } ?>
         </div>
     </form>
     <div class="jumbotron">
@@ -121,7 +149,6 @@ $product_model = new Product();
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                             <b style="font-size: 18px;"><?php echo $rs['bank_name']; ?></b><br/>
                             ชื่อบัญชี <?php echo $rs['bookbank_name']; ?><br/>
-                            สาขา <?php echo $rs['bank_branch']; ?><br/>
                             <b>เลขที่บัญชี <?php echo $rs['bookbank_number']; ?></b>
                         </div>
                     </div>
@@ -155,6 +182,11 @@ $product_model = new Product();
         if (document.formupdate.order_email.value == "") {
             alert('โปรดใส่ Email ด้วย!');
             document.formupdate.order_email.focus();
+            return false;
+        }
+
+        if (document.formupdate.slip.value == "") {
+            document.formupdate.slip.focus();
             return false;
         }
         document.formupdate.submit();
