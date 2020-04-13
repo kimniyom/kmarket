@@ -75,17 +75,11 @@
     });
 </script>
 
-<?php
-$this->breadcrumbs = array(
-    //$type['categoryname'] => array('frontend/product/category/id/' . $type['category']),
-    $search,
-);
-?>
 
-<div class="container" style=" padding: 30px;">
-    <h4>จำนวนที่พบ <?php echo $count ?> รายการ</h4><br/>
-    <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row" id="results">
-    </div>
+<br/><br/><br/>
+<div class="container" style=" padding: 0px;">
+    <h4 style="margin-left: 10px;">จำนวนที่พบ <?php echo $count ?> รายการ</h4><br/>
+    <div id="results"></div>
 </div>
 
 <div align="center">

@@ -423,4 +423,8 @@ class ProductController extends Controller {
         $this->renderPartial("//product/default", $data);
     }
 
+    public function actionFormsearch(){
+        $this->render("//product/formsearch");
+    }
+
 }

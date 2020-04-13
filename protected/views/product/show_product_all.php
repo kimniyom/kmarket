@@ -75,17 +75,11 @@
     });
 </script>
 
-<?php
-$this->breadcrumbs = array(
-    $type['categoryname'] => array('frontend/product/category/id/' . $type['category']),
-    $type_name,
-);
-?>
+<br/><br/><br/>
 
-<div class="container" style=" padding: 30px;">
-    <h4 class="font-supermarket" style="color: #9d1419; font-size: 20px;">จำนวนที่พบ <?php echo $count_product_type ?> รายการ</h4><br/>
-    <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row" id="results">
-    </div>
+<div class="container" style=" padding: 0px; padding: 0px;">
+    <h4 class="font-supermarket" style="color: #9d1419; font-size: 20px; margin-left: 10px;">จำนวนที่พบ <?php echo $count_product_type ?> รายการ</h4><br/>
+    <div id="results"></div>
 </div>
 
 <div align="center">

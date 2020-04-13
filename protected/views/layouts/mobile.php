@@ -6,6 +6,7 @@
             <?php $web = new Configweb_model(); ?>
             <?php echo CHtml::encode($this->pageTitle); ?>
         </title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
         <link rel="shortcut icon" href="<?php echo Yii::app()->baseUrl ?>/images/48395865_2012629585487025_3364863562223714304_n.png">
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="266256337158296" />
@@ -23,6 +24,10 @@
 
         <link rel="stylesheet" type="text/css" href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/css/main.css" />
         <style>
+            body {
+                -webkit-text-size-adjust: none;
+                touch-action: manipulation;
+            }
             .menuheadphoneguru ul li a:hover{
                 color: #d00517;
             }
@@ -110,8 +115,15 @@
             }
 
             .task-bar-bottom button{
-                border-radius: 0px; border: 1px solid #ffffff; border-top: 0px; height:  50px; padding-top: 12px;
+                border-radius: 0px; 
+                border: 1px solid #ffffff; 
+                border-top: 0px; 
+                height:  50px; 
+                padding-top: 12px;
+                background: #ffffff;
             }
+
+           
         </style>
         <?php
         $productModel = new Product();
@@ -153,7 +165,7 @@
             <nav id="menu" style="background:#ffffff; color:red;">
                 <ul>
                     <li>
-                        <a href="">HOME</a>
+                        <a href="<?php echo Yii::app()->createUrl('site/index') ?>">หน้าแรก</a>
                     </li>
                     <li>
                         <a class="active" href="<?php echo Yii::app()->createUrl('frontend/product') ?>" >หมวดสินค้า</a>
@@ -172,23 +184,10 @@
                                         <ul>
                                             <?php
                                             foreach ($Types as $rsTypes):
-                                                $sqlGetBrand = "select b.id,b.brandname from product p inner join brand b ON p.brand = b.id where p.type_id = '" . $rsTypes['type_id'] . "' group by brand";
-                                                $Brands = Yii::app()->db->createCommand($sqlGetBrand)->queryAll();
-                                                if (count($Brands) <= 0) {
                                                     ?>
                                                     <li>
                                                         <a href="<?php echo Yii::app()->createUrl('frontend/product/view', array('type' => $rsTypes['type_id'])) ?>"><?php echo $rsTypes['type_name'] ?></a>
                                                     </li>
-                                                <?php } else { ?>
-                                                    <li>
-                                                        <a href="<?php echo Yii::app()->createUrl('frontend/product/view', array('type' => $rsTypes['type_id'])) ?>"><?php echo $rsTypes['type_name'] ?></a>
-                                                        <ul>
-                                                            <?php foreach ($Brands as $rsBrand): ?>
-                                                                <li><a href="<?php echo Yii::app()->createUrl('frontend/product/brand', array('id' => $rsBrand['id'])) ?>"><?php echo $rsBrand['brandname'] ?></a></li>
-                                                            <?php endforeach; ?>
-                                                        </ul>
-                                                    </li>
-                                                <?php } ?>
                                             <?php endforeach; ?>
                                         </ul>
                                     </li>
@@ -289,7 +288,7 @@
             <?php echo $content; ?>
 
         </div>
-        <div class="task-bar-bottom" style=" position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
+        <div class="task-bar-bottom" style=" display: none; position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style=" padding: 0px; margin: 0px; height: 50px;">
                 <div class="btn-group" role="group">
                     <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
@@ -298,9 +297,10 @@
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/product/formsearch') ?>">
                     <button type="button" class="btn btn-default" >
                         <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
-                    </button>
+                    </button></a>
                 </div>
                 <div class="btn-group" role="group">
                     <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
@@ -318,6 +318,35 @@
             </div>
         </div>
 
+        <div class="task-bar-bottom" style=" background: #FFFFFF; position: fixed; bottom: 0px; width: 100%; padding: 0px; padding-top: 10px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
+                <a href="<?php echo Yii::app()->createUrl('site/index') ?>" id="b-home">
+                    <span class="lnr lnr-home fa-2x"></span>
+                    <p style='font-size: 10px'>หน้าแรก</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center;">
+                <a href="<?php echo Yii::app()->createUrl('frontend/product/formsearch') ?>">
+                    <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
+                    <p style='font-size: 10px'>ค้นหา</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
+                <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
+                     <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
+                     <p style='font-size: 10px'>ตระกร้า</p>
+                            <span class="badge" style=" background: #cc0033; position: absolute; top: 0px; right: 10px;"><?php echo $meQty; ?></span>
+                </a>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
+                <a href="<?php echo Yii::app()->createUrl('frontend/orders/menuuser') ?>" id="b-menu">
+                    <span class="lnr lnr-user fa-2x"></span>
+                    <p style='font-size: 10px'>บัญชี</p>
+                </a>
+            </div>
+        </div>
+    </div>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/jquery.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/bootstrap.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/function-check-viewport.js"></script>
@@ -403,16 +432,27 @@
                 });
             }
 
-            function searchproduct() {
-                var url = "<?php echo Yii::app()->createUrl('frontend/product/search') ?>";
-                var search = $("#searchproduct").val();
-                if (search == "") {
-                    $("#searchproduct").focus();
-                    return false;
-                }
 
-                window.location = url + "/product/" + search;
-            }
+
+            $(document).ready(function(){
+            $(document).keydown(function(event) {
+                        if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+                 alert('disabling zooming'); 
+                event.preventDefault();
+                // 107 Num Key  +
+                //109 Num Key  -
+                //173 Min Key  hyphen/underscor Hey
+                // 61 Plus key  +/=
+                 }
+            });
+
+            $(window).bind('mousewheel DOMMouseScroll', function (event) {
+                   if (event.ctrlKey == true) {
+                   alert('disabling zooming'); 
+                   event.preventDefault();
+                   }
+            });
+        });
         </script>
     </body>
 </html>

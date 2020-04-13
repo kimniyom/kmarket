@@ -69,10 +69,7 @@
     });
 </script>
 
-<?php
-$this->breadcrumbs = array(
-);
-?>
+
 <br/><br/><br/>
 <div class="row" style=" margin:0px;">
     <div class="col-lg-12 col-md-12 col-sm-12">

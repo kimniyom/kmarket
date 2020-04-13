@@ -5579,3 +5579,14 @@ Stack trace:
 REQUEST_URI=/kmarket/user/address/id/31
 HTTP_REFERER=http://localhost/kmarket/frontend/orders/order
 ---
+2020/04/13 15:58:47 [error] [php] Undefined variable: data (E:\xampp\htdocs\kmarket\protected\controllers\frontend\ProductController.php:427)
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CController.php(286): ProductController->runAction()
+#1 E:\xampp\htdocs\kmarket\framework\web\CController.php(265): ProductController->runActionWithFilters()
+#2 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): ProductController->run()
+#3 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/frontend/product/formsearch
+in E:\xampp\htdocs\kmarket\protected\controllers\frontend\ProductController.php (427)
+in E:\xampp\htdocs\kmarket\index.php (14)

@@ -188,18 +188,14 @@
     });
 </script>
 
-<?php
-$this->breadcrumbs = array(
-    "SHOP",
-);
-?>
+<br/><br/><br/>
 
-<div class="container" style=" padding-top: 30px;">
+<div class="container">
     <div class="row" id="btn-filter">
         <div class="col-lg-3 col-md-3">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-default btn-block" onclick="popupfilter()" style="margin-bottom:20px;">
-                <i class="fa fa-search"></i> FILTER
+                <i class="fa fa-search"></i> ดูตามหมวดสินค้า
             </button>
         </div>
     </div>
@@ -207,11 +203,7 @@ $this->breadcrumbs = array(
     <div class="row">
         <div class="col-lg-3 col-md-3" id="filter">
             <div id="box-footer">
-                <div class="panel panel-warning">
-                    <div class="panel-heading" style=" border-bottom: none;">
-                        <h4 class="font-supermarket" style="font-size: 20px;">Category</h4>
-                    </div>
-                    <ul class="list-group" id="category">
+                    <ul class="list-group" id="category" style="border:none;">
                         <?php foreach ($categorys as $category): ?>
                             <li class="list-group-item" style="padding:0px;">
                                 <div class="inputGroup">
@@ -222,7 +214,7 @@ $this->breadcrumbs = array(
                         <?php endforeach; ?>
                     </ul>
                     <input type="hidden" id="categoryfilter" />
-                </div>
+               
             </div>
         </div>
         <div class="col-lg-9 col-md-9" style="padding:0px;">
@@ -237,9 +229,9 @@ $this->breadcrumbs = array(
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">FILTER</h4>
+                <h4 class="modal-title" id="myModalLabel">หมวดสินค้า</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding: 0px;">
                 <div class="filter"></div>
             </div>
         </div>
