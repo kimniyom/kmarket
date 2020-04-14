@@ -90,7 +90,7 @@ $product_model = new Product();
                                 <td>
                                     <font class="font-supermarket" style=" font-size: 16px;"><?php echo $meResult['product_name']; ?></font><br/>
                                     <font class="font-supermarket" style=" font-size: 18px; color: #cc3300; font-weight: bold;"><?php echo number_format($product_price, 2); ?> บาท</font><br/>
-                                    <font>จำำนวน <?php echo $_SESSION['qty'][$key]; ?></font>
+                                    <font>จำนวน <?php echo $_SESSION['qty'][$key]; ?></font>
                                     <input type="hidden" name="qty[]" value="<?php echo $_SESSION['qty'][$key]; ?>" />
                                     <input type="hidden" name="product_id[]" value="<?php echo $meResult['product_id']; ?>" />
                                     <input  type="hidden" name="product_price[]" value="<?php echo $product_price; ?>" />

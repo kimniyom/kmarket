@@ -20,7 +20,7 @@ class OrdersController extends Controller {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array(
-                    'index','orders','confirmorder','view','excelorder','gethistory','deleteorder','excelorderall'
+                    'index','orders','confirmorder','view','excelorder','gethistory','deleteorder','excelorderall','printaddress','orderconfirmall'
                 ),
                 'users' => array('@'),
             ),
@@ -69,14 +69,18 @@ class OrdersController extends Controller {
         $this->render('//backend/order/pending_shipment', $data);
     }
 
-    public function actionPrint_address() {
-        $order_id = $_GET['order_id'];
-        $order = new Backend_orders();
+    public function actionPrintaddress($id = "") {
+        //$order_id = $_GET['id'];
+        $order_id = $id;
+        $orderBackend = new Backend_orders();
+        $order = new Orders();
         if ($order_id != 0 && $order_id != '') {
-            $data['rs'] = $order->print_address($order_id);
+            $data['order'] = $order->GetDetailOrder($order_id);
+            $data['orderList'] = $order->GetListOrder($order_id);
             $page = "printaddress";
         } else {
-            $data['result'] = $order->print_address_all();
+            $sql = "select * from orders where order_confirm = '4' order by id asc";
+            $data['orderall'] = Yii::app()->db->createCommand($sql)->queryAll();
             $page = "printaddress_all";
         }
 
@@ -173,7 +177,7 @@ class OrdersController extends Controller {
     }
 
     public function actionOrders() {
-        $sql = "select * from orders where order_confirm = '0' order by id asc";
+        $sql = "select * from orders where order_confirm = '1' order by id asc";
         $data['order'] = Yii::app()->db->createCommand($sql)->queryAll();
         $this->render("orders", $data);
     }
@@ -189,7 +193,7 @@ class OrdersController extends Controller {
         endforeach;
 
         $columns = array(
-            "order_confirm" => "1",
+            "order_confirm" => "4",
             "order_confirm_date" => date("Y-m-d H:i:s"),
             "admin_id" => Yii::app()->user->id
         );
@@ -201,14 +205,12 @@ class OrdersController extends Controller {
             "admin_id" => Yii::app()->user->id,
             "log" => "user ID " . Yii::app()->user->id . " Confirm Order " . $orderId,
             "order_id" => $orderId,
+            "status" => "4",
             "date" => date("Y-m-d H:i:s")
         );
         
         Yii::app()->db->createCommand()
                 ->insert("logorders", $columnsLog);
-
-
-        ;
     }
 
 
@@ -251,7 +253,7 @@ class OrdersController extends Controller {
 
         $columnsLog = array(
             "admin_id" => Yii::app()->user->id,
-            "log" => "user ID " . Yii::app()->user->id . " Delete Order " . $orderId,
+            "log" => "user ID " . Yii::app()->user->id . " Cancel Order " . $orderId,
             "order_id" => $orderId,
             "date" => date("Y-m-d H:i:s")
         );
@@ -348,6 +350,12 @@ class OrdersController extends Controller {
         $data['dateend'] = $dateend;
 
         $this->renderPartial("excelorderall",$data);
+    }
+
+     public function actionOrderconfirmall() {
+        $sql = "select * from orders where order_confirm = '4' order by id asc";
+        $data['order'] = Yii::app()->db->createCommand($sql)->queryAll();
+        $this->render("orderconfirmall", $data);
     }
 
 }

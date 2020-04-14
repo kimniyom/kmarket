@@ -164,11 +164,11 @@ class Orders {
     }
 
     //หารายการรอจัดส่ง
-    function get_order_wait_send($pid = null) {
-        $query = "SELECT o.order_id,o.order_date,SUM(b.product_num) AS PRODUCT_TOTAL,SUM(b.product_price_sum) AS PRICE_TOTAL
-                        FROM orders o INNER JOIN basket b ON o.order_id = b.order_id
-                        WHERE pid = '$pid' AND (active = '3' OR active = '4')
-                        GROUP BY o.order_id ORDER BY o.order_id DESC";
+    function get_order_wait_send($id = null) {
+        $query = "SELECT b.order_id,o.order_date,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
+                        FROM orders o INNER JOIN order_details b ON o.id = b.order_id
+                        WHERE o.`user` = '$id' AND o.order_confirm = '4'
+                        GROUP BY o.id ";
         $result = Yii::app()->db->createCommand($query)->queryAll();
         return $result;
     }
@@ -275,7 +275,7 @@ class Orders {
     }
 
     function GetListOrder($orderID) {
-        $sql = "select o.*,p.product_name
+        $sql = "select o.*,p.product_name,p.description
                 from order_details o inner join product p on o.product_id = p.product_id
                 where order_id = '$orderID' ";
         $orderList = Yii::app()->db->createCommand($sql)->queryAll();

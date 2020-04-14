@@ -15,15 +15,14 @@ $this->breadcrumbs = array(
     $order['id']
 );
 ?>
-<a href="<?php echo Yii::app()->createUrl('backend/orders/excelorder',array("id" => $order['id'])) ?>" target="_blank">
-<button type="button" class="btn btn-success">
-    <img src="<?php echo Yii::app()->baseUrl ?>/images/Excel-icon.png"/> excel
-</button></a>
+
+<a href="<?php echo Yii::app()->createUrl('backend/orders/printaddress',array("id" => $order['id'])) ?>"  target="_blank">
+<button type="button" class="btn btn-default">พิมพ์ใบสั่งซื้อ</button></a>
 <br/><br/>
 <div class="panel panel-primary">
     <div class="panel-heading" style=" border-radius: 0px;">ข้อมูลการสั่งซื้อ</div>
         <div class="panel-body">
-        <table class="table">
+        <table class="table" id="table-export">
             <thead>
                 <tr>
                     <th colspan="6">
@@ -32,14 +31,14 @@ $this->breadcrumbs = array(
                         โทรศัพท์ <?php echo $order['order_phone'] ?><br/>
                         อีเมล์ <?php echo $order['order_email'] ?>
                     </th>
-                <tr>
+                </tr>
+                <tr style=" font-size: 12px;">
                     <th style=" text-align: center;">#</th>
                     <th>รหัสสินค้า</th>
                     <th>ชื่อสินค้า</th>
                     <th style=" text-align: center;">จำนวน</th>
                     <th style=" text-align: right;">ราคาต่อหน่วย</th>
                     <th style=" text-align: right;">จำนวนเงิน</th>
-                </tr>
                 </tr>
             </thead>
             <tbody>

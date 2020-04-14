@@ -454,6 +454,7 @@ class OrdersController extends Controller {
                     unset($_SESSION['cart']);
                     unset($_SESSION['qty']);
 
+                    //UploadSlip
                     if (!empty($_FILES)) {
                         $targetFolder = Yii::app()->baseUrl . '/uploads/slip'; // Relative to the root
                         $tempFile = $_FILES['slip']['tmp_name'];
@@ -479,6 +480,18 @@ class OrdersController extends Controller {
                         } else {
                             echo 'Invalid file type.';
                         }
+
+                        //SetLog
+                        $columnsLog = array(
+                            "log" => "user ID " . Yii::app()->user->id . " CheckOut " . $order_id,
+                            "order_id" => $orderId,
+                            "status" => "1",
+                            "user" => Yii::app()->user->id,
+                            "date" => date("Y-m-d H:i:s")
+                        );
+                        
+                        Yii::app()->db->createCommand()
+                                ->insert("logorders", $columnsLog);
                     }
                     $this->redirect(array("frontend/orders/verify"));
                 } else {
@@ -535,6 +548,13 @@ class OrdersController extends Controller {
                         where order_id = '$id'";
         $data['order'] = Yii::app()->db->createCommand($query)->queryAll();
         $this->render('//orders/vieworder', $data);
+    }
+
+     public function actionShipping() {
+        $id = Yii::app()->user->id;
+        $order = new Orders();
+        $data['order'] = $order->get_order_wait_send($id);
+        $this->render('//orders/shipping', $data);
     }
 
 }

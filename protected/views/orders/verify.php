@@ -17,7 +17,7 @@
                     <span class=" pull-right"><?php echo number_format($rs['PRICE_TOTAL'], 2); ?> บาท</span>
                 </li>
                 <li class=" list-group-item">
-                    สถานะ<span class="pull-right text-danger"><i class="fa fa-info-circle"></i> รอตรวจสอบ</span>
+                    สถานะ <span class="pull-right text-danger"><i class="fa fa-info-circle"></i> รอตรวจสอบ</span>
                 </li>
                 <a href="<?php echo Yii::app()->createUrl('frontend/orders/vieworder', array("id" => $rs['order_id'])) ?>" class=" list-group-item">
                     ดูสินค้า <span class="pull-right"><i class="fa fa-chevron-right"></i></span>

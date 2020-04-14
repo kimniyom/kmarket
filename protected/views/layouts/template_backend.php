@@ -381,13 +381,12 @@
 
                 <nav class="navbar navbar-default" role="navigation" style="margin-bottom:10px; border-radius: 0px; padding-top: 3px; border-left:0px;">
                     <ul class="nav nav-pills pull-right" style="margin:5px;">
-                        <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orders') ?>"><i class="fa fa-bell-o"></i> แจ้งชำระเงิน <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder() ?></span></a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orders') ?>"><i class="fa fa-cart-arrow-down"></i> การสั่งซื้อ <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder() ?></span></a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orderconfirmall') ?>"><i class="fa fa-truck"></i> ที่ต้องจัดส่ง <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder("4") ?></span></a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('backend/orders/orders') ?>"><i class="fa fa-cart-arrow-down"></i> การสั่งซื้อ <span class="badge" style=" background: #cc0033;"><?php echo $order_model->Countorder("1") ?></span></a></li>
                     </ul>
                 </nav>
 
                 <ol class="breadcrumb well well-sm" style=" margin-bottom: 10px; margin-top: 0px; border-radius: 0px; background: none; box-shadow: none; border: none;">
-
                     <?php if (isset($this->breadcrumbs)): ?>
                         <?php
                         $this->widget('zii.widgets.CBreadcrumbs', array(

@@ -5555,8 +5555,8 @@ function finishFlowingBlock($endofblock=false, $next='') {
 /*-- END TABLES --*/
 		$ipaddingL = $this->blk[$this->blklvl]['padding_left']; 
 		$ipaddingR = $this->blk[$this->blklvl]['padding_right']; 
-		$paddingL = ($ipaddingL * _MPDFK); 
-		$paddingR = ($ipaddingR * _MPDFK);
+		$paddingL = ((int)$ipaddingL * _MPDFK); 
+		$paddingR = ((int)$ipaddingR * _MPDFK);
 		$this->cMarginL =  $this->blk[$this->blklvl]['border_left']['w'];
 		$this->cMarginR =  $this->blk[$this->blklvl]['border_right']['w'];
 
@@ -17028,7 +17028,7 @@ function OpenTag($tag,$attr,&$ahtml,&$ihtml) {	// mPDF 6
 		// Don't allow overlap - if floats present - adjust padding to avoid overlap with Floats
 		list($l_exists, $r_exists, $l_max, $r_max, $l_width, $r_width) = $this->GetFloatDivInfo($this->blklvl-1);
 		$maxw = $container_w - $l_width - $r_width;
-		if (($setwidth + $currblk['margin_left'] + $currblk['margin_right'] + $bdl + $pdl + $bdr + $pdr) > $maxw || ($maxw - ($currblk['margin_right'] + $currblk['margin_left'] + $bdl + $pdl + $bdr + $pdr)) < (2*$this->GetCharWidth('W',false))) {
+		if (((int)$setwidth + (int)$currblk['margin_left'] + (int)$currblk['margin_right'] + (int)$bdl + (int)$pdl + (int)$bdr + (int)$pdr) > (int)$maxw || ((int)$maxw - ((int)$currblk['margin_right'] + (int)$currblk['margin_left'] + (int)$bdl + (int)$pdl + (int)$bdr + (int)$pdr)) < (2*$this->GetCharWidth('W',false))) {
 			// Too narrow to fit - try to move down past L or R float
 			if ($l_max < $r_max && ($setwidth + $currblk['margin_left'] + $currblk['margin_right'] + $bdl + $pdl + $bdr + $pdr) <= ($container_w - $r_width) && (($container_w - $r_width) - ($currblk['margin_right'] + $currblk['margin_left'] + $bdl + $pdl + $bdr + $pdr)) > (2*$this->GetCharWidth('W',false))) {
 				$this->ClearFloats('LEFT', $this->blklvl-1); 
@@ -17141,11 +17141,11 @@ function OpenTag($tag,$attr,&$ahtml,&$ihtml) {	// mPDF 6
 	  }
 	}
 
-	$currblk['outer_left_margin'] = $prevblk['outer_left_margin'] + $currblk['margin_left'] + $prevblk['border_left']['w'] + $prevblk['padding_left'];
-	$currblk['outer_right_margin'] = $prevblk['outer_right_margin']  + $currblk['margin_right'] + $prevblk['border_right']['w'] + $prevblk['padding_right'];
+	$currblk['outer_left_margin'] = (int)$prevblk['outer_left_margin'] + (int)$currblk['margin_left'] + (int)$prevblk['border_left']['w'] + (int)$prevblk['padding_left'];
+	$currblk['outer_right_margin'] = (int)$prevblk['outer_right_margin']  + (int)$currblk['margin_right'] + (int)$prevblk['border_right']['w'] + (int)$prevblk['padding_right'];
 
 	$currblk['width'] = $this->pgwidth - ($currblk['outer_right_margin'] + $currblk['outer_left_margin']);
-	$currblk['inner_width'] = $currblk['width'] - ($currblk['border_left']['w'] + $currblk['padding_left'] + $currblk['border_right']['w'] + $currblk['padding_right']);
+	$currblk['inner_width'] = (int)$currblk['width'] - (int)($currblk['border_left']['w'] + (int)$currblk['padding_left'] + (int)$currblk['border_right']['w'] + (int)$currblk['padding_right']);
 
 	// Check DIV is not now too narrow to fit text
 	$mw = 2*$this->GetCharWidth('W',false);

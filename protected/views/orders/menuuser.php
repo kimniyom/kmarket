@@ -60,10 +60,11 @@
                 </div></a>
         </div>
         <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" style=" padding: 5px;">
+            <a href="<?php echo Yii::app()->createUrl('frontend/orders/shipping') ?>">
             <div class="well  font-supermarket">
                 <i class="fa fa-archive fa-2x" aria-hidden="true"></i><br/>
                 ที่ต้องจัดส่ง
-            </div>
+            </div></a>
         </div>
 
         <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" style=" padding: 5px;">

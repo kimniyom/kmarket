@@ -30,7 +30,7 @@ $product_model = new Product();
                     <td>
                         <font class="font-supermarket" style=" font-size: 16px;"><?php echo $meResult['product_name']; ?></font><br/>
                         <font class="font-supermarket" style=" font-size: 18px; color: #cc3300; font-weight: bold;"><?php echo number_format($meResult['order_detail_price'], 2); ?> บาท</font><br/>
-                        จำนวน <?php echo $meResult['order_detail_quantity']; ?>
+                        <font class="font-supermarket">จำนวน <?php echo $meResult['order_detail_quantity']; ?></font>
                     </td>
                 </tr>
                 <?php

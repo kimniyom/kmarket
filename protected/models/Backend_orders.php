@@ -166,25 +166,25 @@ class Backend_orders {
 
     //พิมพ์ที่อยู่
     function print_address($order_id = null) {
-        $query = "SELECT 
-                        m.name,
-                        m.lname,
-                        o.order_id,
-                        o.order_date,
-                        m.tel,
-                        m.email,
-                        IFNULL(o.message,'-') AS msg,
-                        a.*,
-                        c.changwat_name,
-                        ap.ampur_name,
-                        t.tambon_name
-                FROM orders o INNER JOIN basket b ON o.order_id = b.order_id
-                INNER JOIN masuser m ON o.pid = m.pid
-                INNER JOIN address a ON m.pid = a.pid
+        $query = "SELECT
+                m.name,
+                m.lname,
+                o.id,
+                o.order_date,
+                m.tel,
+                m.email,
+                a.address,
+                a.zipcode,
+                c.changwat_name,
+                ap.ampur_name,
+                t.tambon_name
+            FROM orders o
+                INNER JOIN masuser m ON o. USER = m.id
+                INNER JOIN address a ON m.id = a.user_id
                 INNER JOIN changwat c ON a.changwat = c.changwat_id
                 INNER JOIN ampur ap ON a.ampur = ap.ampur_id
                 INNER JOIN tambon t ON a.tambon = t.tambon_id
-                WHERE o.order_id = '$order_id'";
+                WHERE o.id = '$order_id'";
         $result = Yii::app()->db->createCommand($query)->queryRow();
         return $result;
     }
@@ -337,8 +337,8 @@ class Backend_orders {
         return $std_id;
     }
     
-     function Countorder(){
-        $sql = "select count(*) as total from orders where order_confirm = '0'";
+     function Countorder($status){
+        $sql = "select count(*) as total from orders where order_confirm = '$status'";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
         return $rs['total'];
     }

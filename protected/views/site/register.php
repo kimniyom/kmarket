@@ -100,5 +100,10 @@
 
     </div><!-- form -->
 </div>
+<script>
+    $(document).ready(function(){
+        $(".task-bar-bottom").hide();
+    })
+</script>
 <?php
 //$this->renderPartial('_form', array('model' => $model)); ?>
