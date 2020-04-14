@@ -91,7 +91,7 @@ $lastProduct = $productModel->_get_last_product();
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#b-home").addClass("text-danger");
+        $("#b-home").css({'color': 'red'});
         var size = window.innerWidth;
         if (size >= 1024) {
             $(".box-category-item").css({"margin-top": "30px"});

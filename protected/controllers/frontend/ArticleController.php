@@ -2,7 +2,7 @@
 
 class ArticleController extends Controller {
 
-    public $layout = "kstudio";
+    public $layout = "mobile";
 
     //public $layout = "template_product";
     public function actionIndex($category = null) {
@@ -42,13 +42,13 @@ class ArticleController extends Controller {
         //$results = mysqli_query($connecDB, "SELECT id,name,message FROM paginate ORDER BY id DESC LIMIT $position, $item_per_page");
         if ($category) {
             $query = "select a.*,m.name,m.lname,c.category as category_name
-                from article a inner join masuser m on a.owner = m.id 
+                from article a inner join masuser m on a.owner = m.id
                 inner join articlecategory c on a.category = c.id
                 where a.category = '$category'
                 order by a.id desc LIMIT $position, $item_per_page";
         } else {
             $query = "select a.*,m.name,m.lname,c.category as category_name
-                from article a inner join masuser m on a.owner = m.id 
+                from article a inner join masuser m on a.owner = m.id
                 inner join articlecategory c on a.category = c.id
                 order by a.id desc LIMIT $position, $item_per_page";
         }
@@ -102,11 +102,11 @@ class ArticleController extends Controller {
         $sqlpre = "select * from article where id < '$id' limit 1";
         $data['pre'] = Yii::app()->db->createCommand($sqlpre)->queryRow();
 
-        //near 
-        $sqlnear = "SELECT * 
+        //near
+        $sqlnear = "SELECT *
                 FROM (
                 SELECT *
-                FROM article 
+                FROM article
                 WHERE category = '" . $data['category_id'] . "' AND id != '$id'
         ) Q WHERE RAND() LIMIT 3; ";
 
@@ -121,7 +121,7 @@ class ArticleController extends Controller {
         /*
           $sql = "select countread from article where id = '$id'";
           $rs = Yii::app()->db->createCommand($sql)->queryRow();
-         * 
+         *
          */
         $newsCount = ($countread + 1);
         $columns = array("countread" => $newsCount);

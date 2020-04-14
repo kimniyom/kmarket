@@ -11370,3 +11370,14 @@ Stack trace:
 REQUEST_URI=/kmarket/backend/orders/printaddress
 HTTP_REFERER=http://localhost/kmarket/backend/orders/orderconfirmall
 ---
+2020/04/15 02:06:28 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php:376)
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): OrdersController->runAction()
+#1 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): OrdersController->runActionWithFilters()
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): OrdersController->run()
+#3 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\kmarket\index.php(14): CWebApplication->run()
+REQUEST_URI=/kmarket/frontend/orders/order
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php (376)
+in C:\xampp\htdocs\kmarket\index.php (14)

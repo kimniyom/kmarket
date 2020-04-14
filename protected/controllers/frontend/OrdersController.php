@@ -373,7 +373,7 @@ class OrdersController extends Controller {
             if (isset($_SESSION['qty'])) {
                 $meQty = 0;
                 foreach ($_SESSION['qty'] as $meItem) {
-                    $meQty = $meQty + $meItem;
+                    $meQty = (int) $meQty + (int) $meItem;
                 }
             } else {
                 $meQty = 0;
@@ -489,7 +489,7 @@ class OrdersController extends Controller {
                             "user" => Yii::app()->user->id,
                             "date" => date("Y-m-d H:i:s")
                         );
-                        
+
                         Yii::app()->db->createCommand()
                                 ->insert("logorders", $columnsLog);
                     }
@@ -550,7 +550,7 @@ class OrdersController extends Controller {
         $this->render('//orders/vieworder', $data);
     }
 
-     public function actionShipping() {
+    public function actionShipping() {
         $id = Yii::app()->user->id;
         $order = new Orders();
         $data['order'] = $order->get_order_wait_send($id);

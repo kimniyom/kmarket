@@ -45,7 +45,7 @@ $product_model = new Product();
                     <input type="email" class="form-control" id="order_email" placeholder="ใส่ Email ที่สามารถติดต่อได้"  name="order_email" value="<?php echo $profile['email'] ?>">
                 </div>
             </div>
-            <div style="font-size: 16px;">
+            <div style="font-size: 16px;" class=" font-supermarket">
                 ชื่อ-นามสกุล: <?php echo $profile['name'] . " " . $profile['lname'] ?><br/>
                 เบอร์โทรศัพท์: <?php echo $profile['tel'] ?><br/>
                 อีเมล์: <?php echo $profile['email'] ?><br/>
@@ -142,7 +142,7 @@ $product_model = new Product();
             foreach ($payment as $rs): $i++;
                 ?>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <div class="row">
+                    <div class="row font-supermarket">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             <img src="<?php echo Yii::app()->baseUrl . '/images/' . $rs['bank_img']; ?>" class="img-resize img-responsive"/>
                         </div>

@@ -115,15 +115,15 @@
             }
 
             .task-bar-bottom button{
-                border-radius: 0px; 
-                border: 1px solid #ffffff; 
-                border-top: 0px; 
-                height:  50px; 
+                border-radius: 0px;
+                border: 1px solid #ffffff;
+                border-top: 0px;
+                height:  50px;
                 padding-top: 12px;
                 background: #ffffff;
             }
 
-           
+
         </style>
         <?php
         $productModel = new Product();
@@ -162,14 +162,14 @@
         <div class="home-1" id="page" style=" padding-bottom: 50px;">
             <!-- Menu Nav -->
             <div id="kkmenusidebar"></div>
-            <nav id="menu" style="background:#ffffff; color:red;">
+            <nav id="menu" class=" font-supermarket" style="background:#ffffff; color: #ff6600; font-size: 16px;">
                 <ul>
                     <li>
-                        <a href="<?php echo Yii::app()->createUrl('site/index') ?>">หน้าแรก</a>
+                        <a href="<?php echo Yii::app()->createUrl('site/index') ?>" style=" font-size: 16px;">หน้าแรก</a>
                     </li>
                     <li>
-                        <a class="active" href="<?php echo Yii::app()->createUrl('frontend/product') ?>" >หมวดสินค้า</a>
-                        <ul>
+                        <a class="active" href="<?php echo Yii::app()->createUrl('frontend/product') ?>" style=" font-size: 16px;">หมวดสินค้า</a>
+                        <ul style=" font-size: 16px;">
                             <?php
                             foreach ($Categorys as $rsCategory):
                                 $Types = ProductType::model()->findAll("category=:id", array(":id" => $rsCategory['id']));
@@ -179,15 +179,15 @@
                                         <a href="<?php echo Yii::app()->createUrl('frontend/product/category', array('id' => $rsCategory['id'])) ?>"><?php echo $rsCategory['categoryname'] ?></a>
                                     </li>
                                 <?php } else { ?>
-                                    <li>
+                                    <li style=" font-size: 16px;">
                                         <a href="<?php echo Yii::app()->createUrl('frontend/product/category', array('id' => $rsCategory['id'])) ?>"><?php echo $rsCategory['categoryname'] ?></a>
                                         <ul>
                                             <?php
                                             foreach ($Types as $rsTypes):
-                                                    ?>
-                                                    <li>
-                                                        <a href="<?php echo Yii::app()->createUrl('frontend/product/view', array('type' => $rsTypes['type_id'])) ?>"><?php echo $rsTypes['type_name'] ?></a>
-                                                    </li>
+                                                ?>
+                                                <li style=" font-size: 16px;">
+                                                    <a href="<?php echo Yii::app()->createUrl('frontend/product/view', array('type' => $rsTypes['type_id'])) ?>"><?php echo $rsTypes['type_name'] ?></a>
+                                                </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </li>
@@ -196,8 +196,8 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="<?php echo Yii::app()->createUrl('frontend/article') ?>">BLOG</a>
+                    <li style=" font-size: 16px;">
+                        <a href="<?php echo Yii::app()->createUrl('frontend/article') ?>" style=" font-size: 16px;">ข่าว</a>
                         <ul>
                             <?php foreach ($articleCategory as $articleCategorys): ?>
                                 <li>
@@ -206,7 +206,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </li>
-                    <li>
+                    <li style=" font-size: 16px;">
                         <a href="<?= Yii::app()->createUrl('site/payment') ?>">แจ้งชำระเงิน / วิธีชำระเงิน</a>
                     </li>
                 </ul>
@@ -254,9 +254,9 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')               ?>">
+                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                           ?>">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;               ?></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;                                           ?></span>
                                     </a>
                                 </div>
                                 -->
@@ -288,65 +288,66 @@
             <?php echo $content; ?>
 
         </div>
+        <!--
         <div class="task-bar-bottom" style=" display: none; position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style=" padding: 0px; margin: 0px; height: 50px;">
                 <div class="btn-group" role="group">
-                    <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('site/index')                 ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-home fa-2x" id="b-home"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php echo Yii::app()->createUrl('frontend/product/formsearch') ?>">
-                    <button type="button" class="btn btn-default" >
-                        <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
-                    </button></a>
-                </div>
-                <div class="btn-group" role="group">
-                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
-                        <button type="button" class="btn btn-default">
-                            <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
-                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php echo $meQty; ?></span>
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/product/formsearch')                 ?>">
+                        <button type="button" class="btn btn-default" >
+                            <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/menuuser') ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                 ?>">
+                        <button type="button" class="btn btn-default">
+                            <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
+                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php //echo $meQty;                 ?></span>
+                        </button></a>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/menuuser')                 ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-user fa-2x" id="b-menu"></span>
                         </button></a>
                 </div>
             </div>
         </div>
-
+        -->
         <div class="task-bar-bottom" style=" background: #FFFFFF; position: fixed; bottom: 0px; width: 100%; padding: 0px; padding-top: 10px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
-        <div class="row">
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
-                <a href="<?php echo Yii::app()->createUrl('site/index') ?>" id="b-home">
-                    <span class="lnr lnr-home fa-2x"></span>
-                    <p style='font-size: 10px'>หน้าแรก</p>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center;">
-                <a href="<?php echo Yii::app()->createUrl('frontend/product/formsearch') ?>">
-                    <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
-                    <p style='font-size: 10px'>ค้นหา</p>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
-                <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
-                     <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
-                     <p style='font-size: 10px'>ตระกร้า</p>
-                            <span class="badge" style=" background: #cc0033; position: absolute; top: 0px; right: 10px;"><?php echo $meQty; ?></span>
-                </a>
-            </div>
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
-                <a href="<?php echo Yii::app()->createUrl('frontend/orders/menuuser') ?>" id="b-menu">
-                    <span class="lnr lnr-user fa-2x"></span>
-                    <p style='font-size: 10px'>บัญชี</p>
-                </a>
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center;">
+                    <a href="<?php echo Yii::app()->createUrl('site/index') ?>" id="b-home" >
+                        <span class="lnr lnr-home fa-2x"></span>
+                        <p style='font-size: 10px'>หน้าแรก</p>
+                    </a>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center;" >
+                    <a href="<?php echo Yii::app()->createUrl('frontend/product/formsearch') ?>" id="b-search">
+                        <span class="lnr lnr-magnifier fa-2x"></span>
+                        <p style='font-size: 10px'>ค้นหา</p>
+                    </a>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>" id="b-cart">
+                        <span class="lnr lnr-cart fa-2x"></span>
+                        <p style='font-size: 10px'>ตระกร้า</p>
+                        <span class="badge" style=" background: #cc0033; position: absolute; top: 0px; right: 10px;"><?php echo $meQty; ?></span>
+                    </a>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style=" text-align: center">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/orders/menuuser') ?>" id="b-menu">
+                        <span class="lnr lnr-user fa-2x"></span>
+                        <p style='font-size: 10px'>บัญชี</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/jquery.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/bootstrap.min.js"></script>
         <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/function-check-viewport.js"></script>
@@ -434,25 +435,25 @@
 
 
 
-            $(document).ready(function(){
-            $(document).keydown(function(event) {
-                        if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
-                 alert('disabling zooming'); 
-                event.preventDefault();
-                // 107 Num Key  +
-                //109 Num Key  -
-                //173 Min Key  hyphen/underscor Hey
-                // 61 Plus key  +/=
-                 }
-            });
+            $(document).ready(function() {
+                $(document).keydown(function(event) {
+                    if (event.ctrlKey == true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109' || event.which == '187' || event.which == '189')) {
+                        alert('disabling zooming');
+                        event.preventDefault();
+                        // 107 Num Key  +
+                        //109 Num Key  -
+                        //173 Min Key  hyphen/underscor Hey
+                        // 61 Plus key  +/=
+                    }
+                });
 
-            $(window).bind('mousewheel DOMMouseScroll', function (event) {
-                   if (event.ctrlKey == true) {
-                   alert('disabling zooming'); 
-                   event.preventDefault();
-                   }
+                $(window).bind('mousewheel DOMMouseScroll', function(event) {
+                    if (event.ctrlKey == true) {
+                        alert('disabling zooming');
+                        event.preventDefault();
+                    }
+                });
             });
-        });
         </script>
     </body>
 </html>

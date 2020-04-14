@@ -3,6 +3,11 @@
 /* @var $model Masuser */
 /* @var $form CActiveForm */
 ?>
+<style>
+    input[type=text], select {
+        box-shadow: none;
+    }
+</style>
 <br/><br/><br/>
 <div class=" container">
     <div class="form font-supermarket">
@@ -101,8 +106,8 @@
     </div><!-- form -->
 </div>
 <script>
-    $(document).ready(function(){
-        $(".task-bar-bottom").hide();
+    $(document).ready(function() {
+        //$(".task-bar-bottom").hide();
     })
 </script>
 <?php

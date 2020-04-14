@@ -64,11 +64,6 @@
 <?php
 $config = new Configweb_model();
 $articleModel = new Article();
-$this->breadcrumbs = array(
-    "บทความ / รีวิว" => array('frontend/article'),
-    $result['title'],
-);
-
 $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 ?>
 
@@ -86,7 +81,6 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 </script>
 
 <br/><br/><br/>
-
 <section class="boxed-sm">
     <div class="container">
         <div class="row main">

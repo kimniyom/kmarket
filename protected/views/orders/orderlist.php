@@ -88,7 +88,7 @@ $product_model = new Product();
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#b-cart").addClass("text-danger");
+        $("#b-cart").css({'color': 'red'});
     });
 </script>
 
