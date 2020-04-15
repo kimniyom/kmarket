@@ -71,23 +71,25 @@
 
 
 <br/><br/><br/>
-<div class="row" style=" margin:0px;">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        <div style=" float: left; margin-left: 0px; color: #9d1419;">
-            <h2 class="font-supermarket"><?php echo $category['categoryname'] ?></h2>
-            <hr style=" margin: 10px 0px; border-bottom: #9d1419 solid 2px;"/>
-            <h4 class="font-supermarket">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
+<div class="container" style=" padding: 5px;">
+    <div class="row" style=" margin:0px;">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div style=" float: left; margin-left: 0px; color: #9d1419;">
+                <h2 class="font-supermarket"><?php echo $category['categoryname'] ?></h2>
+                <hr style=" margin: 10px 0px; border-bottom: #9d1419 solid 2px;"/>
+                <h4 class="font-supermarket">จำนวนที่พบ <?php echo $count ?> รายการ</h4>
+            </div>
         </div>
-    </div>
-</div><br/>
-<div id="results"></div>
+    </div><br/>
+    <div id="results"></div>
 
-<div align="center">
-    <button class="load_more btn btn-default" id="load_more_button">
-        LOAD MORE <i class="fa fa-angle-down"></i>
-    </button>
-    <div class="animation_image" style="display:none;">
-        <img src="<?php echo Yii::app()->baseUrl; ?>/images/ajax-loader.gif"> Loading...
-    </div>
-</div><br/>
+    <div align="center">
+        <button class="load_more btn btn-default" id="load_more_button">
+            LOAD MORE <i class="fa fa-angle-down"></i>
+        </button>
+        <div class="animation_image" style="display:none;">
+            <img src="<?php echo Yii::app()->baseUrl; ?>/images/ajax-loader.gif"> Loading...
+        </div>
+    </div><br/>
+</div>
 

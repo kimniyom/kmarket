@@ -209,6 +209,12 @@
                     <li style=" font-size: 16px;">
                         <a href="<?= Yii::app()->createUrl('site/payment') ?>">แจ้งชำระเงิน / วิธีชำระเงิน</a>
                     </li>
+                    <li style=" font-size: 16px;">
+                        <a href="<?= Yii::app()->createUrl('site/about') ?>">นโยบายความเป็นส่วนตัว</a>
+                    </li>
+                    <li style=" font-size: 16px;">
+                        <a href="<?= Yii::app()->createUrl('frontend/contact') ?>">ติดต่อเรา</a>
+                    </li>
                 </ul>
             </nav>
 
@@ -226,6 +232,7 @@
                                     <span class="icon-bar"></span>
                                 </a>
                             </div>
+
                             <a class="brand-logo animsition-link" href="<?php echo Yii::app()->createUrl('site/index') ?>">
                                 <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/uploads/logo/<?php echo $web->get_logoweb(); ?>" alt="" style="max-height: 52px;"/>
                             </a>
@@ -254,9 +261,9 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                           ?>">
+                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                                              ?>">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;                                           ?></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;                                                              ?></span>
                                     </a>
                                 </div>
                                 -->
@@ -284,34 +291,34 @@
                     </div>
                 </div>
             <?php endif ?>
-
-            <?php echo $content; ?>
-
+            <div class="body-content">
+                <?php echo $content; ?>
+            </div>
         </div>
         <!--
         <div class="task-bar-bottom" style=" display: none; position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style=" padding: 0px; margin: 0px; height: 50px;">
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('site/index')                 ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('site/index')                                    ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-home fa-2x" id="b-home"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/product/formsearch')                 ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/product/formsearch')                                    ?>">
                         <button type="button" class="btn btn-default" >
                             <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                 ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                    ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
-                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php //echo $meQty;                 ?></span>
+                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php //echo $meQty;                                    ?></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/menuuser')                 ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/menuuser')                                    ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-user fa-2x" id="b-menu"></span>
                         </button></a>
@@ -419,8 +426,12 @@
             function setScreen() {
                 var w = window.innerWidth;
                 if (w >= 768) {
+                    $(".brand-logo").css({"margin-left": "38%"});
+                    $(".body-content").css({"margin-top": "20px"});
                     $("#menuBar").css({"padding-bottom": "0px"});
                 } else {
+                    $(".brand-logo").css({"margin-left": "20%"});
+
                     $("#slider_1").hide();
                     $("#slider_1").css({"height": "20px"});
                 }

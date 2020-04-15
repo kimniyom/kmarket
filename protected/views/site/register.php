@@ -65,18 +65,6 @@
             </div>
         </div>
         <br/>
-        <div class="row">
-            <div class="col-md-4 col-lg-4">
-                <?php echo $form->labelEx($model, 'sex'); ?>
-                <?php
-                echo $form->radioButtonList($model, 'sex', array('M' => 'ชาย', 'F' => 'หญิง'), array('labelOptions' => array('style' => 'display:inline'), 'separator' => '',
-                ));
-                //echo $form->textField($model,'sex',array('size'=>1,'maxlength'=>1,'class' => 'form-control'));
-                ?>
-                <?php echo $form->error($model, 'sex'); ?>
-            </div>
-        </div>
-
         <hr style=" margin-bottom: 5px; margin-top: 5px;"/>
         <div class="row">
             <div class="col-md-4 col-lg-4">

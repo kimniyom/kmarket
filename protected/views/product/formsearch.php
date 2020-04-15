@@ -5,14 +5,14 @@ $Categorys = Category::model()->findAll();
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="form-inline">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="boxsearchproduct" name="boxsearchproduct" placeholder="ชื่อสินค้าที่ต้องการค้นหา...">
-                        <div class="input-group-addon" onclick="searchProduct()"><i class="fa fa-search"></i></div>
-                    </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="boxsearchproduct" name="boxsearchproduct" placeholder="ชื่อสินค้าที่ต้องการค้นหา...">
+                    <div class="input-group-addon" onclick="searchProduct()"><i class="fa fa-search"></i></div>
                 </div>
             </div>
+
         </div>
     </div>
     <h4 class="font-supermarket">หมวดสินค้า</h4>

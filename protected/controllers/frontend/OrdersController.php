@@ -557,4 +557,18 @@ class OrdersController extends Controller {
         $this->render('//orders/shipping', $data);
     }
 
+    public function actionOrdercomplete() {
+        $id = Yii::app()->user->id;
+        $order = new Orders();
+        $data['order'] = $order->get_order_complate($id);
+        $this->render('//orders/complete', $data);
+    }
+
+    public function actionOrderall() {
+        $id = Yii::app()->user->id;
+        $order = new Orders();
+        $data['order'] = $order->get_order_all($id);
+        $this->render('//orders/complete', $data);
+    }
+
 }

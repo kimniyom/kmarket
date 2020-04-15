@@ -20,8 +20,6 @@
         font-weight: bold;
         color: #000000;
     }
-
-
 </style>
 <br/><br/>
 <div class="well account" id="account" style=" background-color: #FBAB7E; border-radius:0px;border: none;
@@ -67,22 +65,25 @@
                 </div></a>
         </div>
 
-        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" style=" padding: 5px;">
-            <div class="well  font-supermarket">
-                <i class="fa fa-truck fa-2x" aria-hidden="true"></i><br/>
-                จัดส่งแล้ว
-            </div>
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12" style=" padding: 5px;">
+            <a href="<?php echo Yii::app()->createUrl('frontend/orders/ordercomplete') ?>">
+                <div class="well  font-supermarket">
+                    <i class="fa fa-truck fa-2x" aria-hidden="true"></i><br/>
+                    จัดส่งแล้ว
+                </div>
+            </a>
         </div>
+        <!--
         <div class="col-sm-8 col-xs-8 col-md-8 col-lg-8" style=" padding: 5px; margin-top: 0px;">
-            <div class="well  font-supermarket">
-                <i class="fa fa-gift fa-2x" aria-hidden="true"></i><br/>
-                รายการสั่งซื้อทั้งหมด
-            </div>
+            <a href="<?php //echo Yii::app()->createUrl('frontend/orders/orderall')     ?>">
+                <div class="well  font-supermarket">
+                    <i class="fa fa-gift fa-2x" aria-hidden="true"></i><br/>
+                    รายการสั่งซื้อทั้งหมด
+                </div>
+            </a>
         </div>
+        -->
     </div>
-
-
-
 </div>
 
 <script type="text/javascript">

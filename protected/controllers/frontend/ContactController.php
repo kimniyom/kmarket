@@ -2,19 +2,19 @@
 
 class ContactController extends Controller {
 
-    public $layout = "webapp";
+    public $layout = "mobile";
 
     public function actionIndex() {
         $contact = new Contact();
-        $use = new User;
-        $pid = Yii::app()->session['pid'];
+        //$use = new User;
+        //$pid = Yii::app()->session['id'];
         $data['contact'] = $contact->gat_contact();
         $data['social'] = $contact->get_social_media();
-        $data['use'] = $use->Get_detail($pid);
+        //$data['use'] = $use->Get_detail($pid);
         $this->render("//contact/contact", $data);
     }
-    
-    public function actionSave_message(){
+
+    public function actionSave_message() {
         //บันทึกข้อมูลจาก สมาชิก ถึง ผู้ดูแลระบบ
         $columns = array(
             "pid" => $_POST['pid'],
@@ -27,5 +27,5 @@ class ContactController extends Controller {
         Yii::app()->db->createCommand()
                 ->insert("message", $columns);
     }
-    
+
 }

@@ -11401,3 +11401,479 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/kmarket/site/abont
 ---
+2020/04/15 23:48:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:48:54 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:35 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:35 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:38 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:38 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:38 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:39 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/15 23:52:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id .
+in C:\xampp\htdocs\kmarket\protected\models\Product.php (270)
+in C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php (327)
+in C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php (14)
+2020/04/15 23:52:40 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'field list'. The SQL statement executed was: SELECT o.order_id,o.postcode,m.`name`,m.lname
+                    FROM orders o INNER JOIN masuser m ON o.pid = m.pid
+                    WHERE o.postcode != ''
+                    GROUP BY o.order_id  in C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\kmarket\protected\models\Product.php(270): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\kmarket\protected\views\layouts\webapp.php(327): Product->get_notify_postcode()
+#3 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\kmarket\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\kmarket\framework\web\CController.php(784): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\kmarket\protected\controllers\frontend\ContactController.php(14): CController->render('//contact/conta...', Array)
+#7 C:\xampp\htdocs\kmarket\framework\web\actions\CInlineAction.php(49): ContactController->actionIndex()
+#8 C:\xampp\htdocs\kmarket\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\kmarket\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\kmarket\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/contac...')
+#13 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#15 {main}
+REQUEST_URI=/kmarket/frontend/contact
+---
+2020/04/16 00:45:42 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "ordercomplete". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('ordercomplete')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('ordercomplete')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('frontend/orders...')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/frontend/orders/ordercomplete
+HTTP_REFERER=http://localhost/kmarket/frontend/orders/menuuser
+---
+2020/04/16 01:11:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "contact/contact". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('contact/contact')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/contact/contact
+HTTP_REFERER=http://localhost/kmarket/frontend/product/views/id/P20200409233255
+---
+2020/04/16 01:11:54 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "company". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('company')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('company')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/company')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/contact
+---
+2020/04/16 01:12:19 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "company". in C:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('company')
+#1 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('company')
+#2 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/company')
+#3 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/contact
+---
+2020/04/16 01:12:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "contact/index". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('contact/index')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/contact/index
+---
+2020/04/16 01:12:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "front/contact". in C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('front/contact')
+#1 C:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/kmarket/front/contact
+---
