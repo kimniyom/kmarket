@@ -11381,3 +11381,23 @@ Stack trace:
 REQUEST_URI=/kmarket/frontend/orders/order
 in C:\xampp\htdocs\kmarket\protected\controllers\frontend\OrdersController.php (376)
 in C:\xampp\htdocs\kmarket\index.php (14)
+2020/04/15 15:17:22 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "abount". in E:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('abount')
+#1 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('abount')
+#2 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/abount')
+#3 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site/abount
+---
+2020/04/15 15:17:27 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "abont". in E:\xampp\htdocs\kmarket\framework\web\CController.php:483
+Stack trace:
+#0 E:\xampp\htdocs\kmarket\framework\web\CController.php(270): CController->missingAction('abont')
+#1 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(282): CController->run('abont')
+#2 E:\xampp\htdocs\kmarket\framework\web\CWebApplication.php(141): CWebApplication->runController('site/abont')
+#3 E:\xampp\htdocs\kmarket\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\xampp\htdocs\kmarket\index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/kmarket/site/abont
+---

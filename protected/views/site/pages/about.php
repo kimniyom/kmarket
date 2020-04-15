@@ -2,11 +2,33 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name . ' - About';
-$this->breadcrumbs=array(
-	'About',
-);
 ?>
-<h1>About</h1>
+<br/><br/><br/>
+<h1>นโยบาย</h1>
+<h4>ข้อมูลลูกค้า</h4>
+<ul>
+	<li>Application kmarket มีการเก็บข้อมูลของลูกค้าแต่ไม่นำเสนอต่อสาธารณ ลูกค้าเท่านั้นที่จะเห็นข้อมูลส่วนตัวได้
+		<ul>
+			<li>ชื่อ - นามสกุล</li>
+			<li>ที่อยู่</li>
+			<li>เบอร์โทรศัพท์</li>
+			<li>อีเมล์</li>
+			<li>เพศ</li>
+		</ul>
+	</li>
+</ul>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+<h4>การชำระเงิน</h4>
+<ul>
+	<li>Application kmarket ยังไม่มีการชำระเงินผ่านระบบออนไลน์บน Application kmarket มีเพียงการโอนเข้าบัญชีโดยตรงผ่านหมายเลขบัญชีของทางร้านที่แจ้งไว้ใน Application Kmarket เท่านั้น
+	</li>
+</ul>
+
+<h4>การคืนสินค้า / คืนเงิน</h4>
+<ul>
+	<li>Application kmarket ไม่มีระบบคืนเงินคืนสินค้าผ่าน Application kmarket ถ้าเกิดข้อผิดพลาดในการสั่งซื้อรวมไปถึงการจัดส่ง ให้แจ้งโดยตรงกับทางเจ้าของร้านเท่านั้น
+	</li>
+</ul>
+
+<hr/>
+ปรับปรุงครั้งล่าสุดวันที่ 15 เมษายน 2563

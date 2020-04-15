@@ -6,18 +6,15 @@
     });
 </script>
 <?php
-$title = "เกี่ยวกับเรา";
-$this->breadcrumbs = array(
-    $title,
-);
+$title = "นโยบายความเป็นส่วนตัว";
+
 ?>
-<div class=" container">
+<br/><br/><br/>
+<div class="container">
     <br/>
     <h1 class="font-supermarket"><?php echo $title ?></h1>
     
     <div id="box-article">
         <?php echo $about['about'] ?>
     </div>
-
 </div>
-
