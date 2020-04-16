@@ -20,7 +20,7 @@ class OrdersController extends Controller {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array(
-                    'index','orders','confirmorder','view','excelorder','gethistory','deleteorder','excelorderall','printaddress','orderconfirmall'
+                    'index', 'orders', 'confirmorder', 'view', 'excelorder', 'gethistory', 'deleteorder', 'excelorderall', 'printaddress', 'orderconfirmall'
                 ),
                 'users' => array('@'),
             ),
@@ -30,7 +30,7 @@ class OrdersController extends Controller {
         );
     }
 
-    public function actionIndex(){
+    public function actionIndex() {
         $this->render('history');
     }
 
@@ -187,8 +187,8 @@ class OrdersController extends Controller {
         $orderId = Yii::app()->request->getPost('order_id');
 
         $orderList = $OrderModel->GetListOrder($orderId);
-        foreach($orderList as $rs):
-        //Stock
+        foreach ($orderList as $rs):
+            //Stock
             $this->actionCutstock($rs['product_id'], $rs['order_detail_quantity']);
         endforeach;
 
@@ -200,7 +200,7 @@ class OrdersController extends Controller {
 
         Yii::app()->db->createCommand()
                 ->update("orders", $columns, "id='$orderId'");
-        
+
         $columnsLog = array(
             "admin_id" => Yii::app()->user->id,
             "log" => "user ID " . Yii::app()->user->id . " Confirm Order " . $orderId,
@@ -208,11 +208,10 @@ class OrdersController extends Controller {
             "status" => "4",
             "date" => date("Y-m-d H:i:s")
         );
-        
+
         Yii::app()->db->createCommand()
                 ->insert("logorders", $columnsLog);
     }
-
 
     public function actionCutstock($product_id, $number) {
         $sql = "SELECT *
@@ -257,30 +256,30 @@ class OrdersController extends Controller {
             "order_id" => $orderId,
             "date" => date("Y-m-d H:i:s")
         );
-        
+
         Yii::app()->db->createCommand()
                 ->insert("logorders", $columnsLog);
     }
 
-    public function actionGethistory(){
+    public function actionGethistory() {
         $status = Yii::app()->request->getPost('status');
         $datestart = Yii::app()->request->getPost('datestart');
         $dateend = Yii::app()->request->getPost('dateend');
 
 
-        $Y = (substr($datestart,-4));
-        $YearS = (int)$Y - 543;
-        $MonthS = (substr($datestart,3,2));
-        $DayS = (substr($datestart,0,2));
-        $datestarts = $YearS."-".$MonthS."-".$DayS;
-       
-        $Ye = (substr($dateend,-4));
-        $YearE = (int)$Ye - 543;
-        $MonthE = (substr($dateend,3,2));
-        $DayE = (substr($dateend,0,2));
-        $dateends = $YearE."-".$MonthE."-".$DayE;
-        
-        if($status != ""){
+        $Y = (substr($datestart, -4));
+        $YearS = (int) $Y - 543;
+        $MonthS = (substr($datestart, 3, 2));
+        $DayS = (substr($datestart, 0, 2));
+        $datestarts = $YearS . "-" . $MonthS . "-" . $DayS;
+
+        $Ye = (substr($dateend, -4));
+        $YearE = (int) $Ye - 543;
+        $MonthE = (substr($dateend, 3, 2));
+        $DayE = (substr($dateend, 0, 2));
+        $dateends = $YearE . "-" . $MonthE . "-" . $DayE;
+
+        if ($status != "") {
             $where = " AND o.order_confirm = '$status'";
         } else {
             $where = "";
@@ -296,7 +295,7 @@ class OrdersController extends Controller {
                 o.order_date
                 FROM orders o INNER JOIN order_details d ON o.id = d.order_id
                 WHERE LEFT(o.order_date,10) BETWEEN '$datestarts' AND '$dateends' $where
-                GROUP BY o.id 
+                GROUP BY o.id
                 ORDER BY o.order_date ASC";
 
         $data['orderlist'] = Yii::app()->db->createCommand($sql)->queryAll();
@@ -305,27 +304,27 @@ class OrdersController extends Controller {
         $data['datestart'] = $datestarts;
         $data['dateend'] = $dateends;
 
-        $this->renderPartial("listorder",$data);
+        $this->renderPartial("listorder", $data);
     }
 
-    public function actionView($id = ""){
+    public function actionView($id = "") {
         $order = new Orders();
         $data['order'] = $order->GetDetailOrder($id);
         $data['orderList'] = $order->GetListOrder($id);
-        $this->render("view",$data);
+        $this->render("view", $data);
     }
 
-     public function actionExcelorder($id = ""){
+    public function actionExcelorder($id = "") {
         $order = new Orders();
         $data['order'] = $order->GetDetailOrder($id);
         $data['orderList'] = $order->GetListOrder($id);
-        $this->renderPartial("excelorder",$data);
+        $this->renderPartial("excelorder", $data);
     }
 
-    public function actionExcelorderall($status,$datestart,$dateend){
-    
-        
-        if($status != ""){
+    public function actionExcelorderall($status, $datestart, $dateend) {
+
+
+        if ($status != "") {
             $where = " AND o.order_confirm = '$status'";
         } else {
             $where = "";
@@ -341,7 +340,7 @@ class OrdersController extends Controller {
                 o.order_date
                 FROM orders o INNER JOIN order_details d ON o.id = d.order_id
                 WHERE LEFT(o.order_date,10) BETWEEN '$datestart' AND '$dateend' $where
-                GROUP BY o.id 
+                GROUP BY o.id
                 ORDER BY o.order_date ASC";
 
         $data['orderlist'] = Yii::app()->db->createCommand($sql)->queryAll();
@@ -349,10 +348,10 @@ class OrdersController extends Controller {
         $data['datestart'] = $datestart;
         $data['dateend'] = $dateend;
 
-        $this->renderPartial("excelorderall",$data);
+        $this->renderPartial("excelorderall", $data);
     }
 
-     public function actionOrderconfirmall() {
+    public function actionOrderconfirmall() {
         $sql = "select * from orders where order_confirm = '4' order by id asc";
         $data['order'] = Yii::app()->db->createCommand($sql)->queryAll();
         $this->render("orderconfirmall", $data);

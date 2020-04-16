@@ -400,10 +400,35 @@ class OrdersController extends Controller {
             $data['address'] = $userModel->Get_address($id);
             $data['checkaddress'] = $userModel->Check_address($id);
             $data['profile'] = $this->getProfile($id);
+
             $this->render("//orders/order", $data);
         } else {
             $this->redirect(array("site/login"));
         }
+    }
+
+    function LinrNotifyOrder($message) {
+        //$message = "test";
+        //$token = "tTB2872QNBu50i3FXUWsN1IKEZgqVHU9QdV0zLNTbst";
+        $token = "HzFHfXOBdjUcmPwepKTGYImc7kATO8HbpuL7BYQJxMu";
+        //echo send_line_notify($message, $token);
+        //function send_line_notify($message, $token) {
+        if ($message == "")
+            return; //ถ้าข้อความแจ้งเตือนเป็นค่าว่าง ไม่มีการแจ้งเตือนในไลน์
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "message=$message");
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        $headers = array("Content-type: application/x-www-form-urlencoded", "Authorization: Bearer $token",);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+        //}
     }
 
     public function actionUpdateorder() {
@@ -492,6 +517,11 @@ class OrdersController extends Controller {
 
                         Yii::app()->db->createCommand()
                                 ->insert("logorders", $columnsLog);
+
+                        $message = "";
+                        $message .= date("Y-m-d H:i:s");
+                        $message .= " คุณ " . $order_fullname . " สั่งซื้อสินค้าผ่าน App";
+                        $this->LinrNotifyOrder($message);
                     }
                     $this->redirect(array("frontend/orders/verify"));
                 } else {
