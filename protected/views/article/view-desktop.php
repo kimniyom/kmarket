@@ -67,6 +67,18 @@ $articleModel = new Article();
 $UrlShare = $config->GetFullLink(Yii::app()->request->url);
 ?>
 
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id))
+            return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.5&appId=266256337158296";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
 
 <br/><br/><br/>
 <section class="boxed-sm">
@@ -91,6 +103,44 @@ $UrlShare = $config->GetFullLink(Yii::app()->request->url);
                             <span class="label label-danger" style=" font-size: 14px;"><i class="fa fa-tag"></i> <?php echo $result['category_name'] ?></span><br/><br/>
                         </div>
                     </article>
+
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="widget-social-color">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.facebook.com/sharer.php?u=<?php echo $UrlShare ?>" target="_blank">
+                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/facebook.png" alt="Facebook" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Google+ -->
+                                        <a href="https://plus.google.com/share?url=<?php echo $UrlShare ?>" target="_blank">
+                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/google.png" alt="Google" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Pinterest -->
+                                        <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/pinterest.png" alt="Pinterest" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Twitter -->
+                                        <a href="https://twitter.com/share?url=<?php echo $UrlShare ?>&amp;text=<?php echo Yii::app()->session['fbtitle']; ?>;hashtags=<?php echo $config->get_webname() ?>" target="_blank">
+                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/twitter.png" alt="Twitter" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://lineit.line.me/share/ui?url=<?php echo $UrlShare ?>" target="_blank">
+                                            <img src="<?php echo Yii::app()->baseUrl ?>/images/line-icon.png" alt="Line" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <br/>
 
                     <?php if (count($gallery) > 0) { ?>

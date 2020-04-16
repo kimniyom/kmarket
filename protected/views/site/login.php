@@ -20,9 +20,17 @@
     </head>
     <body>
         <div class="container">
+
             <div class="row">
                 <div class="col-md-3 col-lg-4"></div>
                 <div class="col-md-6 col-lg-4">
+                    <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                    <br/><br/>
+                     <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
+        <button type="button" class="btn" style="text-align: left; border: none; background: none;"><span class="fa fa-chevron-left"></span> กลับ</button></a><br/><br/>
+    </div>
+</div>
                     <div style=" text-align: center; margin-top: 10%; margin-bottom: 20px;">
                         <img  src="<?php echo Yii::app()->baseUrl; ?>/uploads/logo/<?php echo $web->get_logoweb(); ?>" alt="" style="max-height: 52px;"/>
                     </div>
@@ -80,8 +88,16 @@
                         </div>
                     </div>
                     <div style=" text-align: center;">
-                        <a href="<?php echo Yii::app()->createUrl('site/register') ?>">ลงทะเบียน</a>
+                        <p style="font-size: 12px; color:red;">
+                            *ท่านจำเป็นต้องลงทะเบียนเข้าใช้งาน Application ก่อนกดปุ่ม <em>"ลงทะเบียน"</em> ให้ท่านอ่านนโยบายความเป็นวส่วนตัวให้ละเอียด
+                            
+                        </p>
+                        
                     </div>
+                    <div style="text-align: center;">
+                        <a href="<?php echo Yii::app()->createUrl('site/privacypolicy') ?>" style="text-decoration: none;"><i class="fa fa-eye"></i> อ่านนโยบายความเป็นส่วนตัว</a><br/><br/>
+                    <a href="<?php echo Yii::app()->createUrl('site/register') ?>" class="btn btn-info">
+                            <i class="fa fa-plus"></i> ลงทะเบียน</a></div>
                 </div>
                 <div class="col-md-3 col-lg-4"></div>
             </div>

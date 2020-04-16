@@ -43,8 +43,9 @@ $this->widget('booster.widgets.TbGridView', array(
         'username',
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view}{update}{delete}',
+            'template' => '{view}{delete}',
         ),
     ),
 ));
+//{update}
 ?>

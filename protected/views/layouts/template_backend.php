@@ -233,8 +233,10 @@
                         <div class="list-group" id="side2">
                             <a href="<?php echo Yii::app()->createUrl('backend/masuser/admin') ?>"
                                class="list-group-item" onclick="setSideMenu('side2', 'side2')"><i class="fa fa-group"></i> ผู้ใช้งาน</a>
-                            <a href="<?php echo Yii::app()->createUrl('backend/masuser/create') ?>"
+                               <!--
+                            <a href="<?php //echo Yii::app()->createUrl('backend/masuser/create') ?>"
                                class="list-group-item" onclick="setSideMenu('side2', 'side2')"><i class="fa fa-plus"></i> เพิ่มผู้ใช้งาน</a>
+                           -->
                             <a href="<?php echo Yii::app()->createUrl('backend/payment/view') ?>"
                                class="list-group-item" onclick="setSideMenu('side2', 'side2')"><span class="fa fa-money"></span>  ช่องทางการชำระเงิน</a>
                             <a href="<?php echo Yii::app()->createUrl('backend/payment/popup') ?>"

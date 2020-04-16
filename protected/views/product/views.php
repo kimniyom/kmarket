@@ -175,7 +175,7 @@ $ConfigWeb = new Configweb_model();
 
                                 <!-- I got these buttons from simplesharebuttons.com -->
 
-                                <div class="widget-social align-center">
+                                <div class="widget-social align-center" style=" margin-top: 0px; padding-top: 0px;">
                                     <!--
                                                                         <ul>
                                                                             <li style="text-align:center;">
@@ -217,21 +217,21 @@ $ConfigWeb = new Configweb_model();
                 <div class="woocommerce-tabs">
                     <div class="row" style="margin:0px;">
                         <div class="col-md-12 woocommerce-tabs-inner" style="border:none;">
-
-
-                            <ul class="tabs tab-style-2" role="tablist">
+                            <ul class="tabs tab-style-1" role="tablist">
                                 <li class="active" role="presentation">
                                     <a href="#Description" aria-controls="Description" role="tab" data-toggle="tab">รายละเอียด</a>
                                 </li>
+                                <!--
                                 <li role="presentation">
-                                    <a href="#Review" onclick="loadreview()" aria-controls="Review" role="tab" data-toggle="tab">Review (<?php echo $countreview ?>)</a>
+                                    <a href="#Review" onclick="loadreview()" aria-controls="Review" role="tab" data-toggle="tab">Review (<?php //echo $countreview ?>)</a>
                                 </li>
+                            -->
                             </ul>
 
 
                         </div>
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="tab-content tab-content-style-2">
+                        <div class="col-md-8" style="margin-top:0px; padding: 0px;">
+                            <div class="tab-content tab-content-style-2" style="margin-top: 10px; padding: 0px; padding-left: 15px;">
                                 <div class="tab-pane fade in active" id="Description" role="tabpanel">
                                     <div id="box-article">
                                         <?php echo $product['product_detail'] ?>

@@ -82,10 +82,18 @@
             </div>
         </div>
 
-        <hr/>
-        <div class="row">
+        <br/>
+         <a href="<?php echo Yii::app()->createUrl('site/privacypolicy') ?>">อ่านนโยบายความเป็นส่วนตัว</a><br/>
+        <input type="checkbox" id="accept" name="accept"> ข้าพเจ้าตกลงยอมรับนโยบายความเป็นส่วนตัว
+<hr/>
+        <div class="row" id="btn-save">
             <div class="col-md-4 col-lg-4">
-                <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class' => 'btn btn-warning btn-block')); ?>
+                <?php echo CHtml::submitButton($model->isNewRecord ? 'ลงทะเบียน' : 'Save', array('class' => 'btn btn-warning btn-block')); ?>
+            </div>
+        </div>
+                <div class="row" id="btn-save-hide">
+            <div class="col-md-4 col-lg-4">
+                <button type="button" class="btn btn-default disabled">ลงทะเบียน</button>
             </div>
         </div>
         <br/>
@@ -96,6 +104,23 @@
 <script>
     $(document).ready(function() {
         //$(".task-bar-bottom").hide();
+        if ($("#accept").is(":checked")) {
+            $("#btn-save").show();
+            $("#btn-save-hide").hide();
+        } else {
+             $("#btn-save-hide").show();
+            $("#btn-save").hide();
+        }
+
+        $("#accept").click(function () {
+            if ($(this).is(":checked")) {
+                $("#btn-save").show();
+                $("#btn-save-hide").hide();
+            } else {
+                $("#btn-save-hide").show();
+                $("#btn-save").hide();
+            }
+        });
     })
 </script>
 <?php

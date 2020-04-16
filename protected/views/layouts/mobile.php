@@ -129,7 +129,7 @@
         $productModel = new Product();
         $lastProduct = $productModel->_get_last_product();
         $bestProduct = $productModel->_get_best_product();
-        $saleProduct = $productModel->_get_sale_products();
+        //$saleProduct = $productModel->_get_sale_products();
 
         $articleModel = new Article();
         $NewsBlog = $articleModel->Get_article_limit(3);
@@ -210,7 +210,7 @@
                         <a href="<?= Yii::app()->createUrl('site/payment') ?>">แจ้งชำระเงิน / วิธีชำระเงิน</a>
                     </li>
                     <li style=" font-size: 16px;">
-                        <a href="<?= Yii::app()->createUrl('site/about') ?>">นโยบายความเป็นส่วนตัว</a>
+                        <a href="<?= Yii::app()->createUrl('site/privacypolicy') ?>">นโยบายความเป็นส่วนตัว</a>
                     </li>
                     <li style=" font-size: 16px;">
                         <a href="<?= Yii::app()->createUrl('frontend/contact') ?>">ติดต่อเรา</a>

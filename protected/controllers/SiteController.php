@@ -268,4 +268,14 @@ class SiteController extends Controller {
         }
     }
 
+    public function actionPrivacypolicy(){
+        $rs = Yii::app()->db->createCommand()
+                ->select('*')
+                ->from('about')
+                ->queryRow();
+
+        $data['about'] = $rs;
+        $this->render("//main/about", $data);
+    }
+
 }
