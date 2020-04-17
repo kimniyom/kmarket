@@ -8,6 +8,7 @@ $OrderModel = new Orders();
 $Config = new Configweb_model();
 ?>
 <h3 style=" margin-top: 0px;">รายการที่ต้องจัดส่ง</h3>
+<?php if($order) { ?>
 <a href="<?php echo Yii::app()->createUrl('backend/orders/printaddress') ?>"  target="_blank">
 <button type="button" class="btn btn-default"><i class="fa fa-print"></i> พิพม์รายการทั้งหมด</button></a>
 <br/><br/>
@@ -110,10 +111,18 @@ foreach ($order as $rs): $i++;
 				</div>
 				<div class=" panel-footer">
 					<div class="row">
-						<div class="col-md-9 col-lg-9 col-sm-7">
-							<input type="text" name="codeorder" id="codeirder" class="form-control" placeholder="เลขพัสดุ...">
+						<div class="col-md-5 col-lg-5 col-sm-5">
+							<input type="text" name="tracking<?php echo $rs['id'] ?>" id="tracking<?php echo $rs['id'] ?>" class="form-control" placeholder="เลขพัสดุ...">
 						</div>
-						<div class="col-md-3 col-lg-3 col-sm-5">
+						<div class="col-md-4 col-lg-4 col-sm-4">
+							<select id="transport<?php echo $rs['id'] ?>" class="form-control">
+								<option value="">== บริษัทขนส่ง ==</option>
+								<?php foreach($transport as $transports):  ?>
+								<option value="<?php echo $transports['id'] ?>"><?php echo $transports['transportname'] ?></option>
+							<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="col-md-3 col-lg-3 col-sm-3">
 							<button type="button" class="btn btn-success btn-block" onclick="Savecode('<?php echo $rs['id'] ?>')"><i class="fa fa-save"></i> บันทึก</button>
 						</div>
 					</div>
@@ -122,15 +131,32 @@ foreach ($order as $rs): $i++;
 			</div>
 		<?php endforeach;?>
 	</div>
-
+<?php } else { ?>
+	<center class="text-info">
+		<i class="fa fa-info fa-5x" style="color:#333333"></i>
+		<br/>ไม่มีรายการ
+	</center>
+<?php } ?>
 <script type="text/javascript">
-    function ConfirmOrder(order_id) {
+    function Savecode(order_id) {
+        var tracking = $("#tracking" + order_id).val();
+        var transport = $("#transport" + order_id).val();
+        if(tracking == ""){
+        	$("#tracking"+ order_id).focus();
+        	return false;
+        }
+
+        if(transport == ""){
+        	$("#transport"+ order_id).focus();
+        	return false;
+        }
         var r = confirm("ตรวจสอบความถูกต้องก่อนยืนยันรายการ...?");
         if (r == true) {
-            var url = "<?php echo Yii::app()->createUrl('backend/orders/confirmorder') ?>";
-            var data = {order_id: order_id};
+            var url = "<?php echo Yii::app()->createUrl('backend/orders/savecode') ?>";
+            var data = {order_id: order_id,tracking: tracking,transportcompany: transport};
             $.post(url, data, function (datas) {
-                window.location="<?php echo Yii::app()->createUrl('backend/orders/view') ?>" + "/id/" + order_id;
+            	window.location.reload();
+                //window.location="<?php //echo Yii::app()->createUrl('backend/orders/view') ?>" + "/id/" + order_id;
             });
         }
     }

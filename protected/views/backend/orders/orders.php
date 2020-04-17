@@ -9,6 +9,7 @@ $Config = new Configweb_model();
 ?>
 <h3 style=" margin-top: 0px;">รายการสั้งซื้อสินค้า</h3>
 <hr/>
+<?php if($order) { ?>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <?php
 $i = 0;
@@ -119,7 +120,12 @@ foreach ($order as $rs): $i++;
 			</div>
 		<?php endforeach;?>
 	</div>
-
+<?php } else { ?>
+	<center class="text-info">
+		<i class="fa fa-info fa-5x" style="color:#333333"></i>
+		<br/>ไม่มีรายการ
+	</center>
+<?php } ?>
 <script type="text/javascript">
     function ConfirmOrder(order_id) {
         var r = confirm("ตรวจสอบความถูกต้องก่อนยืนยันรายการ...?");

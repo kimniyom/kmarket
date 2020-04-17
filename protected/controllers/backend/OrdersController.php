@@ -20,7 +20,7 @@ class OrdersController extends Controller {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array(
-                    'index', 'orders', 'confirmorder', 'view', 'excelorder', 'gethistory', 'deleteorder', 'excelorderall', 'printaddress', 'orderconfirmall'
+                    'index', 'orders', 'confirmorder', 'view', 'excelorder', 'gethistory', 'deleteorder', 'excelorderall', 'printaddress', 'orderconfirmall','savecode','ordercomplete'
                 ),
                 'users' => array('@'),
             ),
@@ -352,9 +352,38 @@ class OrdersController extends Controller {
     }
 
     public function actionOrderconfirmall() {
+        $Model = new Backend_orders();
         $sql = "select * from orders where order_confirm = '4' order by id asc";
         $data['order'] = Yii::app()->db->createCommand($sql)->queryAll();
+        $data['transport'] = $Model->getComponyTransport();
         $this->render("orderconfirmall", $data);
+    }
+
+    public function actionSavecode(){
+        $order_id = Yii::app()->request->getPost('order_id');
+        $tracking = Yii::app()->request->getPost('tracking');
+        $transportcompany = Yii::app()->request->getPost('transportcompany');
+        
+        $columns = array("tracking" => $tracking,"order_confirm" => "5","transportcompany" => $transportcompany);
+        Yii::app()->db->createCommand()
+            ->update("orders",$columns,"id = '$order_id'");
+
+        $columnsLog = array(
+            "admin_id" => Yii::app()->user->id,
+            "log" => "ยืนยันการจัดส่ง " . " Confirm Order " . $order_id." tracking number ".$tracking,
+            "order_id" => $order_id,
+            "status" => "5",
+            "date" => date("Y-m-d H:i:s")
+        );
+
+        Yii::app()->db->createCommand()
+                ->insert("logorders", $columnsLog);
+    }
+
+    public function actionOrdercomplete(){
+        $Model = new Backend_orders();
+        $data['order'] = $Model->getOrderComplete();
+        $this->render("ordercomplete", $data);
     }
 
 }

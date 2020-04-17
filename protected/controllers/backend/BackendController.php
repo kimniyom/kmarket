@@ -52,16 +52,9 @@ class BackendController extends Controller {
         $Category = array();
         $Val = array();
         foreach ($month as $rs):
-            $Arr = $this->actionGetviewmonth($rs['monthnumber']);
-            if ($Arr['product_name']) {
-                $cat = $rs['month_th'] . "(" . $Arr['product_name'] . ")";
-                $Value = $Arr['total'];
-            } else {
-                $cat = $rs['month_th'];
-                $Value = 0;
-            }
-            $Category[] = $cat;
-            $Val[] = $Value;
+            $total = $this->actionGetviewmonth($rs['monthnumber']);
+                $Category[] = $rs['month_th'];
+                $Val[] = $total;
         endforeach;
 
         $data['category'] = "'" . implode("','", $Category) . "'";
@@ -72,21 +65,21 @@ class BackendController extends Controller {
         $data['viewcategory'] = $viewcategory['value'];
         $data['viewcategoryCount'] = $viewcategory['sum'];
 
-        $viewbran = $this->GetviewBrand();
-        $data['brandcat'] = $viewbran['brancat'];
-        $data['brandval'] = $viewbran['branval'];
+        //$viewbran = $this->GetviewBrand();
+        //$data['brandcat'] = $viewbran['brancat'];
+        //$data['brandval'] = $viewbran['branval'];
 
         $data['viewMaxbrand'] = $this->Getmaxviewbrand();
         
-        $data['viewMaxcategory'] = $this->Getmaxviewcategory();
+        $data['buyMaxcategory'] = $this->CountBuyCategory();
         
-        $data['viewMaxproduct'] = $this->Getmaxviewproduct();
+        $data['buyMaxproduct'] = $this->countBuyMaxProduct();
 
         $data['countOederAll'] = $this->countOrder();
 
-        $data['countOederSuccess'] = $this->countOrderSuccess();
+        //$data['countOederSuccess'] = $this->countOrderSuccess();
 
-        $data['countOrderUnconfirm'] = $this->countOrderUnconfirm();
+        //$data['countOrderUnconfirm'] = $this->countOrderUnconfirm();
 
         $this->render("//backend/index", $data);
     }
@@ -106,6 +99,21 @@ class BackendController extends Controller {
         $Arr = array("brandname" => $result['brandname'], "total" => $result['total']);
         return $Arr;
     }
+
+    private function CountBuyCategory(){
+        $sql = "SELECT c.categoryname,IFNULL(Q.total,0) AS total
+                FROM category c
+                LEFT JOIN(
+                    SELECT p.category,IFNULL(COUNT(*),0) AS total
+                    FROM order_details v INNER JOIN product p ON v.product_id = p.product_id
+                    GROUP BY p.category
+                ) Q ON c.id = Q.category
+                ORDER BY total DESC
+                LIMIT 1";
+        $result = Yii::app()->db->createCommand($sql)->queryRow();
+        $Arr = array("categoryname" => $result['categoryname'], "total" => $result['total']);
+        return $Arr;
+    }
     
     private function Getmaxviewcategory() {
         $sql = "SELECT c.categoryname,IFNULL(Q.total,0) AS total
@@ -121,6 +129,17 @@ class BackendController extends Controller {
         $result = Yii::app()->db->createCommand($sql)->queryRow();
         $Arr = array("categoryname" => $result['categoryname'], "total" => $result['total']);
         return $Arr;
+    }
+
+    private function countBuyMaxProduct(){
+        $sql = "SELECT p.product_name,IFNULL(COUNT(*),0) AS total
+                FROM order_details v INNER JOIN product p ON v.product_id = p.product_id
+                GROUP BY p.product_id
+                ORDER BY total DESC 
+                LIMIT 1";
+        $result = Yii::app()->db->createCommand($sql)->queryRow();
+        $Arr = array("productname" => $result['product_name'], "total" => $result['total']);
+        return $Arr;        
     }
     
     private function Getmaxviewproduct() {
@@ -142,9 +161,9 @@ class BackendController extends Controller {
                 FROM category c
                 LEFT JOIN(
                 SELECT p.category,IFNULL(COUNT(*),0) AS total
-                FROM viewproduct v INNER JOIN product p ON v.product_id = p.product_id
+                FROM order_details v INNER JOIN product p ON v.product_id = p.product_id
                 GROUP BY p.category
-                ) Q ON c.id = Q.category ";
+                ) Q ON c.id = Q.category";
         $result = Yii::app()->db->createCommand($sql)->queryAll();
         $Arr = array();
         $sum = 0;
@@ -158,15 +177,13 @@ class BackendController extends Controller {
     }
 
     private function actionGetviewmonth($month) {
-        $sql = "SELECT p.product_name,COUNT(*) as total
-                FROM viewproduct v inner join product p ON v.product_id = p.product_id
-                WHERE MONTH(v.dupdate) = '$month'
-                GROUP BY v.product_id
+        $sql = "SELECT COUNT(*) as total
+                FROM orders o
+                WHERE MONTH(o.order_date) = '$month'
                 ORDER BY total DESC 
                 LIMIT 1";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
-        $Arr = array("product_name" => $rs['product_name'], "total" => $rs['total']);
-        return $Arr;
+        return $rs['total'];
     }
 
     private function GetviewBrand() {

@@ -343,4 +343,17 @@ class Backend_orders {
         return $rs['total'];
     }
 
+    function getComponyTransport(){
+        $sql = "select * from company_transport";
+        return Yii::app()->db->createCommand($sql)->queryAll();
+    }
+
+    function getOrderComplete(){
+        $sql = "select o.*,c.transportname,c.linktrack,c.logo
+                    from orders o LEFT JOIN company_transport c ON o.transportcompany = c.id
+                    where o.order_confirm = '5' 
+                    order by o.id desc";
+         return Yii::app()->db->createCommand($sql)->queryAll();
+    }
+
 }
