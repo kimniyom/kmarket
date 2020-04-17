@@ -22,7 +22,7 @@
         <meta name="description" content="<?php echo Yii::app()->session['description']; ?>" />
         <meta name="keywords" content="ชื้อของออนไลน์,kmarket,k-market,เค,เคมาร์เก็ต,ช็อป" />
 
-        <link rel="stylesheet" type="text/css" href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/css/main.css" />
+        <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/css/main.css") ?>
         <style>
             body {
                 -webkit-text-size-adjust: none;
@@ -53,57 +53,20 @@
                 z-index: 1000;
             }
 
-            #ulmenufull a{
-                padding: 5px;
-            }
-
-            #ulmenufull a:hover{
-                padding-left: 10px;
-            }
-
 
             @media (min-width: 768px) {
-                #ulmenufull{
-                    top: 30px;
-                }
+
             }
 
             @media (min-width: 992px) {
-                #ulmenufull{
-                    top: 35px;
-                }
+
             }
 
             @media (min-width: 1200px) {
-                #ulmenufull{
-                    top: 40px;
-                }
-            }
-
-
-
-            #_footer h4{
-                font-family: 'supermarket';
-                font-weight: bold;
-                margin-bottom: 5px;
-                color: #000000;
-            }
-
-            #_footer ul li{
-                margin-bottom: 0px;
-            }
-
-            #_footer ul li a{
-                font-family: 'supermarket';
-                font-size: 16px;
 
             }
 
-            .widget-link ul li{
-                font-family: 'supermarket';
 
-                font-size: 16px;
-            }
             .breadcrumbs a{
                 color: #FFFFFF;
             }
@@ -122,7 +85,6 @@
                 padding-top: 12px;
                 background: #ffffff;
             }
-
 
         </style>
         <?php
@@ -261,9 +223,9 @@
                                 </div>
 
                                 <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
-                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                                              ?>">
+                                    <a class="control" href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                                                                                                      ?>">
                                         <span class="lnr lnr-cart"></span>
-                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;                                                              ?></span>
+                                        <span class="badge" style=" background: #cc0033;"><?php //echo $meQty;                                                                                                                      ?></span>
                                     </a>
                                 </div>
                                 -->
@@ -299,26 +261,26 @@
         <div class="task-bar-bottom" style=" display: none; position: fixed; bottom: 0px; width: 100%; padding: 0px; margin-bottom: 0px; border-top: #eeeeee solid 1px;">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style=" padding: 0px; margin: 0px; height: 50px;">
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('site/index')                                    ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('site/index')                                                                                            ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-home fa-2x" id="b-home"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/product/formsearch')                                    ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/product/formsearch')                                                                                            ?>">
                         <button type="button" class="btn btn-default" >
                             <span class="lnr lnr-magnifier fa-2x" id="b-search"></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                    ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/cart')                                                                                            ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-cart fa-2x" id="b-cart"></span>
-                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php //echo $meQty;                                    ?></span>
+                            <span class="badge" style=" background: #cc0033; position: absolute; top: 10px; right: 10px;"><?php //echo $meQty;                                                                                            ?></span>
                         </button></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/menuuser')                                    ?>">
+                    <a href="<?php //echo Yii::app()->createUrl('frontend/orders/menuuser')                                                                                            ?>">
                         <button type="button" class="btn btn-default">
                             <span class="lnr lnr-user fa-2x" id="b-menu"></span>
                         </button></a>
@@ -355,64 +317,82 @@
                 </div>
             </div>
         </div>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/jquery.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/bootstrap.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/function-check-viewport.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/slick.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/select2.full.min.js"></script>
 
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/imagesloaded.pkgd.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/jquery.mmenu.all.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/rellax.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/isotope.pkgd.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/bootstrap-notify.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/bootstrap-slider.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/in-view.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/countUp.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/library/animsition.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/themes/kstudio/revolution/css/settings.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/themes/kstudio/revolution/css/layers.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/themes/kstudio/revolution/css/navigation.css" />
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/jquery.min.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/bootstrap.min.js") ?>
         <!--
-        <script src="<?php  //Yii::app()->baseUrl; ?>/themes/kstudio/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="<?php //Yii::app()->baseUrl;                                                        ?>/themes/kstudio/js/function-check-viewport.js"></script>
         -->
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/global.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-mm-menu.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-set-bg-blog-thumb.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-isotope-product-home-1.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-isotope-product-home-2.js"></script>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/slick.min.js") ?>
 
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-carousel.js"></script>
+        <!--
+        <script src="<?php // Yii::app()->baseUrl;                                                         ?>/themes/kstudio/js/library/select2.full.min.js"></script>
+        -->
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/imagesloaded.pkgd.min.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/jquery.mmenu.all.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/rellax.min.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/isotope.pkgd.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/bootstrap-notify.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/bootstrap-slider.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/in-view.min.js") ?>
 
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-carousel-thumbnail.js"></script>
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/config-carousel-product-quickview.js"></script>
-        <!-- Demo Only-->
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/js/demo-add-to-cart.js"></script>
+        <!--
+        <script src="<?php //echo  Yii::app()->baseUrl;                                                    ?>/themes/kstudio/js/library/countUp.js"></script>
+        -->
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/library/animsition.min.js") ?>
+
+        <?php //Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/css/settings.css") ?>
+        <?php //Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/css/layers.css") ?>
+        <!--
+        <link rel="stylesheet" type="text/css" href="<?php //echo Yii::app()->baseUrl;                                                  ?>/themes/kstudio/revolution/css/navigation.css" />
+        -->
+
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/jquery.themepunch.tools.min.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/jquery.themepunch.revolution.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.actions.min.js") ?>
+
+        <!--
+        <script src="<?php //echo Yii::app()->baseUrl;                                                   ?>/themes/kstudio/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        -->
+
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.kenburn.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.layeranimation.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.migration.min.js") ?>
+
+        <!--
+        <script src="<?php //Yii::app()->baseUrl;                                                  ?>/themes/kstudio/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        -->
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.parallax.min.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/revolution/js/extensions/revolution.extension.slideanims.min.js") ?>
+
+        <!--
+        <script src="<?php //Yii::app()->baseUrl;                                             ?>/themes/kstudio/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        -->
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/global.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-mm-menu.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-set-bg-blog-thumb.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-isotope-product-home-1.js") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-isotope-product-home-2.js") ?>
+
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-carousel.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-carousel-thumbnail.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/config-carousel-product-quickview.js") ?>
+        <?php //Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/js/demo-add-to-cart.js") ?>
 
         <!-- Jquery.Bxslide-->
-        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/jquery.bxslider/jquery.bxslider.css" media="screen">
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/jquery.bxslider/jquery.bxslider.js"></script>
+        <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/jquery.bxslider/jquery.bxslider.css") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/jquery.bxslider/jquery.bxslider.js") ?>
 
         <!-- fancybox -->
-        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/fancyBox2.1.5/source/jquery.fancybox.css" media="screen">
-        <script src="<?= Yii::app()->baseUrl; ?>/themes/kstudio/fancyBox2.1.5/source/jquery.fancybox.js"></script>
+        <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/fancyBox2.1.5/source/jquery.fancybox.css") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/themes/kstudio/fancyBox2.1.5/source/jquery.fancybox.js") ?>
 
         <!-- images hover effect -->
-        <link href="<?= Yii::app()->baseUrl; ?>/themes/kstudio/css/images-hover-effect.css" rel="stylesheet" type="text/css" />
+        <?php //Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/themes/kstudio/css/images-hover-effect.css") ?>
 
         <!-- Gallery -->
-        <link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/assets/gallery_img/dist/magnific-popup.css" type="text/css" media="all" />
-        <script type="text/javascript" charset="utf-8"src="<?= Yii::app()->baseUrl; ?>/assets/gallery_img/dist/jquery.magnific-popup.js"></script>
+        <?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/assets/gallery_img/dist/magnific-popup.css") ?>
+        <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/assets/gallery_img/dist/jquery.magnific-popup.js") ?>
 
         <script tyle="text/javascript">
             setScreen();
@@ -434,7 +414,6 @@
                     $("#menuBar").css({"padding-bottom": "0px"});
                 } else {
                     $(".brand-logo").css({"margin-left": "20%"});
-
                     $("#slider_1").hide();
                     $("#slider_1").css({"height": "20px"});
                 }
@@ -446,8 +425,6 @@
                     $("#kkmenusidebar").html(data);
                 });
             }
-
-
 
             $(document).ready(function() {
                 $(document).keydown(function(event) {

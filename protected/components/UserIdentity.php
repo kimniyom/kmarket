@@ -10,10 +10,10 @@ class UserIdentity extends CUserIdentity {
 
     public function authenticate() {
         //$username = strtolower($this->username);
-        $user = Masuser::model()->findByAttributes(array('username'=>$this->username));
+        $user = Masuser::model()->findByAttributes(array('username' => $this->username));
         if ($user === null) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
-        } else if ($user->password != md5 ($this->password)) {
+        } else if ($user->password != md5($this->password)) {
             $this->errorCode = self::ERROR_PASSWORD_INVALID;
         } else {
             $this->_id = $user->id;
@@ -33,12 +33,12 @@ class UserIdentity extends CUserIdentity {
         return $this->_id;
     }
 
-     public function getStatus() {
+    public function getStatus() {
         return $this->status;
     }
-    
-    public function getUsername(){
-        
+
+    public function getUsername() {
+
     }
 
 }

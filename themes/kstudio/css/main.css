@@ -9,21 +9,21 @@
 
 /* [Table of contents]
 
-  * 1. Global 
-  * 2. Navigation  
-  * 4. Header / header  (line 266) 
-  * 5. Slider 
-  * 6. Product 
-  * 7. Blog 
-  * 8. Team 
-  * 9. Call to Action 
-  * 10. Contact 
-  * 11. Woocommerce 
-  * 12. FAQ 
-  * 13. User 
-  * 14. Footer 
-  * 15. Copyright 
-  * 16. Responsive (media queries) 
+  * 1. Global
+  * 2. Navigation
+  * 4. Header / header  (line 266)
+  * 5. Slider
+  * 6. Product
+  * 7. Blog
+  * 8. Team
+  * 9. Call to Action
+  * 10. Contact
+  * 11. Woocommerce
+  * 12. FAQ
+  * 13. User
+  * 14. Footer
+  * 15. Copyright
+  * 16. Responsive (media queries)
   * */
 
 
@@ -14731,7 +14731,7 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
  *
  * bootstrap-slider is released under the MIT License
  * Copyright (c) 2017 Kyle Kemp, Rohit Kalkur, and contributors
- * 
+ *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
  * files (the "Software"), to deal in the Software without
@@ -14740,10 +14740,10 @@ html.mm-opening .mm-menu.mm-offcanvas.mm-next {
  * copies of the Software, and to permit persons to whom the
  * Software is furnished to do so, subject to the following
  * conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -20528,7 +20528,7 @@ ul.tabs {
 
 .tab-style-2 li.active a{
     color:#FFFFFF;
-    
+
 }
 
 .tab-content-style-2 {
@@ -23289,8 +23289,8 @@ form.cart .btn-wishlist {
 }
 
 #album-title{
-    position: absolute; bottom: 0px; width: 100%; height: 65px; padding: 5px; 
-    text-overflow: ellipsis; overflow: hidden; color:#FFFFFF; 
+    position: absolute; bottom: 0px; width: 100%; height: 65px; padding: 5px;
+    text-overflow: ellipsis; overflow: hidden; color:#FFFFFF;
     background: url('images/glass_black.png');
 }
 

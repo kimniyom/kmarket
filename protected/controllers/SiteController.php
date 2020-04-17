@@ -268,7 +268,7 @@ class SiteController extends Controller {
         }
     }
 
-    public function actionPrivacypolicy(){
+    public function actionPrivacypolicy() {
         $rs = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('about')
