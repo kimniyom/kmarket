@@ -9,7 +9,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Kmarket',
     //'defaultController' => 'frontend/main',
-    'defaultController' => 'backend/backend',
+    'defaultController' => 'backend/backend/login',
     // preloading 'log' component
     'timeZone' => 'Asia/Bangkok',
     'preload' => array('log'),
@@ -96,6 +96,7 @@ return array(
           'password' => 'kimniyom00',
           'charset' => 'utf8',
           ),
+         *
          */
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=kmarket_db',

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         var width = $(window).width();
         if (width >= 768) {
             var styles = {
@@ -15,17 +15,17 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        
+    $(document).ready(function() {
+
         var track_click = 0; //track user click on "load more" button, righ now it is 0 click
         //fetch_pages.php
         var total_pages = "<?php echo $count_product_type; ?>";
         var type_id = "<?php echo $type_id; ?>";
-        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pages') ?>", {'page': track_click, type_id: type_id}, function () {
+        $('#results').load("<?php echo Yii::app()->createUrl('frontend/product/pages') ?>", {'page': track_click, type_id: type_id}, function() {
             track_click++;
         }); //initial data to load
 
-        $(".load_more").click(function (e) { //user clicks on button
+        $(".load_more").click(function(e) { //user clicks on button
 
             $(this).hide(); //hide load more button on click
             $('.animation_image').show(); //show loading image
@@ -35,8 +35,8 @@
                 //post page number and load returned data into result element
                 $.post('<?php echo Yii::app()->createUrl('frontend/product/pages') ?>',
                         {'page': track_click, type_id: type_id},
-                        function (data) {
-                            if(data == 0){
+                        function(data) {
+                            if (data == 0) {
                                 $('.animation_image').hide();
                                 $(".load_more").attr("disabled", "disabled");
                                 return false;
@@ -54,24 +54,24 @@
 
                             track_click++; //user click increment on load button
 
-                        }).fail(function (xhr, ajaxOptions, thrownError) {
+                        }).fail(function(xhr, ajaxOptions, thrownError) {
                     alert(thrownError); //alert any HTTP error
                     $(".load_more").show(); //bring back load more button
                     $('.animation_image').hide(); //hide loading image once data is received
                 });
 
                 //total_pages - 1
-               
-                 if ((track_click * 8) <= (total_pages - 1)){
+
+                if ((track_click * 8) <= (total_pages - 1)) {
                     $(".load_more").attr("disabled", "disabled");
-                 }
-                 
+                }
+
             }
 
         });
 
-        
-        
+
+
     });
 </script>
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <script>
+        // Ignore this in your implementation
+        window.isMbscDemo = true;
+    </script>
+
+    <title>Integer</title>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.jquery.min.css">
+    <script src="js/mobiscroll.jquery.min.js"></script>
+
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        display: inline-block;
+        margin: 5px 5px 0 0;
+        padding: 10px 30px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: #5185a8;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 0 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+
+    .mbsc-page {
+        padding: 1em;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div mbsc-page class="demo-integer">
+  <div style="height:100%">
+      <input id="demo" placeholder="Please Select ..." />
+
+    <button id="clear" class="demo-button">Clear</button>
+    <button id="show" class="demo-button">Show</button>
+    
+  </div>
+</div>
+
+<script>
+    mobiscroll.settings = {
+        theme: 'ios',
+        themeVariant: 'light',
+        lang: 'th'
+    };
+
+    $(function () {
+    
+        // Mobiscroll Numpad initialization
+        $('#demo').mobiscroll().numpad({
+            theme: 'ios',           // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light',  // More info about themeVariant: https://docs.mobiscroll.com/4-10-3/numpad#opt-themeVariant
+            lang: 'th',             // Specify language like: lang: 'pl' or omit setting to use default
+            preset: 'decimal',      // More info about preset: https://docs.mobiscroll.com/4-10-3/numpad#opt-preset
+            scale: 0,
+            max: 1000,
+            min: 1
+        });
+
+        $('#show').click(function () {
+            $('#demo').mobiscroll('show');
+            return false;
+        });
+    
+        $('#clear').click(function () {
+            $('#demo').mobiscroll('clear');
+            return false;
+        });
+        
+    });
+</script>
+
+</body>
+</html>

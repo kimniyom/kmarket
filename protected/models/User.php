@@ -103,4 +103,13 @@ class User extends CActiveRecord {
         return $result;
     }
 
+    function countNotify($userId) {
+        $sql = "SELECT COUNT(*) AS total
+                FROM logorders l INNER JOIN orders o ON l.order_id = o.id
+                WHERE l.`status` IN('4','5') AND l.read IS NULL
+                AND o.`user` = '$userId'";
+        $rs = Yii::app()->db->createCommand($sql)->queryRow();
+        return $rs['total'];
+    }
+
 }

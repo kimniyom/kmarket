@@ -292,6 +292,7 @@ class OrdersController extends Controller {
         error_reporting(E_ALL ^ E_NOTICE);
         session_start();
 
+        $Model = new Configweb_model();
         $itemCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 
         if (isset($_SESSION['cart']) && $itemCount > 0) {
@@ -307,7 +308,8 @@ class OrdersController extends Controller {
         } else {
             $data['meCount'] = 0;
         }
-
+        $data['limit'] = $Model->Limitdistance();
+        $data['overtranport'] = $Model->Overtransport();
         $this->render("//orders/orderlist", $data);
     }
 
@@ -360,9 +362,10 @@ class OrdersController extends Controller {
         $this->redirect(array("frontend/orders/cart"));
     }
 
-    public function actionOrder() {
+    public function actionOrder($transportprice = 0) {
         $userModel = new User();
         $id = Yii::app()->user->id;
+
         if ($id) {
             error_reporting(E_ALL ^ E_NOTICE);
             session_start();
@@ -400,7 +403,7 @@ class OrdersController extends Controller {
             $data['address'] = $userModel->Get_address($id);
             $data['checkaddress'] = $userModel->Check_address($id);
             $data['profile'] = $this->getProfile($id);
-
+            $data['transportprice'] = $transportprice;
             $this->render("//orders/order", $data);
         } else {
             $this->redirect(array("site/login"));
@@ -447,6 +450,8 @@ class OrdersController extends Controller {
                 $order_address = Yii::app()->request->getPost('order_address');
                 $order_phone = Yii::app()->request->getPost('order_phone');
                 $order_email = Yii::app()->request->getPost('order_email');
+                $typepayment = Yii::app()->request->getPost('typepayment');
+                $transportprice = Yii::app()->request->getPost('transportprice');
                 $user = Yii::app()->user->id;
                 $columns = array(
                     "order_date" => date("Y-m-d H:i:s"),
@@ -455,6 +460,8 @@ class OrdersController extends Controller {
                     "order_phone" => $order_phone,
                     "order_email" => $order_email,
                     "user" => $user,
+                    "slip" => $typepayment,
+                    "transportprice" => $transportprice,
                     "order_confirm" => 1
                 );
 
@@ -480,36 +487,55 @@ class OrdersController extends Controller {
                     unset($_SESSION['qty']);
 
                     //UploadSlip
-                    if (!empty($_FILES)) {
-                        $targetFolder = Yii::app()->baseUrl . '/uploads/slip'; // Relative to the root
-                        $tempFile = $_FILES['slip']['tmp_name'];
-                        $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
-                        $FileName = time() . $_FILES['slip']['name'];
-                        $targetFile = rtrim($targetPath, '/') . '/' . $FileName;
+                    if ($typepayment == 1) {
+                        if (!empty($_FILES)) {
+                            $targetFolder = Yii::app()->baseUrl . '/uploads/slip'; // Relative to the root
+                            $tempFile = $_FILES['slip']['tmp_name'];
+                            $targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
+                            $FileName = time() . $_FILES['slip']['name'];
+                            $targetFile = rtrim($targetPath, '/') . '/' . $FileName;
 
-                        $fileTypes = array('jpg', 'jpeg', 'png'); // File extensions
-                        $fileParts = pathinfo($_FILES['slip']['name']);
+                            $fileTypes = array('jpg', 'jpeg', 'png'); // File extensions
+                            $fileParts = pathinfo($_FILES['slip']['name']);
 
-                        if (in_array($fileParts['extension'], $fileTypes)) {
-                            move_uploaded_file($tempFile, $targetFile);
+                            if (in_array($fileParts['extension'], $fileTypes)) {
+                                move_uploaded_file($tempFile, $targetFile);
 
-                            //สั่งอัพเดท
+                                //สั่งอัพเดท
 
-                            $columns = array(
-                                "slip" => $FileName
+                                $columns = array(
+                                    "slip" => $FileName
+                                );
+
+                                Yii::app()->db->createCommand()
+                                        ->update("orders", $columns, "id = '$order_id' ");
+                                echo '1';
+                            } else {
+                                echo 'Invalid file type.';
+                            }
+
+                            //SetLog
+                            $columnsLog = array(
+                                "log" => "user ID " . Yii::app()->user->id . " CheckOut " . $order_id,
+                                "order_id" => $order_id,
+                                "status" => "1",
+                                "user" => Yii::app()->user->id,
+                                "date" => date("Y-m-d H:i:s")
                             );
 
                             Yii::app()->db->createCommand()
-                                    ->update("orders", $columns, "id = '$order_id' ");
-                            echo '1';
-                        } else {
-                            echo 'Invalid file type.';
-                        }
+                                    ->insert("logorders", $columnsLog);
 
+                            $message = "";
+                            $message .= date("Y-m-d H:i:s");
+                            $message .= " คุณ " . $order_fullname . " สั่งซื้อสินค้าผ่าน App";
+                            $this->LinrNotifyOrder($message);
+                        }
+                    } else {
                         //SetLog
                         $columnsLog = array(
                             "log" => "user ID " . Yii::app()->user->id . " CheckOut " . $order_id,
-                            "order_id" => $orderId,
+                            "order_id" => $order_id,
                             "status" => "1",
                             "user" => Yii::app()->user->id,
                             "date" => date("Y-m-d H:i:s")
@@ -523,6 +549,7 @@ class OrdersController extends Controller {
                         $message .= " คุณ " . $order_fullname . " สั่งซื้อสินค้าผ่าน App";
                         $this->LinrNotifyOrder($message);
                     }
+
                     $this->redirect(array("frontend/orders/verify"));
                 } else {
                     $this->redirect(array("frontend/orders/orderfail/status/2"));
@@ -572,11 +599,14 @@ class OrdersController extends Controller {
         return $rs;
     }
 
-    public function actionVieworder($id) {
+    public function actionVieworder($id, $return) {
+        $Model = new Orders();
+        $data['detail'] = $Model->GetDetailOrder($id);
         $query = "select o.*,p.product_name
                         from order_details o INNER JOIN product p ON o.product_id = p.product_id
                         where order_id = '$id'";
         $data['order'] = Yii::app()->db->createCommand($query)->queryAll();
+        $data['return'] = $return;
         $this->render('//orders/vieworder', $data);
     }
 
@@ -599,6 +629,102 @@ class OrdersController extends Controller {
         $order = new Orders();
         $data['order'] = $order->get_order_all($id);
         $this->render('//orders/complete', $data);
+    }
+
+    public function actionGetlocation() {
+        $latitudeTo = Yii::app()->request->getPost('lat');
+        $longitudeTo = Yii::app()->request->getPost('lng');
+        $val = $this->getDistance($latitudeTo, $longitudeTo, "K");
+        echo $val;
+    }
+
+    function getDistance($lat, $lng, $unit = "") {
+        // Change address format
+        //$formattedAddrFrom    = str_replace(' ', '+', $addressFrom);
+        //$formattedAddrTo     = str_replace(' ', '+', $addressTo);
+        // Geocoding API request with start address
+        //$geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrFrom.'&sensor=true&key='.$apiKey);
+        //$outputFrom = json_decode($geocodeFrom);
+        //if(!empty($outputFrom->error_message)){
+        //return $outputFrom->error_message;
+        //}
+        // Geocoding API request with end address
+        //$geocodeTo = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrTo.'&sensor=true&key='.$apiKey);
+        //$outputTo = json_decode($geocodeTo);
+        //if(!empty($outputTo->error_message)){
+        //return $outputTo->error_message;
+        //}
+        // Get latitude and longitude from the geodata
+        /*
+          $latitudeFrom    = $outputFrom->results[0]->geometry->location->lat;
+          $longitudeFrom    = $outputFrom->results[0]->geometry->location->lng;
+          $latitudeTo        = $outputTo->results[0]->geometry->location->lat;
+          $longitudeTo    = $outputTo->results[0]->geometry->location->lng;
+         */
+        //พิกัดตั้งต้น
+        $latitudeFrom = "14.004015";
+        $longitudeFrom = "100.548994";
+
+        //ตำแหน่งปัจจุบัน
+        $latitudeTo = $lat;
+        $longitudeTo = $lng;
+
+        // Calculate distance between latitude and longitude
+        $theta = $longitudeFrom - $longitudeTo;
+        $dist = sin(deg2rad($latitudeFrom)) * sin(deg2rad($latitudeTo)) + cos(deg2rad($latitudeFrom)) * cos(deg2rad($latitudeTo)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $miles = $dist * 60 * 1.1515;
+
+        // Convert unit and return distance
+        $unit = strtoupper($unit);
+        if ($unit == "K") {
+            return round($miles * 1.609344, 2);
+        } elseif ($unit == "M") {
+            return round($miles * 1609.344, 2);
+        } else {
+            return round($miles, 2) . ' miles';
+        }
+    }
+
+    public function actionCheckorder() {
+        error_reporting(E_ALL ^ E_NOTICE);
+        session_start();
+
+        $itemIds = array();
+        foreach ($_SESSION['cart'] as $itemId) {
+            $itemIds[] = "'" . $itemId . "'";
+        }
+        $inputItems = implode(",", $itemIds);
+        $meSql = "SELECT * FROM product WHERE product_id in ($inputItems)";
+        $meQuery = Yii::app()->db->createCommand($meSql)->queryAll();
+
+        $orders = $meQuery;
+
+        $logStock = 0;
+        $num = 0;
+        $a = 0;
+        $stock_model = new Stock();
+        foreach ($orders as $meResult):
+            $a++;
+            $stock = $stock_model->countStock($meResult['product_id']);
+            $key = array_search($meResult['product_id'], $_SESSION['cart']);
+
+            if ($stock < $_SESSION['qty'][$key]) {
+                $logStock++;
+            }
+            $num++;
+        endforeach;
+
+        if ($logStock > 0) {
+            $this->redirect(array("frontend/orders/cart"));
+        } else {
+            $this->redirect(array("frontend/orders/cart"));
+        }
+    }
+
+    public function actionSignature() {
+        $this->renderPartial("//orders/signature");
     }
 
 }

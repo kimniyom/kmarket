@@ -20,7 +20,7 @@ class OrdersController extends Controller {
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array(
-                    'index', 'orders', 'confirmorder', 'view', 'excelorder', 'gethistory', 'deleteorder', 'excelorderall', 'printaddress', 'orderconfirmall','savecode','ordercomplete'
+                    'index', 'orders', 'confirmorder', 'view', 'excelorder', 'gethistory', 'deleteorder', 'excelorderall', 'printaddress', 'orderconfirmall', 'savecode', 'ordercomplete',
                 ),
                 'users' => array('@'),
             ),
@@ -266,7 +266,6 @@ class OrdersController extends Controller {
         $datestart = Yii::app()->request->getPost('datestart');
         $dateend = Yii::app()->request->getPost('dateend');
 
-
         $Y = (substr($datestart, -4));
         $YearS = (int) $Y - 543;
         $MonthS = (substr($datestart, 3, 2));
@@ -292,7 +291,8 @@ class OrdersController extends Controller {
                 o.order_address,
                 o.order_phone,
                 o.order_confirm,
-                o.order_date
+                o.order_date,
+                o.transportprice
                 FROM orders o INNER JOIN order_details d ON o.id = d.order_id
                 WHERE LEFT(o.order_date,10) BETWEEN '$datestarts' AND '$dateends' $where
                 GROUP BY o.id
@@ -359,18 +359,18 @@ class OrdersController extends Controller {
         $this->render("orderconfirmall", $data);
     }
 
-    public function actionSavecode(){
+    public function actionSavecode() {
         $order_id = Yii::app()->request->getPost('order_id');
         $tracking = Yii::app()->request->getPost('tracking');
         $transportcompany = Yii::app()->request->getPost('transportcompany');
-        
-        $columns = array("tracking" => $tracking,"order_confirm" => "5","transportcompany" => $transportcompany);
+
+        $columns = array("tracking" => $tracking, "order_confirm" => "5", "transportcompany" => $transportcompany);
         Yii::app()->db->createCommand()
-            ->update("orders",$columns,"id = '$order_id'");
+                ->update("orders", $columns, "id = '$order_id'");
 
         $columnsLog = array(
             "admin_id" => Yii::app()->user->id,
-            "log" => "ยืนยันการจัดส่ง " . " Confirm Order " . $order_id." tracking number ".$tracking,
+            "log" => "ยืนยันการจัดส่ง " . " Confirm Order " . $order_id . " tracking number " . $tracking,
             "order_id" => $order_id,
             "status" => "5",
             "date" => date("Y-m-d H:i:s")
@@ -380,7 +380,7 @@ class OrdersController extends Controller {
                 ->insert("logorders", $columnsLog);
     }
 
-    public function actionOrdercomplete(){
+    public function actionOrdercomplete() {
         $Model = new Backend_orders();
         $data['order'] = $Model->getOrderComplete();
         $this->render("ordercomplete", $data);

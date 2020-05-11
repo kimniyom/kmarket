@@ -1,5 +1,5 @@
-<?php 
-    $Config = new Configweb_model();
+<?php
+$Config = new Configweb_model();
 ?>
 <style type="text/css">
     #table-listorder table tr th{
@@ -24,29 +24,33 @@
         </thead>
         <tbody>
             <?php
-            $i=0;
-                foreach ($order as $rs):
-                    $i++;
-                    ?>
-                    <tr>
-                        <td><?php echo $i ?></td>
-                        <td><?php echo $Config->thaidate($rs['order_date']) ?></td>
-                        <td><?php echo $rs['order_fullname'] ?></td>
-                        <td style=" text-align: center;"><?php echo $rs['order_phone'] ?></td>
-                        <td style=" text-align: center;"><?php echo $rs['tracking'] ?></td>
-                        <td style=" text-align: center;">
-                            <img src="<?php echo Yii::app()->baseUrl ?>/images/<?php echo $rs['logo'] ?>" alt="" style="height:20px;"></td>
-                    </tr>	
-                    <?php
-                endforeach;
+            $i = 0;
+            foreach ($order as $rs):
+                $i++;
                 ?>
+                <tr>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $Config->thaidate($rs['order_date']) ?></td>
+                    <td><?php echo $rs['order_fullname'] ?></td>
+                    <td style=" text-align: center;"><?php echo $rs['order_phone'] ?></td>
+                    <td style=" text-align: center;"><?php echo ($rs['tracking']) ? $rs['tracking'] : "-"; ?></td>
+                    <td style=" text-align: center;">
+                        <?php if ($rs['tracking']) { ?>
+                            <img src="<?php echo Yii::app()->baseUrl ?>/images/<?php echo $rs['logo'] ?>" alt="" style="height:20px;"></td>
+                        <?php } else { ?>
+                        ส่งโดยร้านค้า
+                    <?php } ?>
+                </tr>
+                <?php
+            endforeach;
+            ?>
         </tbody>
     </table>
 </div>
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $("#table-listorder").dataTable({
             //"sPaginationType": "full_numbers", // แสดงตัวแบ่งหน้า
             bLengthChange: false, // แสดงจำนวน record ที่จะแสดงในตาราง
@@ -56,8 +60,8 @@
             buttons: [
                 'copyHtml5',
                 'excelHtml5',
-                //'csvHtml5',
-                //'pdfHtml5'
+                        //'csvHtml5',
+                        //'pdfHtml5'
             ]
                     //"sScrollY": "400px", // กำหนดความสูงของ ตาราง
         });

@@ -2,12 +2,13 @@
     .modal-dialog {
         width: 100%;
     }
-
-
 </style>
 <?php
 $Config = new Configweb_model();
 ?>
+<link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/css/bootstrap-datepicker.css" type="text/css" media="all" />
+<script src="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/js/bootstrap-datepicker-custom.js" type="text/javascript"></script>
+<script src="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckfinder/ckfinder.js"></script>
 
@@ -60,7 +61,7 @@ $this->breadcrumbs = array(
                     <select class="form-control" id="brand">
                         <option value="">== Select ==</option>
                     <?php //foreach ($brands as $rsbrans): ?>
-                            <option value="<?php //echo $rsbrans['id']  ?>" <?php //echo ($rsbrans['id'] == $product['brand']) ? "selected" : "";  ?>><?php //echo $rsbrans['brandname']  ?></option>
+                            <option value="<?php //echo $rsbrans['id']                                   ?>" <?php //echo ($rsbrans['id'] == $product['brand']) ? "selected" : "";                                   ?>><?php //echo $rsbrans['brandname']                                   ?></option>
                     <?php //endforeach; ?>
                     </select>
                     -->
@@ -73,25 +74,38 @@ $this->breadcrumbs = array(
                     <label for="" >*ราคา</label>
                     <input type="text" id="product_price" name="product_price" class="form-control" onKeyUp="if (this.value * 1 != this.value)
                                 this.value = '';" style="width:30%;" value="<?php echo $product['product_price'] ?>"/>
-                    <label for="">ราคาโปร / ราคาพิเศษ</label>
-                    <input type="text" id="product_price_pro" name="product_price_pro" class="form-control" onKeyUp="if (this.value * 1 != this.value)
-                                this.value = '';" style="width:30%;" required="required" value="<?php echo $product['product_price_pro'] ?>"/>
-                    <p style="color:#ff0033;">*ถ้าใส่ราคาโปรหน้าเว็บจะนำราคานี้ไปแสดง</p>
                     <br/>
-                    <label for="">*สถานะ</label>
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4">
+                                <label for="">ราคาโปร / ราคาพิเศษ</label>
+                                <input type="text" id="product_price_pro" name="product_price_pro" class="form-control" onKeyUp="if (this.value * 1 != this.value)
+                                            this.value = '';" required="required" value="<?php echo $product['product_price_pro'] ?>"/>
+                                <p style="color:#ff0033;">*ถ้าใส่ราคาโปรหน้าเว็บจะนำราคานี้ไปแสดง</p>
+                            </div>
+                            <div class="col-md-4 col-lg-4">
+                                <label for="">ราคาถึงวันที่</label>
+                                <input id="dateexpire" class="dateexpire form-control" data-date-format="dd/mm/yyyy" value="<?php echo date_format(date_create($product['promotion_expire']), "d/m/Y") ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <label for="">*สถานะ</label><br/>
                     <input id="status" name="status" class="styled" type="radio" value="0" <?php echo ($product['status'] == "0") ? "checked" : ""; ?>/>
                     <label for="radio">พร้อมขาย</label>
                     <input id="status" name="status" class="styled" type="radio" value="1" <?php echo ($product['status'] == "1") ? "checked" : ""; ?>/>
                     <label for="radio">ไม่พร้อมขาย</label>
                     <input id="status" name="status" class="styled" type="radio" value="2" <?php echo ($product['status'] == "2") ? "checked" : ""; ?>/>
                     <label for="radio">Sold Out</label>
+                    <!--
                     <br/>
                     <label for="">*สินค้าแนะนำ</label>
-                    <input id="recommend" name="recommend" class="styled" type="radio" value="1" <?php echo ($product['recommend'] == "1") ? "checked" : ""; ?>/> <label for="radio">Yes</label>
-                    <input id="recommend" name="recommend" class="styled" type="radio" value="0" <?php echo ($product['recommend'] == "0") ? "checked" : ""; ?>/> <label for="radio">No</label>
+                    <input id="recommend" name="recommend" class="styled" type="radio" value="1" <?php //echo ($product['recommend'] == "1") ? "checked" : "";                                 ?>/> <label for="radio">Yes</label>
+                    <input id="recommend" name="recommend" class="styled" type="radio" value="0" <?php //echo ($product['recommend'] == "0") ? "checked" : "";                                 ?>/> <label for="radio">No</label>
                     <br/><label for="">*สินค้าขายดี</label>
-                    <input id="bastseller" name="bastseller" class="styled" type="radio" value="1" <?php echo ($product['bastseller'] == "1") ? "checked" : ""; ?>/> <label for="radio">Yes</label>
-                    <input id="bastseller" name="bastseller" class="styled" type="radio" value="0" <?php echo ($product['bastseller'] == "0") ? "checked" : ""; ?>/> <label for="radio">No</label>
+                    <input id="bastseller" name="bastseller" class="styled" type="radio" value="1" <?php //echo ($product['bastseller'] == "1") ? "checked" : "";                                 ?>/> <label for="radio">Yes</label>
+                    <input id="bastseller" name="bastseller" class="styled" type="radio" value="0" <?php //echo ($product['bastseller'] == "0") ? "checked" : "";                                 ?>/> <label for="radio">No</label>
+                    -->
                     <br/><br/>
                     <label for="textArea">*รายละเอียด</label>
                     <textarea id="product_detail" name="product_detail" rows="3" class="form-control input-sm" required="required">
@@ -148,7 +162,7 @@ $this->breadcrumbs = array(
             'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
             buttonText: "อัพโหลดรูปภาพ",
             //'buttonImage': '<?//= Yii::app()->baseUrl ?>/images/image-up-icon.png',
-            //'swf': '<?php //echo Yii::app()->baseUrl            ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            //'swf': '<?php //echo Yii::app()->baseUrl                                             ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
             'uploadScript': "<?= Yii::app()->createUrl('backend/images/uploadify') ?>",
             'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
             //'width': '128',
@@ -178,12 +192,12 @@ $this->breadcrumbs = array(
             {name: 'links'},
             {name: 'insert'},
             //{ name: 'forms' },
-            {name: 'tools'},
+            //{name: 'tools'},
             //{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
             //{ name: 'others' },
             //'/',
             {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
-            {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi']},
+            //{name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi']},
             {name: 'styles'},
             {name: 'colors'}
             //{ name: 'about' }
@@ -241,11 +255,14 @@ $this->breadcrumbs = array(
         var product_id = "<?php echo $product['product_id'] ?>";
         var brand = $("#brand").val();
         var status = $("input[name='status']:checked").val();
-        var recommend = $("input[name='recommend']:checked").val();
+        //var recommend = $("input[name='recommend']:checked").val();
+        var recommend = 0;
         var product_detail = CKEDITOR.instances.product_detail.getData();
         var description = $("#description").val();
-        var bastseller = $("input[name='bastseller']:checked").val();
-        if (category == '' || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "" || bastseller == "") {
+        //var bastseller = $("input[name='bastseller']:checked").val();
+        var bastseller = 0;
+        var dateexpire = $("#dateexpire").val();
+        if (category == '' || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "") {
             $("#f_error").show().delay(5000).fadeOut(500);
             return false;
         }
@@ -262,7 +279,8 @@ $this->breadcrumbs = array(
             recommend: recommend,
             description: description,
             bastseller: bastseller,
-            product_price_pro: product_price_pro
+            product_price_pro: product_price_pro,
+            dateexpire: dateexpire
         };
 
         $.post(url, data, function(success) {
@@ -315,4 +333,13 @@ $this->breadcrumbs = array(
             $("#combotype").html(datas);
         });
     }
+
+    $('.dateexpire').datepicker({
+        format: 'dd/mm/yyyy',
+        //todayBtn: true,
+        todayHighlight: 'TRUE',
+        autoclose: true,
+        language: 'th', //เปลี่ยน label ต่างของ ปฏิทิน ให้เป็น ภาษาไทย   (ต้องใช้ไฟล์ bootstrap-datepicker.th.min.js นี้ด้วย)
+        thaiyear: true              //Set เป็นปี พ.ศ.
+    }).datepicker("setDate", "0");  //กำหนดเป็นวันปัจุบัน
 </script>

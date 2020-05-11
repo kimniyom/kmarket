@@ -129,6 +129,14 @@ class Configweb_model {
         return "5";
     }
 
+    function Limitdistance() {
+        return 15;
+    }
+
+    function Overtransport() {
+        return 25;
+    }
+
     function GetFullLink($url) {
         return "https://www.jehmuaymarket.com" . $url;
     }

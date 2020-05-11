@@ -20,11 +20,11 @@ class BackendController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
+                'actions' => array('index', 'view','login','logout','warninglogin'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('index', 'create', 'update'),
+                'actions' => array('index', 'create', 'update','logout','warninglogin'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -37,17 +37,88 @@ class BackendController extends Controller {
         );
     }
 
+/*
     protected function beforeAction($action) {
         if (Yii::app()->user->isGuest) {
-            $this->redirect(array('site/login'));
+            $this->redirect(array('backend/backend/login'));
         } else {
             $this->actionIndex();
         }
 
         //return parent::beforeAction($action);
     }
+*/
+
+         /**
+     * Displays the login page
+     */
+    public function actionLogin() {
+        if (!defined('CRYPT_BLOWFISH') || !CRYPT_BLOWFISH)
+            throw new CHttpException(500, "This application requires that PHP was compiled with Blowfish support for crypt().");
+
+        $model = new LoginForm;
+
+        // if it is ajax validation request
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+
+        // collect user input data
+        if (isset($_POST['LoginForm'])) {
+            $model->attributes = $_POST['LoginForm'];
+            // validate user input and redirect to the previous page if valid
+            if ($model->validate() && $model->login()) {
+                //$this->redirect(Yii::app()->user->returnUrl);
+                $columns = array(
+                    "log" => "user" . Yii::app()->user->id . " | login",
+                    "user" => Yii::app()->user->name,
+                    "dupdate" => date("Y-m-d H:i:s"),
+                    "ip" => Yii::app()->request->userHostAddress,
+                    "status" => "TRUE"
+                );
+
+                Yii::app()->db->createCommand()
+                        ->insert("loguserlogin", $columns);
+
+                $userLogin = Masuser::model()->findByAttributes(array('id' => Yii::app()->user->id));
+                if ($userLogin->status == "A") {
+                    $this->redirect(array('backend/backend/index'));
+                } else {
+                    $this->redirect(array('backend/backend/warninglogin'));
+                }
+            } else {
+                $columns = array(
+                    "log" => "!LoginFail | login",
+                    "user" => "",
+                    "dupdate" => date("Y-m-d H:i:s"),
+                    "ip" => Yii::app()->request->userHostAddress,
+                    "status" => "FALSE"
+                );
+                Yii::app()->db->createCommand()
+                        ->insert("loguserlogin", $columns);
+
+                //$this->renderPartial('login', array('model' => $model));
+            }
+        }
+        // display the login form
+        $this->renderPartial('//backend/login', array('model' => $model));
+    }
+
 
     public function actionIndex() {
+        if(!Yii::app()->user->isGuest){
+            $userLogin = Masuser::model()->findByAttributes(array('id' => Yii::app()->user->id));
+            if($userLogin->status != "A"){
+                $this->redirect(array('backend/backend/logout'));
+            }  else if($userLogin->status == "U"){
+                $this->redirect(array('backend/backend/warninglogin'));
+            }
+        } else {
+            $this->redirect(array('backend/backend/logout'));
+        }
+   
+
         $month = Month::model()->findAll();
         $Category = array();
         $Val = array();
@@ -83,6 +154,7 @@ class BackendController extends Controller {
 
         $this->render("//backend/index", $data);
     }
+
 
     private function Getmaxviewbrand() {
         $sql = "SELECT c.brandname,IFNULL(Q.total,0) AS total
@@ -230,6 +302,21 @@ class BackendController extends Controller {
         $sql = "select count(*) as total from orders where order_confirm = '0' ";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
         return $rs['total'];
+    }
+
+   
+    /**
+     * Logs out the current user and redirect to homepage.
+     */
+    public function actionLogout() {
+        Yii::app()->user->logout();
+        $this->redirect(array('backend/backend/login'));
+        //$this->redirect(array('site/index'));
+    }
+
+    public function actionWarninglogin(){
+        $data['error'] = "เฉพาะผู้มีสิทธิ์เท่านั้น";
+        $this->renderPartial('//backend/warning',$data);
     }
 
 }

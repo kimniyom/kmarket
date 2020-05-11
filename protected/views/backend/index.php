@@ -57,7 +57,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        Highcharts.chart('containers', {
+        $("#containers").highcharts({
 
             title: {
                 text: 'จำนวนสั่งซื้อในแต่ละเดือน'
@@ -118,7 +118,7 @@
 
         });
 
-        Highcharts.chart('viewcategory', {
+        $("#viewcategory").highcharts({
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: 0,

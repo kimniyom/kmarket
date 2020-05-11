@@ -3,7 +3,7 @@
         <tr>
             <th>รหัส</th>
             <th>ประเภท</th>
-            <th style=" text-align: center;">เมนูจัดการ</th>
+            <th style=" text-align: center; width: 200px;">เมนูจัดการ</th>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +28,11 @@
             var url = "<?php echo Yii::app()->createUrl("backend/typeproduct/delete") ?>";
             var data = {typeId: id};
 
-            $.post(url, data, function (success) {
+            $.post(url, data, function(success) {
                 window.location.reload();
             });
         }
     }
+
+
 </script>

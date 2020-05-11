@@ -45,12 +45,12 @@ class UserController extends Controller {
         }
     }
 
-    public function actionGet_address() {
-        $id = $_POST['id'];
+    public function actionGet_address($id) {
+        //$id = $_POST['id'];
         $user = new User();
         $data['changwat'] = $user->Get_changwat();
         $data['address'] = $user->Get_address($id);
-        $this->renderPartial("//user/edit_address", $data);
+        $this->render("//user/edit_address", $data);
     }
 
     public function actionGet_address_profile() {
@@ -67,7 +67,7 @@ class UserController extends Controller {
 
         $check = $user->Check_address($user_id);
 
-        echo $check;
+        //echo $check;
         if ($check > 0) {
             $columns = array(
                 "address" => Yii::app()->request->getPost('address'),

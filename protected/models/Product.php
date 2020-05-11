@@ -363,4 +363,12 @@ class Product {
         return Yii::app()->db->createCommand($sql)->queryAll();
     }
 
+    function getNear($cat) {
+        $category = implode("','", $cat);
+        $sql = "SELECT * FROM product p
+                WHERE category IN ('$category')
+                ORDER BY RAND() LIMIT 8";
+        return Yii::app()->db->createCommand($sql)->queryAll();
+    }
+
 }

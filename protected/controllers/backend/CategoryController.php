@@ -30,7 +30,7 @@ class CategoryController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'checkproduct', 'delet'),
+                'actions' => array('create', 'update', 'checkproduct', 'delet', 'all', 'setlevel'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -151,7 +151,7 @@ class CategoryController extends Controller {
       if (!isset($_GET['ajax']))
       $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
       }
-     * 
+     *
      */
 
     /**
@@ -222,6 +222,23 @@ class CategoryController extends Controller {
         } else {
             echo 0;
         }
+    }
+
+    public function actionAll() {
+        $data['category'] = Yii::app()->db->createCommand("select * from category order by level asc")->queryAll();
+        $this->render('all', $data);
+    }
+
+    public function actionSetlevel() {
+        $id = Yii::app()->request->getpost('id');
+        $level = Yii::app()->request->getpost('level');
+
+        $columns = array(
+            "level" => $level
+        );
+
+        Yii::app()->db->createCommand()
+                ->update("category", $columns, "id = '$id'");
     }
 
 }

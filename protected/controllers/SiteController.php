@@ -126,10 +126,10 @@ class SiteController extends Controller {
                         ->insert("loguserlogin", $columns);
 
                 $userLogin = Masuser::model()->findByAttributes(array('id' => Yii::app()->user->id));
-                if ($userLogin->status == "A") {
-                    $this->redirect(array('backend/backend/index'));
+                if ($userLogin->status == "U") {
+                    $this->redirect(array('frontend/orders/menuuser'));
                 } else {
-                    $this->redirect(array('site/index'));
+                    $this->redirect(array('site/logout'));
                 }
             } else {
                 $columns = array(
@@ -154,7 +154,7 @@ class SiteController extends Controller {
      */
     public function actionLogout() {
         Yii::app()->user->logout();
-        $this->redirect(array('backend/backend'));
+        $this->redirect(array('site/index'));
         //$this->redirect(array('site/index'));
     }
 
@@ -219,6 +219,7 @@ class SiteController extends Controller {
     }
 
     public function actionRegister() {
+
         $model = new Masuser;
 
         // Uncomment the following line if AJAX validation is needed
@@ -238,7 +239,7 @@ class SiteController extends Controller {
             }
         }
 
-        $this->render('register', array(
+        $this->renderPartial('register', array(
             'model' => $model,
         ));
     }

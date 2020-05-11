@@ -73,10 +73,12 @@ class ProductController extends Controller {
 
     public function actionViews($id) {
         $product = new Product();
+        $stockModel = new Stock();
         //$conFig = new Configweb_model();
         $data['product'] = $product->_get_detail_product($id);
         $data['images'] = $product->get_images_product($id);
         $data['near'] = $product->getProductNear($data['product']['category']);
+        $data['stock'] = $stockModel->countStock($id);
         /*
           $fimg = $product->firstpictures($data['product']['product_id']);
 
@@ -423,7 +425,7 @@ class ProductController extends Controller {
         $this->renderPartial("//product/default", $data);
     }
 
-    public function actionFormsearch(){
+    public function actionFormsearch() {
         $this->render("//product/formsearch");
     }
 

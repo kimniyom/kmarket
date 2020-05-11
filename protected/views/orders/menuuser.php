@@ -44,7 +44,7 @@
             <font class="font-supermarket" style=" font-size: 18px; font-weight: bold;">รายการสั่งซื้อของคุณ</font>
         </div>
         <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" style=" padding: 5px;">
-            <a href="<?php echo Yii::app()->createUrl('frontend/orders/order') ?>">
+            <a href="<?php echo Yii::app()->createUrl('frontend/orders/cart') ?>">
                 <div class="well font-supermarket">
                     <i class="fa fa-credit-card-alt fa-2x"></i><br/>
                     ที่ต้องชำระเงิน
@@ -75,7 +75,7 @@
         </div>
         <!--
         <div class="col-sm-8 col-xs-8 col-md-8 col-lg-8" style=" padding: 5px; margin-top: 0px;">
-            <a href="<?php //echo Yii::app()->createUrl('frontend/orders/orderall')     ?>">
+            <a href="<?php //echo Yii::app()->createUrl('frontend/orders/orderall')                             ?>">
                 <div class="well  font-supermarket">
                     <i class="fa fa-gift fa-2x" aria-hidden="true"></i><br/>
                     รายการสั่งซื้อทั้งหมด
@@ -84,10 +84,14 @@
         </div>
         -->
     </div>
+
 </div>
 
 <script type="text/javascript">
     $(document).ready(function() {
         $("#b-menu").css({'color': 'red'});
     });
+
 </script>
+
+

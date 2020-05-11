@@ -155,7 +155,7 @@ class Orders {
 
     //หารายการรอตรวจสอบยอดเงิน
     function get_order_verify($id = null) {
-        $query = "SELECT b.order_id,o.order_date,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
+        $query = "SELECT b.order_id,o.order_date,o.transportprice,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
                         FROM orders o INNER JOIN order_details b ON o.id = b.order_id
                         WHERE o.`user` = '$id' AND o.order_confirm = '1'
                         GROUP BY o.id ";
@@ -165,7 +165,7 @@ class Orders {
 
     //หารายการรอจัดส่ง
     function get_order_wait_send($id = null) {
-        $query = "SELECT b.order_id,o.order_date,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
+        $query = "SELECT b.order_id,o.order_date,o.transportprice,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
                         FROM orders o INNER JOIN order_details b ON o.id = b.order_id
                         WHERE o.`user` = '$id' AND o.order_confirm = '4'
                         GROUP BY o.id ";
@@ -267,7 +267,9 @@ class Orders {
                 o.order_email,
                 o.order_address,
                 o.order_phone,
-                o.order_confirm
+                o.order_confirm,
+                o.slip,
+                o.transportprice
                 from orders o
                 where o.id = '$orderID'";
         $rs = Yii::app()->db->createCommand($sql)->queryRow();
@@ -283,7 +285,7 @@ class Orders {
     }
 
     function get_order_complate($id) {
-        $query = "SELECT b.order_id,o.order_date,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL
+        $query = "SELECT b.order_id,o.order_date,o.transportprice,SUM(b.order_detail_price * b.order_detail_quantity) AS PRICE_TOTAL,o.tracking
                         FROM orders o INNER JOIN order_details b ON o.id = b.order_id
                         WHERE o.`user` = '$id' AND o.order_confirm = '5'
                         GROUP BY o.id ";

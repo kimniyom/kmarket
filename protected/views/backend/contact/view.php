@@ -13,9 +13,12 @@ $this->breadcrumbs = array(
             <a href="<?php echo Yii::app()->createUrl('backend/contact/create'); ?>"><i class="fa fa-pencil"></i> แก้ไข</a>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="text-align: center;">
         <h3><img src="<?php echo Yii::app()->baseUrl; ?>/images/Phone-icon.png" width="24"/> ข้อมูลติดต่อ</h3>
         <?php if (!empty($contact)) { ?>
+            <?php if($contact['picture'] != ""):?>
+                                  <img src="<?php echo Yii::app()->getBaseUrl().'/uploads/contact/'.$contact['picture']?>" height="165">
+                                <?php endif;?><br/>
         <label style="margin-left:20px;">ที่อยู่</label> <?php echo $contact['address'] ?><br/>
             <label style="margin-left:20px;">อีเมล์</label> <?php echo $contact['email'] ?><br/>
             <label style="margin-left:20px;">เบอร์โทรศัพท์</label> <?php echo $contact['tel'] ?>
@@ -24,21 +27,22 @@ $this->breadcrumbs = array(
         <?php } ?>
         <br/><br/>
 
-        <h3><img src="<?php echo Yii::app()->baseUrl; ?>/images/Social-network-icon.png" width="24"/> โซเชียลมีเดีย</h3>
-        <?php if (empty($social)) { ?>
+        <!--
+        <h3><img src="<?php //echo Yii::app()->baseUrl; ?>/images/Social-network-icon.png" width="24"/> โซเชียลมีเดีย</h3>
+        <?php //if (empty($social)) { ?>
             <center>ไม่มีข้อมูลส่วนนี้</center>
-        <?php } ?>
+        <?php //} ?>
         <table class="table">
-            <?php foreach ($social as $datas): ?>
+            <?php //foreach ($social as $datas): ?>
                 <tr>
                     <td style="text-align:center;">
-                        <img src="<?php echo Yii::app()->baseUrl; ?>/images/<?php echo $datas['icon'] ?>" width="24"/>
+                        <img src="<?php //echo Yii::app()->baseUrl; ?>/images/<?php //echo $datas['icon'] ?>" width="24"/>
                     </td>
-                    <td><?php echo $datas['social_app'] ?></td>
-                    <td><?php echo $datas['account'] ?></td>
+                    <td><?php //echo $datas['social_app'] ?></td>
+                    <td><?php //echo $datas['account'] ?></td>
                 </tr>
-            <?php endforeach; ?>
+            <?php //endforeach; ?>
         </table>
-
+    -->
     </div>
 </div>

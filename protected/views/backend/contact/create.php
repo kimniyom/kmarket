@@ -1,6 +1,7 @@
 <?php
     $title = "ข้อมูลติดต่อ";
     $this->breadcrumbs = array($title,);
+    $Config = new Configweb_model();
 ?>
 
   <!-- Nav tabs -->
@@ -8,9 +9,15 @@
     <li role="presentation" class="active">
         <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">
             <i class="fa fa-phone"></i> ข้อมูลติดต่อ</a></li>
+            <!--
     <li role="presentation">
         <a href="#social" aria-controls="social" role="tab" data-toggle="tab">
             <i class="fa fa-facebook"></i> โซเชียลมีเดีย</a></li>
+          -->
+    <li role="presentation">
+        <li role="presentation" >
+        <a href="#picture" aria-controls="picture" role="tab" data-toggle="tab">
+            <i class="fa fa-slideshare"></i> รูปภาพ</a></li>
     <li role="presentation"><a href="<?php echo Yii::app()->createUrl('backend/contact')?>"><i class="fa fa-eye"></i> view</a></li>
   </ul>
 
@@ -100,6 +107,65 @@
                 </div><!-- end panel -->
         </div>
     </div><!-- End Tab 2 -->
+      <!-- content Tab 3-->
+    <div role="tabpanel" class="tab-pane" id="picture">
+        <div role="tabpanel" class="tab-pane active" id="contact">
+            <div class="panel panel-default" style="border-top:none; border-radius:0px;">
+                    <div class="panel-heading">
+                        <i class="fa fa-slideshare"></i> รูปภาพ
+                        <div class="pull-right">
+                            <font style=" color: #ff0033; display: none;" id="s_error">กรอกข้อมูลไม่ครบ ..?</font>
+                            <font style=" color: green; display: none;" id="s_success">บันทึกข้อมูลแล้ว</font>
+                           
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                       
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                            <div class="panel panel-default">
+                                  <div class="panel-heading">อัพโหลด</div>
+                                    <div class="panel-body">
+                                        <div class="upload">
+                                            <ul style=" font-size: 12px;">
+                                                <li>อัพโหลดได้เฉพาะ .jpg , .png</li>
+                                                <li>อัพโหลดได้ไม่เกินครั้งละ <?php echo $Config->SizeFileUpload() ?></li>
+                                                <li>อัพโหลดได้ครั้งละ 1 ไฟล์</li>
+                                               
+                                            </ul>
+                                            <form>
+                                                <div id="queue"></div>
+                                                <div style="width:350px; float:left;">
+                                                    <input id="Filedata" name="Filedata" type="file" multiple="false">
+                                                    
+                                                </div>
+                                                <div style="width:300px; float:left;">
+                                                    <!--
+                                                    <a href="javascript:$('#Filedata').uploadify('upload')" style="float:left; cursor:pointer;">
+                                                        <input type="button" class="btn btn-success" value="อัพโหลดรูปภาพ"/>
+                                                    </a>
+                                                    -->
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="col-lg-8 col-md-8">
+                                <?php if($contact['picture'] != ""):?>
+                                  <img src="<?php echo Yii::app()->getBaseUrl().'/uploads/contact/'.$contact['picture']?>" height="165">
+                                <?php endif;?>
+                            </div>
+                        </div>
+                        <br/>
+                        
+                    </div>
+
+                </div><!-- end panel -->
+        </div>
+    </div><!-- End Tab 3 -->
 </div>
 
 <script type="text/javascript">
@@ -191,4 +257,33 @@
         });
       }
     }
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Filedata').uploadifive({
+            'buttonText': 'กรุณาเลือกรูปภาพ ...',
+            'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
+            //'swf': '<?php //echo Yii::app()->baseUrl          ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            'uploadScript': "<?= Yii::app()->createUrl('backend/contact/saveupload') ?>",
+            'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
+            /*
+             'width': '350',
+             'height': '40',
+             */
+            'fileType': ["image/jpg", "image/jpeg", "image/png", "image/PNG", "image/JPG", "image/JPEG"], //กำหนดชนิดของไฟล์ที่สามารถอัพโหลดได้
+            'multi': true, //เปิดใช้งานการอัพโหลดแบบหลายไฟล์ในครั้งเดียว
+            'queueSizeLimit': 1, //อัพโหลดได้ครั้งละ 5 ไฟล์
+            'onUploadComplete': function (file, data, response) {
+                if (data == 2) {
+                    alert("ขนาดไฟล์ 258 x 59 px เท่านั้น...!");
+                    return false;
+                } else {
+                    window.location.reload();
+                }
+                //window.location.reload();
+            }
+        });
+    });
 </script>

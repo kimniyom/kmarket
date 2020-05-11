@@ -11,6 +11,9 @@
 <?php
 $Config = new Configweb_model();
 ?>
+<link rel="stylesheet" href="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/css/bootstrap-datepicker.css" type="text/css" media="all" />
+<script src="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/js/bootstrap-datepicker-custom.js" type="text/javascript"></script>
+<script src="<?= Yii::app()->baseUrl; ?>/themes/backend/bootstrap/dist/locales/bootstrap-datepicker.th.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/assets/ckeditor/ckfinder/ckfinder.js"></script>
 
@@ -22,7 +25,7 @@ $Config = new Configweb_model();
             'auto': true, //เปิดใช้การอัพโหลดแบบอัติโนมัติ
             buttonText: "อัพโหลดรูปภาพ",
             //'buttonImage': '<?//= Yii::app()->baseUrl ?>/images/image-up-icon.png',
-            //'swf': '<?php //echo Yii::app()->baseUrl                      ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
+            //'swf': '<?php //echo Yii::app()->baseUrl                                                                                     ?>/assets/uploadify/uploadify.swf', //โฟเดอร์ที่เก็บไฟล์ปุ่มอัพโหลด
             'uploadScript': "<?php echo Yii::app()->createUrl('backend/images/uploadify') ?>",
             'fileSizeLimit': '<?php echo $Config->SizeFileUpload() ?>', //อัพโหลดได้ครั้งละไม่เกิน 1024kb
             //'width': '128',
@@ -86,7 +89,7 @@ $ConfigWeb = new Configweb_model();
                     <select class="form-control" id="brand">
                         <option value="">== Select ==</option>
                     <?php //foreach ($brands as $rsbrans): ?>
-                            <option value="<?php //echo $rsbrans['id']              ?>"><?php //echo $rsbrans['brandname']              ?></option>
+                            <option value="<?php //echo $rsbrans['id']                                                                             ?>"><?php //echo $rsbrans['brandname']                                                                             ?></option>
                     <?php //endforeach; ?>
                     </select>
                     -->
@@ -99,19 +102,31 @@ $ConfigWeb = new Configweb_model();
                     <textarea class="form-control" id="description" rows="5"></textarea>
                     <label for="">*Price</label>
                     <input type="text" id="product_price" name="product_price" class="form-control" onKeyUp="if (this.value * 1 != this.value)
-                                this.value = '';" style="width:30%;" required="required"/>
-                    <label for="">ราคาโปร / ราคาพิเศษ</label>
-                    <input type="text" id="product_price_pro" name="product_price_pro" class="form-control" onKeyUp="if (this.value * 1 != this.value)
-                                this.value = '';" style="width:30%;" required="required"/>
-                    <p style="color:#ff0033;">*ถ้าใส่ราคาโปรหน้าเว็บจะนำราคานี้ไปแสดง</p>
-                    <br/>
-                    <label for="">*สถานะ</label>
+                                this.value = '';" style="width:30%;" required="required"/><br/>
+                    <input type="checkbox" id="checkpromotion" name="checkpromotion"/>  <label for="">ราคาพิเศษ</label>
+                    <div class="well" id="box-promotion" style=" display: none;">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4">
+                                <label for="">ราคาโปร / ราคาพิเศษ *</label>
+                                <input type="text" id="product_price_pro" name="product_price_pro" class="form-control" onKeyUp="if (this.value * 1 != this.value)
+                                            this.value = '';" required="required"/>
+                                <p style="color:#ff0033;">*ถ้าใส่ราคาโปรหน้าเว็บจะนำราคานี้ไปแสดง</p>
+                            </div>
+                            <div class="col-md-4 col-lg-4">
+                                <label for="">ราคานี้ถึงวันที่ *</label>
+                                <input id="dateexpire" class="dateexpire form-control" data-date-format="dd/mm/yyyy">
+                            </div>
+                        </div>
+                    </div>
+                    <br/> <br/>
+                    <label for="">*สถานะ</label><br/>
                     <input id="status" name="status" class="styled" type="radio" value="0" checked="checked"/>
                     <label for="radio">พร้อมขาย</label>
                     <input id="status" name="status" class="styled" type="radio" value="1"/>
                     <label for="radio">ไม่พร้อมขาย</label>
                     <input id="status" name="status" class="styled" type="radio" value="2"/>
                     <label for="radio">Sold Out</label>
+                    <!--
                     <br/>
                     <label for="">*สินค้าแนะนำ</label>
                     <input id="recommend" name="recommend" class="styled" type="radio" value="1"/> <label for="radio">Yes</label>
@@ -120,6 +135,7 @@ $ConfigWeb = new Configweb_model();
                     <label for="">*สินค้าขายดี</label>
                     <input id="bastseller" name="bastseller" class="styled" type="radio" value="1"/> <label for="radio">Yes</label>
                     <input id="bastseller" name="bastseller" class="styled" type="radio" value="0" checked="checked"/> <label for="radio">No</label>
+                    -->
                     <br/><br/>
                     <label for="textArea">*รายละเอียด</label>
                     <textarea id="product_detail" name="product_detail" rows="3" class="form-control input-sm" required="required"></textarea>
@@ -220,13 +236,23 @@ $ConfigWeb = new Configweb_model();
         var product_id = $("#product_id").val();
         var status = $("input[name='status']:checked").val();
         var product_detail = CKEDITOR.instances.product_detail.getData();
-        var recomment = $("input[name='recomment']:checked").val();
+        var dateexpire = $("#dateexpire").val();
+        //var recomment = $("input[name='recomment']:checked").val();
+        var recomment = 0;
         var description = $("#description").val();
-        var bastseller = $("input[name='bastseller']:checked").val();
+        //var bastseller = $("input[name='bastseller']:checked").val();
+        var bastseller = 0;
         var product_price_pro = $("#product_price_pro").val();
-        if (category == "" || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "" || bastseller == "") {
+        if (category == "" || product_name == '' || product_price == '' || product_detail == '' || type == '' || description == "") {
             $("#f_error").show().delay(5000).fadeOut(500);
             return false;
+        }
+
+        if ($("#checkpromotion").is(":checked")) {
+            if (product_price_pro == "" || dateexpire == "") {
+                $("#f_error").show().delay(5000).fadeOut(500);
+                return false;
+            }
         }
 
         var data = {
@@ -241,7 +267,8 @@ $ConfigWeb = new Configweb_model();
             recomment: recomment,
             description: description,
             bastseller: bastseller,
-            product_price_pro: product_price_pro
+            product_price_pro: product_price_pro,
+            promotion_expire: dateexpire
         };
 
         $.post(url, data, function(success) {
@@ -313,4 +340,30 @@ $ConfigWeb = new Configweb_model();
             $("#combotype").html(datas);
         });
     }
+
+    $(document).ready(function() {
+        //$(".task-bar-bottom").hide();
+        if ($("#checkpromotion").is(":checked")) {
+            $("#box-promotion").show();
+        } else {
+            $("#box-promotion").hide();
+        }
+
+        $("#checkpromotion").click(function() {
+            if ($(this).is(":checked")) {
+                $("#box-promotion").show();
+            } else {
+                $("#box-promotion").hide();
+            }
+        });
+
+        $('.dateexpire').datepicker({
+            format: 'dd/mm/yyyy',
+            //todayBtn: true,
+            todayHighlight: 'TRUE',
+            autoclose: true,
+            language: 'th', //เปลี่ยน label ต่างของ ปฏิทิน ให้เป็น ภาษาไทย   (ต้องใช้ไฟล์ bootstrap-datepicker.th.min.js นี้ด้วย)
+            thaiyear: true              //Set เป็นปี พ.ศ.
+        }).datepicker("setDate", "0");  //กำหนดเป็นวันปัจุบัน
+    });
 </script>

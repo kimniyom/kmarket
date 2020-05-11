@@ -1,28 +1,123 @@
-<link rel="stylesheet" type="text/css" href="<?= Yii::app()->baseUrl; ?>/css/headphoneguru.css" />
+<!--
+<link rel="stylesheet" type="text/css" href="<?php //echo Yii::app()->baseUrl;           ?>/css/headphoneguru.css" />
+-->
+<style type="text/css">
+    #container-sell-slide {
+        white-space: nowrap;
+        width: auto;
+        overflow-y: hidden;
+        margin-bottom: 10px;
+    }
+    #container-sell-slide > .box-p {
+        display: inline-block;
+        width: 30%;
+        /* for IE6/7, remove if you don't need to support those browsers */
+        *display: inline;
+        zoom: 1;
+        text-align: center;
+        font-weight: bold;
+        background: #ffffff;
+    }
+
+    .headpromotion{
+        font-size: 20px; font-weight: bold; margin-bottom: 10px;
+        background-color: #fe8c00;
+        background-image: linear-gradient(#fe8c00, #f83600);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+    }
+</style>
 <?php
 $web = new Configweb_model();
 $productModel = new Product();
 $lastProduct = $productModel->_get_last_product();
 //$bestProduct = $productModel->_get_best_product();
-//$saleProduct = $productModel->_get_sale_products();
+$saleProduct = $productModel->_get_sale_products();
 ?>
 <br/><br/><br/>
 
+
 <div class="container">
+
+
     <div class="row">
-        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-            <h2 class=" font-supermarket" style=" margin-bottom: 15px;">
-                <b>PRODUCT</b>
-            </h2>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="tel:089-5266265" target="_blank" class="btn btn-success btn-block"><i class="fa fa-phone"></i> โทรสั่งสินค้า</a>
         </div>
-        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-            <div class="pull-right">
-                <a href="<?php echo Yii::app()->createUrl('frontend/product') ?>">VIEW MORE</a>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="boxsearchproduct" name="boxsearchproduct" placeholder="ชื่อสินค้าที่ต้องการค้นหา..." style="box-shadow: none;">
+                    <div class="input-group-addon" onclick="searchProduct()"><i class="fa fa-search"></i></div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
+<?php if ($saleProduct) { ?>
+    <div class="container">
+        <h4 class=" font-supermarket headpromotion" style=" margin-bottom: 15px; ">
+            <b>สินค้าโปรโมชั่น</b>
+        </h4>
+    </div>
 
+    <div id="container-sell-slide">
+
+        <?php
+        foreach ($saleProduct as $saleProducts):
+            $img_title = $productModel->firstpictures($saleProducts['product_id']);
+            if (!empty($img_title)) {
+                $img = "uploads/product/thumbnail/480-" . $img_title;
+            } else {
+                $img = "images/No_image_available.jpg";
+            }
+            ?>
+            <div class="box-p">
+                <div class="img-wrappers" style="border:none;">
+                    <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $saleProducts['product_id'])) ?>">
+                        <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/<?php echo $img ?>" alt="product thumbnail" style=" border-radius: 5px 5px 0px 0px;"/>
+                    </a>
+                </div>
+
+                <div class="font-supermarket" style=" height: 86px; overflow: hidden;word-wrap: break-word;white-space: initial; padding:5px; font-size: 15px; color: #666666;">
+                    <?php echo $saleProducts['product_name'] ?>
+                </div>
+                <span class="price font-supermarket" id="text-price" style=" color: #ff3300; font-size: 20px;">
+                    <center>
+                        <?php if ($saleProducts['product_price_pro'] > 0) { ?>
+                            <?php echo number_format($saleProducts['product_price_pro']) ?>  .-
+                            <del style=" color: #5c5c5c; font-size: 14px;"><?php echo number_format($saleProducts['product_price']) ?></del>
+                        <?php } else { ?>
+                            <?php echo number_format($saleProducts['product_price']) ?>  .-
+                        <?php } ?>
+                    </center>
+                </span>
+
+            </div>
+        <?php endforeach; ?>
+    </div><br/>
+
+<?php } ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+            <h4 class=" font-supermarket headpromotion" style=" margin-bottom: 15px;">
+                <b>สินค้า</b>
+            </h4>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+            <div class="pull-right font-supermarket">
+                <a href="<?php echo Yii::app()->createUrl('frontend/product') ?>">ดูสินค้าทั้งหมด</a>
+            </div>
+        </div>
+    </div>
 
     <div class="row js-product-masonry-filter-layout-2 product-masonry-filter-layout-2">
 
@@ -35,8 +130,8 @@ $lastProduct = $productModel->_get_last_product();
                 $img = "images/No_image_available.jpg";
             }
             ?>
-            <figure class="item Newproduct">
-                <div class="products product-style-3" style="background: #ffffff;box-shadow: #dbdbdb 3px 3px 3px 0px; border-radius: 5px">
+            <figure class="item Newproduct" style=" padding: 3px;">
+                <div class="products product-style-3" style="background: #ffffff;border-radius: 5px">
                     <div class="img-wrappers" style="border:none;">
                         <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $rsProduct['product_id'])) ?>">
                             <img class="img-responsive" src="<?php echo Yii::app()->baseUrl; ?>/<?php echo $img ?>" alt="product thumbnail" style=" border-radius: 5px 5px 0px 0px;"/>
@@ -65,17 +160,16 @@ $lastProduct = $productModel->_get_last_product();
                         -->
                     </div>
                     <figcaption class="desc">
-                        <h4 class="font-supermarket" style=" height: 50px; overflow: hidden;">
+                        <div class="font-supermarket" style=" height: 50px; overflow: hidden; font-size: 16px; font-weight: bold;">
                             <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $rsProduct['product_id'])) ?>" class="product-name" style="color:#5c5c5c;"><?php echo $rsProduct['product_name'] ?></a>
-                        </h4>
-                        <span class="price font-supermarket" id="text-price">
+                        </div>
+                        <span class="price font-supermarket" id="text-price" style=" color: #ff3300; font-size: 24px;">
                             <?php if ($rsProduct['product_price_pro'] > 0) { ?>
-                                <del style=" color: #ff0000;"><?php echo number_format($rsProduct['product_price']) ?></del>
                                 <?php echo number_format($rsProduct['product_price_pro']) ?>  .-
+                                <del style=" color: #5c5c5c; font-size: 14px;"><?php echo number_format($rsProduct['product_price']) ?></del>
                             <?php } else { ?>
                                 <?php echo number_format($rsProduct['product_price']) ?>  .-
                             <?php } ?>
-
                         </span>
                     </figcaption>
                 </div>
@@ -94,6 +188,7 @@ $lastProduct = $productModel->_get_last_product();
         $("#b-home").css({'color': 'red'});
         var size = window.innerWidth;
         if (size >= 1024) {
+            $("#container-sell-slide > .box-p").css({"width": "20%"});
             $(".box-category-item").css({"margin-top": "30px"});
             $('.slider5').bxSlider({
                 slideWidth: 300,
@@ -108,6 +203,7 @@ $lastProduct = $productModel->_get_last_product();
             });
             $(".text-band").css({'font-size': '30px'});
         } else if (size >= 768) {
+            $("#container-sell-slide > .box-p").css({"width": "20%"});
             $(".box-category-item").css({"margin-top": "30px"});
             $('.slider5').bxSlider({
                 slideWidth: 300,
@@ -166,4 +262,14 @@ $lastProduct = $productModel->_get_last_product();
             $(".text-band").css({'font-size': '20px'});
         }
     });
+
+    function searchProduct() {
+        var url = "<?php echo Yii::app()->createUrl('frontend/product/search') ?>";
+        var search = $("#boxsearchproduct").val();
+        if (search == "") {
+            $("#boxsearchproduct").focus();
+            return false;
+        }
+        window.location = url + "/product/" + search;
+    }
 </script>

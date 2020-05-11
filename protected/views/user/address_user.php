@@ -4,74 +4,22 @@
     }
 </style>
 <script type="text/javascript">
-    function chang_address(type, value, active) {
-        var url = "<?php echo Yii::app()->createUrl('frontend/user/get_combobox') ?>";
-        var data = {type: type, value: value, active: active};
-        $.post(url, data, function(result) {
-            $("#" + type).html(result);
-        });
-    }
 
-    function edit_address() {
-        $("#show_address").html("<center><i class=\"fa fa-spinner fa-spin\"></i></center>");
-        var url = "<?php echo Yii::app()->createUrl('frontend/user/get_address') ?>";
-        var id = "<?php echo Yii::app()->user->id ?>";
-        var data = {id: id};
-        $.post(url, data, function(result) {
-            $("#show_address").html(result);
-            $("#edit_address").modal();
-        });
 
-    }
+    /*
+     function edit_address() {
+     $("#show_address").html("<center><i class=\"fa fa-spinner fa-spin\"></i></center>");
+     var url = "<?php // echo Yii::app()->createUrl('frontend/user/get_address')      ?>";
+     var id = "<?php //echo Yii::app()->user->id      ?>";
+     var data = {id: id};
+     $.post(url, data, function(result) {
+     $("#show_address").html(result);
+     $("#edit_address").modal();
+     });
 
-    function save_address() {
-        var url = "<?php echo Yii::app()->createUrl('frontend/user/save_address') ?>";
-        var address = $("#address").val();
-        var changwat = $("#changwat").val();
-        var ampur = $("#ampur").val();
-        var tambon = $("#tambon").val();
-        var zipcode = $("#zipcode").val();
-        var user_id = "<?php echo Yii::app()->user->id ?>";
-        if (address == '') {
-            $("#address").focus();
-            return false;
-        }
+     }
+     */
 
-        if (changwat == '') {
-            $("#changwat").focus();
-            return false;
-        }
-
-        if (ampur == '') {
-            $("#ampur").focus();
-            return false;
-        }
-
-        if (tambon == '') {
-            $("#tambon").focus();
-            return false;
-        }
-
-        if (zipcode == '') {
-            $("#zipcode").focus();
-            return false;
-        }
-
-        var data = {
-            address: address,
-            changwat: changwat,
-            ampur: ampur,
-            tambon: tambon,
-            user_id: user_id,
-            zipcode: zipcode
-        };
-
-        $.post(url, data, function(result) {
-            $("#edit_address").modal("hide");
-            window.location.reload();
-        });
-
-    }
 </script>
 <br/><br/><br/>
 
@@ -104,13 +52,14 @@
         <?php } ?>
     </div>
 
-    <ul class="list-group">
-        <li  class="list-group-item" onclick="edit_address()" style=" text-align: center; color: #cc3300; font-weight: bold;"> <i class=" glyphicon glyphicon-edit"></i> <?php echo $textSave ?></li>
-    </ul>
+    <div class="list-group">
+        <a  class="list-group-item" href="<?php echo Yii::app()->createUrl('frontend/user/get_address', array("id" => Yii::app()->user->id)) ?>" style=" text-align: center; color: #cc3300; font-weight: bold;"> <i class=" glyphicon glyphicon-edit"></i> <?php echo $textSave ?></a>
+    </div>
 
 </div>
 
 <!-- Modal -->
+<!--
 <div class="modal fade" id="edit_address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
     <div class="modal-dialog" role="document" style=" border-radius: 0px;">
         <div class="modal-content" style=" border-radius: 0px;">
@@ -127,3 +76,4 @@
         </div>
     </div>
 </div>
+-->

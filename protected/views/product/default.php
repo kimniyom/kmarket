@@ -20,7 +20,8 @@
     </div>
 </div>
 <div  id="results" style=" margin-top: 20px;"></div>
-<div align="center">
+
+<div align="center" style=" margin-top: 10px;">
     <button class="load_more btn btn-default" id="load_more_button">
         LOAD MORE <i class="fa fa-angle-down"></i>
     </button>

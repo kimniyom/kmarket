@@ -10,8 +10,8 @@
             $img = "images/No_image_available.jpg";
         }
         ?>
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6">
-            <figure class="item" style=" margin-bottom: 35px;">
+        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6" style=" padding: 5px;">
+            <figure class="item">
                 <div class="product product-style-3" style=" background: #ffffff;  border-radius: 5px 5px 5px 5px;">
                     <div class="img-wrapper" style="border:none;">
                         <a href="<?php echo Yii::app()->createUrl('frontend/product/views', array("id" => $rsProduct['product_id'])) ?>">

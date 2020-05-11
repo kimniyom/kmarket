@@ -8,8 +8,7 @@
 
         <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/themes/webapp/bootstrap/css/bootstrap.css" type="text/css" media="all" />
-
+ <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/themes/backend/bootstrap/css/bootstrap-paper-3.3.4.css" type="text/css" media="all" />
         <script src="<?php echo Yii::app()->baseUrl; ?>/themes/webapp/js/jquery-1.9.1.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->baseUrl; ?>/themes/webapp/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 
@@ -17,8 +16,23 @@
         <?php
         $web = new Configweb_model();
         ?>
+
+        <style type="text/css">
+            svg {
+  
+  background-size: cover;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  z-index: 0;
+}
+        </style>
     </head>
     <body>
+        <svg viewbox="0 0 100 25">
+          <path fill="#ff6600" opacity="0.5" d="M0 30 V15 Q30 3 60 15 V30z" />
+          <path fill="#ff9933" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+        </svg>
         <div class="container">
 
             <div class="row">
@@ -28,13 +42,13 @@
                                     <div class="col-md-12 col-lg-12">
                     <br/><br/>
                      <a href="<?php echo Yii::app()->createUrl('site/index') ?>">
-        <button type="button" class="btn" style="text-align: left; border: none; background: none;"><span class="fa fa-chevron-left"></span> กลับ</button></a><br/><br/>
-    </div>
-</div>
+                            <button type="button" class="btn" style="text-align: left; border: none; background: none;"><span class="fa fa-chevron-left"></span> กลับ</button></a><br/>
+                        </div>
+                    </div>
                     <div style=" text-align: center; margin-top: 10%; margin-bottom: 20px;">
                         <img  src="<?php echo Yii::app()->baseUrl; ?>/uploads/logo/<?php echo $web->get_logoweb(); ?>" alt="" style="max-height: 52px;"/>
                     </div>
-                    <div class="panel panel-default" style=" border:none;">
+                    <div class="panel panel-default" style=" border:none;box-shadow: none;">
                         <?php
                         /* @var $this SiteController */
                         /* @var $model LoginForm */
@@ -60,27 +74,26 @@
                                 ?>
 
                                 <p class="note" style=" text-align: center;">Fields with <span class="required">*</span> are required.</p>
-
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
-                                        <?php echo $form->labelEx($model, 'username'); ?>
-                                        <?php echo $form->textField($model, 'username', array('class' => 'form-control')); ?>
+                                        <?php //echo $form->labelEx($model, 'username'); ?>
+                                        <?php echo $form->textField($model, 'username', array('class' => 'form-control','placeholder' => 'username...')); ?>
                                         <?php echo $form->error($model, 'username'); ?>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
-                                        <?php echo $form->labelEx($model, 'password'); ?>
-                                        <?php echo $form->passwordField($model, 'password', array('class' => 'form-control')); ?>
+                                        <?php //echo $form->labelEx($model, 'password'); ?>
+                                        <?php echo $form->passwordField($model, 'password', array('class' => 'form-control','placeholder' => 'password...')); ?>
                                         <?php echo $form->error($model, 'password'); ?>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
-                                        <hr/>
-                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-warning btn-block btn-lg')); ?>
+                                        <br/>
+                                        <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-warning btn-block')); ?>
                                     </div>
                                 </div>
                                 <?php $this->endWidget(); ?>

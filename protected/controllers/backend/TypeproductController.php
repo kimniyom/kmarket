@@ -57,7 +57,7 @@ class TypeproductController extends Controller {
           INNER JOIN produce_type t ON b.type_id = t.type_id
           WHERE t.type_id = '$type_id' AND p.images != ''
           ";
-         * 
+         *
          */
         $query = "SELECT produce_id FROM produce WHERE type_id = '$type_id' ";
         $product = $this->db->query($query);
@@ -136,6 +136,23 @@ class TypeproductController extends Controller {
 
         Yii::app()->db->createCommand()
                 ->delete("product_type", "type_id='$type'");
+    }
+
+    public function actionAll() {
+        $data['type'] = Yii::app()->db->createCommand("select * from product_type order by level asc")->queryAll();
+        $this->render('//type/viewall', $data);
+    }
+
+    public function actionSetlevel() {
+        $id = Yii::app()->request->getpost('id');
+        $level = Yii::app()->request->getpost('level');
+
+        $columns = array(
+            "level" => $level
+        );
+
+        Yii::app()->db->createCommand()
+                ->update("product_type", $columns, "id = '$id'");
     }
 
 }

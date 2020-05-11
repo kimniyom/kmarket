@@ -41,7 +41,7 @@ class Masuser extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('username,password,name,lname,tel,email', 'required'),
+            array('username,password,name,lname,tel', 'required'),
             array('oid', 'length', 'max' => 3),
             array('email', 'email'),
             array('pid, tel', 'length', 'max' => 10),

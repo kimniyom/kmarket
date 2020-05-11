@@ -8,7 +8,7 @@
 </style>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#p_product").dataTable({
             //"sPaginationType": "full_numbers", // แสดงตัวแบ่งหน้า
             "bLengthChange": false, // แสดงจำนวน record ที่จะแสดงในตาราง
@@ -42,11 +42,9 @@ $this->breadcrumbs = array(
         <table class="table" id="p_product">
             <thead>
                 <tr>
-                    <th style="width:20px;">#</th>
-                    <th style="text-align:center;"><i class="fa fa-cog"></i></th>
-                    <th>รูป</th>
-                    <th>รหัส</th>
-                    <th>ชื่อสินค้า</th>
+                    <th>#</th>
+                    <th></th>
+                    <th>สินค้า</th>
                     <th style="text-align: right;">ราคา</th>
                     <th style="text-align: center;">สถานะ</th>
                 </tr>
@@ -69,19 +67,6 @@ $this->breadcrumbs = array(
                     ?>
                     <tr id="<?php echo $trid; ?>">
                         <td><?php echo $i ?></td>
-                        <td style=" text-align: center;">
-                            <div class="dropdown">
-                                <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    จัดการ
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="text-align:left;">
-                                    <li><a href="<?php echo $link; ?>"><i class="fa fa-eye"></i> รายละเอียด</a></li>
-                                    <li><a href="<?php echo Yii::app()->createUrl('backend/product/update', array('product_id' => $last['product_id'])); ?>"><i class="fa fa-edit"></i> แก้ไข</a></li>
-                                    <li><a href="javascript:Deletes('<?php echo $last['product_id'] ?>')"><i class="fa fa-trash"></i> ลบ</a></li>
-                                </ul>
-                            </div>
-                        </td>
                         <td>
                             <div class="center-cropped"
                                  style="background: url('<?php echo Yii::app()->baseUrl; ?>/<?php echo $img; ?>')no-repeat top center;
@@ -90,12 +75,14 @@ $this->breadcrumbs = array(
                                  -o-background-size: cover;
                                  background-size: cover;">
                             </div>
-                            <!--
-                            <img src="<?//php echo Yii::app()->baseUrl; ?>/uploads/<?//php echo $img; ?>" class="img-resize img-thumbnail" width=""/>
-                            -->
                         </td>
-                        <td><?php echo $last['product_id']; ?></td>
-                        <td><?php echo $last['product_name']; ?></td>
+                        <td>
+                            <?php echo $last['product_id']; ?>
+                            <?php echo $last['product_name']; ?>  <?php echo $last['description']; ?><br/>
+                            <a href="<?php echo $link; ?>" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</a>
+                            <a href="<?php echo Yii::app()->createUrl('backend/product/update', array('product_id' => $last['product_id'])); ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i> edit</a>
+                            <a href="javascript:Deletes('<?php echo $last['product_id'] ?>')" class="btn btn-default btn-xs"><i class="fa fa-trash"></i> delete</a>
+                        </td>
                         <td style=" text-align: right; font-weight: bold;">
                             <?php
                             if ($last['product_price_pro'] > 0) {
@@ -130,7 +117,7 @@ $this->breadcrumbs = array(
         var url = "<?php echo Yii::app()->createUrl('backend/orders/product_in_order') ?>";
         var data = {product_id: id};
 
-        $.post(url, data, function (result) {
+        $.post(url, data, function(result) {
             $("#" + trid).fadeOut();
             if (result == '1') {
                 alert("มีการสั่งซื้อสินค้าชิ้นนี้อยู่กรุณาตรวจสอบ");
@@ -146,7 +133,7 @@ $this->breadcrumbs = array(
             var url = "<?php echo Yii::app()->createUrl('backend/product/deleteproduct') ?>";
             var data = {product_id: id};
 
-            $.post(url, data, function (result) {
+            $.post(url, data, function(result) {
                 window.location.reload();
             });
         }

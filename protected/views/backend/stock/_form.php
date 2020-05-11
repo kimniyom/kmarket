@@ -35,25 +35,28 @@ $ProductList = $Model->GetProductAll();
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-lg-3">
-                    <label for="sel2">จำนวนนำเข้า</label>
-                    <input type="text" class="form-control" name="inputnumber" id="inputnumber" onKeyUp="if (this.value * 1 != this.value)
-                                this.value = '';"/>
+            <?php if ($type == "1") { ?>
+                <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <label for="sel2">จำนวนนำเข้า</label>
+                        <input type="text" class="form-control" name="inputnumber" id="inputnumber" onKeyUp="if (this.value * 1 != this.value)
+                                    this.value = '';"/>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <label for="sel3">วันหมดอายุ</label>
+                        <input id="dateexpire" class="datepicker form-control" data-date-format="dd/mm/yyyy">
+                    </div>
                 </div>
-                <div class="col-md-3 col-lg-3">
-                    <label for="sel3">วันหมดอายุ</label>
-                    <input id="dateexpire" class="datepicker form-control" data-date-format="dd/mm/yyyy">
-                </div>
-            </div>
 
-            <div class="row" style=" margin-top: 10px;">
-                <div class="col-lg-12">
-                    <button type="button" class="btn btn-success" onclick="AddStocks()">นำเข้าสต๊อก</button>
+                <div class="row" style=" margin-top: 10px;">
+                    <div class="col-lg-12">
+                        <button type="button" class="btn btn-success" onclick="AddStocks()">นำเข้าสต๊อก</button>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
             <hr/>
             <h4>ประวัติการนำเข้าสินค้า</h4>
+            <p style=" color: #ff0000;">สินค้าที่มีการขายไปแล้วไม่สามารถลบได้</p>
             <div id="history"></div>
         </div>
         <div class="col-md-3 col-lg-3">

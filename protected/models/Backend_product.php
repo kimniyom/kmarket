@@ -79,7 +79,8 @@ class Backend_Product {
                     c.categoryname,
                     b.brandname,
                     recommend,
-                    bastseller
+                    bastseller,
+                    p.promotion_expire
                 FROM product p INNER JOIN product_type t ON p.type_id = t.type_id
                 INNER JOIN category c ON p.category = c.id
                 LEFT JOIN brand b ON p.brand = b.id

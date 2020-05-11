@@ -67,20 +67,23 @@ $ProductModel = new Backend_Product();
             <b>รหัสสินค้า</b> <?= $product['product_id'] ?><br/>
             <b>Category</b> <?= $product['categoryname'] ?><br/>
             <b>Type</b> <?= $product['type_name'] ?><br/>
-            <!--<b>Brand</b> <?php //$product['brandname']    ?><br/>-->
+            <!--<b>Brand</b> <?php //$product['brandname']             ?><br/>-->
             <b>อัพเดทล่าสุด</b> <?= $config->thaidate($product['d_update']); ?><br/><br/>
             <b>ราคา</b> <b style=" color: #F00;">
                 <?php if ($product['product_price_pro'] > 0) { ?>
-                    <del><?= number_format($product['product_price']) ?></del>
                     <?= number_format($product['product_price_pro']) ?>
+                    <del style=" color: #CCC;"><?= number_format($product['product_price']) ?></del>  .- บาท<br/>
+                    <em>(ราคานี้ถึงวันที่ <?php echo $product['promotion_expire'] ?>)</em>
                 <?php } else { ?>
-                    <?= number_format($product['product_price']) ?>
-                <?php } ?> .- บาท
+                    <?= number_format($product['product_price']) ?>  .- บาท
+                <?php } ?>
             </b><br/><br/>
             <b>Description</b> <br/>
             <?php echo $product['description'] ?>
-            <hr/> สินค้าแนะนำ:<?php echo ($product['recommend'] == "1") ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-remove text-danger'></i>"; ?>
-            สินค้าขายดี:<?php echo ($product['recommend'] == "1") ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-remove text-danger'></i>"; ?>
+            <!--
+            <hr/> สินค้าแนะนำ:<?php //echo ($product['recommend'] == "1") ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-remove text-danger'></i>";    ?>
+            สินค้าขายดี:<?php //echo ($product['recommend'] == "1") ? "<i class='fa fa-check text-success'></i>" : "<i class='fa fa-remove text-danger'></i>";    ?>
+            -->
             <br/>สถานะ:<?php echo $ProductModel->Status($product['status']) ?>
         </div>
 

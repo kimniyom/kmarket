@@ -3,7 +3,7 @@ $product_model = new Product();
 ?>
 <br/><br/><br/>
 <div class="container" style=" padding-bottom: 20px;  font-family: th;">
-    <a href="<?php echo Yii::app()->createUrl('frontend/orders/verify') ?>">
+    <a href="<?php echo Yii::app()->createUrl('frontend/orders/'.$return) ?>">
         <button type="button" class="btn btn-default" style="text-align: left; border: none;"><span class="lnr lnr-chevron-left"></span> กลับ</button></a><br/><br/>
     <div class="jumbotron">
         <table class="table"  style=" background: #ffffff;">
@@ -36,9 +36,20 @@ $product_model = new Product();
                 <?php
             endforeach;
             ?>
+
             <tr>
                 <td colspan="2" style="text-align: right;">
-                    <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวม <font style=" color: #cc3300;"><?php echo number_format($total_price, 2); ?></font> บาท</h4>
+                    <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวม <font style=" color: #cc3300;"><?php echo $total_price; ?></font> บาท</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">ค่าจัดส่ง <font style=" color: #cc3300;"><?php echo $detail['transportprice']; ?></font> บาท</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <div style=" font-weight: bold; font-size: 20px;" class="font-supermarket">รวมทั้งหมด <font style=" color: #cc3300;"><?php echo ($total_price + $detail['transportprice']); ?></font> บาท</h4>
                 </td>
             </tr>
         </table>

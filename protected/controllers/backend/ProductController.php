@@ -77,6 +77,12 @@ class ProductController extends Controller {
     }
 
     public function actionSave() {
+        $dataExpire = Yii::app()->request->getpost('promotion_expire');
+        $year = substr($dataExpire, -4) - 543;
+        $month = substr($dataExpire, 3, 2);
+        $day = substr($dataExpire, 0, 2);
+
+        $dateExpireFormat = $year . "-" . $month . "-" . $day;
         $data = array(
             'product_id' => Yii::app()->request->getpost('product_id'),
             'product_name' => Yii::app()->request->getpost('product_name'),
@@ -90,6 +96,7 @@ class ProductController extends Controller {
             'description' => Yii::app()->request->getpost('description'),
             'product_price_pro' => Yii::app()->request->getpost('product_price_pro'),
             'bastseller' => Yii::app()->request->getpost('bastseller'),
+            'promotion_expire' => $dateExpireFormat,
             'd_update' => date('Y-m-d H:i:s')
         );
 
@@ -122,11 +129,17 @@ class ProductController extends Controller {
     }
 
     public function actionSave_update() {
-        $product_id = $_POST['product_id'];
+        $product_id = Yii::app()->request->getpost('product_id');
+        $dataExpire = Yii::app()->request->getpost('dateexpire');
+        $year = (int) (substr($dataExpire, -4)) - 543;
+        $month = substr($dataExpire, 3, 2);
+        $day = substr($dataExpire, 0, 2);
+
+        $dateExpireFormat = $year . "-" . $month . "-" . $day;
         $data = array(
-            'product_name' => $_POST['product_name'],
-            'product_detail' => $_POST['product_detail'],
-            'product_price' => $_POST['product_price'],
+            'product_name' => Yii::app()->request->getpost('product_name'),
+            'product_detail' => Yii::app()->request->getpost('product_detail'),
+            'product_price' => Yii::app()->request->getpost('product_price'),
             //'product_num' => $_POST['product_num'],
             'category' => Yii::app()->request->getpost('category'),
             'brand' => Yii::app()->request->getpost('brand'),
@@ -136,6 +149,7 @@ class ProductController extends Controller {
             'description' => Yii::app()->request->getpost('description'),
             'product_price_pro' => Yii::app()->request->getpost('product_price_pro'),
             'bastseller' => Yii::app()->request->getpost('bastseller'),
+            'promotion_expire' => $dateExpireFormat,
             'd_update' => date('Y-m-d H:i:s')
         );
 

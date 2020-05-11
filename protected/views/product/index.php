@@ -192,7 +192,7 @@
 
 <div class="container">
     <div class="row" id="btn-filter">
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-3 col-md-3" style=" padding: 5px;">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-default btn-block" onclick="popupfilter()" style="margin-bottom:20px;">
                 <i class="fa fa-search"></i> ดูตามหมวดสินค้า
@@ -203,18 +203,17 @@
     <div class="row">
         <div class="col-lg-3 col-md-3" id="filter">
             <div id="box-footer">
-                    <ul class="list-group" id="category" style="border:none;">
-                        <?php foreach ($categorys as $category): ?>
-                            <li class="list-group-item" style="padding:0px;">
-                                <div class="inputGroup">
-                                    <input id="checkbox-example-<?php echo $category['id'] ?>" type="checkbox" name="options[]" value="<?php echo $category['id'] ?>" checked="checked" onclick="Getpage()"/>
-                                    <label for="checkbox-example-<?php echo $category['id'] ?>"><?php echo $category['categoryname'] ?></label>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <input type="hidden" id="categoryfilter" />
-               
+                <ul class="list-group" id="category" style="border:none;">
+                    <?php foreach ($categorys as $category): ?>
+                        <li class="list-group-item" style="padding:0px;">
+                            <div class="inputGroup">
+                                <input id="checkbox-example-<?php echo $category['id'] ?>" type="checkbox" name="options[]" value="<?php echo $category['id'] ?>" checked="checked" onclick="Getpage()"/>
+                                <label for="checkbox-example-<?php echo $category['id'] ?>"><?php echo $category['categoryname'] ?></label>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <input type="hidden" id="categoryfilter" />
             </div>
         </div>
         <div class="col-lg-9 col-md-9" style="padding:0px;">
