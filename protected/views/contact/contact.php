@@ -58,7 +58,7 @@
     }
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4wnLCAq8CiTMU9C3RlhwcXg_yXMzH--Y&callback&sensor=false&callback=initMap" async defer></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=xxxxx&callback&sensor=false&callback=initMap" async defer></script>
 <script type="text/javascript">
     function send_massage() {
         var url = "<?php echo Yii::app()->createUrl('frontend/contact/save_message') ?>";
